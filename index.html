@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valencia — Meubles haut de gamme à Pointe-Noire et Brazzaville</title>
+  <meta name="description" content="Valencia, magasin de meubles haut de gamme à Pointe-Noire : salon, salle à manger, chambre, bureau et rangement. Expédition gratuite à Brazzaville, installation offerte.">
+  <meta name="theme-color" content="#162f37">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    // Applique le thème avant l'affichage pour éviter le clignotement
+    (function () {
+      try {
+        var r = JSON.parse(localStorage.getItem("valencia-reglages") || "{}");
+        var t = r.theme === "clair" || r.theme === "sombre" ? r.theme : "auto";
+        document.documentElement.dataset.theme = t === "auto"
+          ? (matchMedia("(prefers-color-scheme: dark)").matches ? "sombre" : "clair") : t;
+        if (r.taille) document.documentElement.dataset.taille = r.taille;
+        if (r.animations === false) document.documentElement.dataset.anim = "off";
+      } catch (e) { document.documentElement.dataset.theme = "clair"; }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FurnitureStore",
+    "name": "Valencia",
+    "telephone": "+242067585858",
+    "email": "social.valencia.cg@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Centre-ville, immeuble Maison sans frontière, près de la mairie centrale",
+      "addressLocality": "Pointe-Noire",
+      "addressCountry": "CG"
+    },
+    "areaServed": ["Pointe-Noire", "Brazzaville"]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+  <div id="barre-progression" aria-hidden="true"></div>
+
+  <header class="entete">
+    <div class="conteneur barre">
+      <a class="logo" href="#/" aria-label="Valencia, accueil">
+        <img src="images/logo2.png" alt="Valencia" class="logo-clair">
+        <img src="images/logo.png" alt="Valencia" class="logo-sombre">
+      </a>
+
+      <nav id="menu" aria-label="Navigation principale">
+        <a href="#/catalogue">Catalogue</a>
+        <a href="#/inspirations">Inspirations</a>
+        <a href="#/favoris" id="lien-favoris">Favoris</a>
+        <a href="#/livraison">Livraison</a>
+        <a href="#/a-propos">À propos</a>
+        <a href="#/contact">Contact</a>
+      </nav>
+
+      <div class="actions">
+        <button id="bouton-theme" class="bouton-icone" type="button" aria-label="Changer de thème"></button>
+        <button id="bouton-reglages" class="bouton-icone" type="button" aria-label="Ouvrir les paramètres" aria-haspopup="dialog">⚙</button>
+        <button id="bouton-menu" class="bouton-icone" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu" tabindex="-1"></main>
+
+  <footer class="pied">
+    <div class="conteneur colonnes">
+      <div>
+        <h3>Valencia</h3>
+        <p>Meubles haut de gamme, principalement d'origine turque.</p>
+      </div>
+      <div>
+        <h3>Nous trouver</h3>
+        <p>Centre-ville de Pointe-Noire, immeuble « Maison sans frontière », près de la mairie centrale.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>
+          <a href="tel:+242067585858">+242 06 758 5858</a><br>
+          <a href="mailto:social.valencia.cg@gmail.com">social.valencia.cg@gmail.com</a>
+        </p>
+        <p id="reseaux"></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Panneau des paramètres -->
+  <dialog id="reglages" aria-labelledby="titre-reglages">
+    <form method="dialog" class="reglages-corps">
+      <h2 id="titre-reglages">Paramètres</h2>
+
+      <fieldset>
+        <legend>Thème</legend>
+        <div class="choix">
+          <label><input type="radio" name="theme" value="auto"> Automatique</label>
+          <label><input type="radio" name="theme" value="clair"> Clair</label>
+          <label><input type="radio" name="theme" value="sombre"> Sombre</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Taille du texte</legend>
+        <div class="choix">
+          <label><input type="radio" name="taille" value="normal"> Normale</label>
+          <label><input type="radio" name="taille" value="grand"> Grande</label>
+          <label><input type="radio" name="taille" value="tres-grand"> Très grande</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Catalogue</legend>
+        <label for="r-par-page">Produits par page</label>
+        <select id="r-par-page"><option>6</option><option>12</option><option>24</option><option>48</option></select>
+        <label for="r-densite">Taille des cartes</label>
+        <select id="r-densite">
+          <option value="compact">Compactes</option>
+          <option value="normal">Normales</option>
+          <option value="large">Grandes</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Diaporama d'accueil</legend>
+        <label class="ligne-case"><input type="checkbox" id="r-anim"> Animations et effets</label>
+        <label class="ligne-case"><input type="checkbox" id="r-auto"> Défilement automatique</label>
+      </fieldset>
+
+      <div class="ligne">
+        <button class="bouton" value="close">Terminer</button>
+        <button class="bouton bouton-clair" type="button" id="r-reinit">Réinitialiser</button>
+      </div>
+    </form>
+  </dialog>
+
+  <a id="bouton-whatsapp" class="bouton bouton-wa" href="https://wa.me/242067585858" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm-3.500 5.500c.3 0 .6 0 .8.5l.8 1.900c.1.300 0 .500-.1.700l-.6.800c.9 1.600 2.200 2.600 3.800 3.300l.8-1c.2-.2.400-.3.700-.2l1.900.9c.3.100.4.300.4.500 0 .6-.5 1.400-1.200 1.700-.8.300-1.900.3-3.700-.5-2.300-1-3.900-3.200-4.300-3.900-.4-.7-.9-1.600-.9-2.500 0-.9.500-1.700 1-2.100.2-.1.400-.1.600-.1z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <script src="js/config.js"></script>
+  <script src="js/produits.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
