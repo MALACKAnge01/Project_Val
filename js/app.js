@@ -1,6 +1,6 @@
 // ==========================================================
-// Valencia â€” logique du site
-// Pages affichÃ©es selon l'adresse aprÃ¨s le "#"
+// Valencia — logique du site
+// Pages affichées selon l'adresse après le "#"
 // (ex. #/catalogue, #/produit/oxford-sofaset)
 // ==========================================================
 
@@ -25,7 +25,7 @@ function chemin(src) {
   return encodeURI(src).replace(/#/g, "%23");
 }
 
-// ---------- DonnÃ©es : nettoyage automatique de produits.js ----------
+// ---------- Données : nettoyage automatique de produits.js ----------
 // Corrige les identifiants en double et les champs manquants sans toucher au fichier.
 
 const PRODUITS_OK = (() => {
@@ -46,7 +46,7 @@ const PRODUITS_OK = (() => {
   });
 })();
 
-// Supprime les doublons exacts (mÃªme nom + mÃªme premiÃ¨re photo)
+// Supprime les doublons exacts (même nom + même première photo)
 const CATALOGUE = PRODUITS_OK.filter((p, i, tab) =>
   tab.findIndex((q) => q.nom === p.nom && q.photos[0] === p.photos[0]) === i);
 
@@ -54,7 +54,7 @@ function trouverProduit(id) {
   return CATALOGUE.find((p) => p.id === id);
 }
 
-// Affiche tous les prix de la mÃªme faÃ§on : 4 625 000 FCFA
+// Affiche tous les prix de la même façon : 4 625 000 FCFA
 function nombrePrix(p) {
   const n = parseInt(String(p.prix).replace(/[^\d]/g, ""), 10);
   return isNaN(n) ? null : n;
@@ -64,7 +64,7 @@ function texteDuPrix(p) {
   return n === null ? "Prix sur demande" : n.toLocaleString("fr-FR") + " FCFA";
 }
 
-// ---------- RÃ©glages (gardÃ©s dans le navigateur) ----------
+// ---------- Réglages (gardés dans le navigateur) ----------
 
 const REGLAGES_DEFAUT = { theme: "auto", taille: "normal", densite: "normal", animations: true, auto: true, parPage: SITE.parPage || 12 };
 let reglages = { ...REGLAGES_DEFAUT };
@@ -81,7 +81,7 @@ function appliquerReglages() {
   racine.dataset.taille = reglages.taille;
   racine.dataset.densite = reglages.densite;
   if (reglages.animations) delete racine.dataset.anim; else racine.dataset.anim = "off";
-  document.getElementById("bouton-theme").textContent = themeActif() === "sombre" ? "â˜€" : "â˜¾";
+  document.getElementById("bouton-theme").textContent = themeActif() === "sombre" ? "☀" : "☾";
   try { localStorage.setItem("valencia-reglages", JSON.stringify(reglages)); } catch (e) {}
 }
 sombreSysteme.addEventListener("change", appliquerReglages);
@@ -90,7 +90,7 @@ sombreSysteme.addEventListener("change", appliquerReglages);
 
 let favoris = [];
 try { favoris = JSON.parse(localStorage.getItem("valencia-favoris") || "[]"); } catch (e) {}
-favoris = favoris.filter((id) => trouverProduit(id)); // retire les produits supprimÃ©s
+favoris = favoris.filter((id) => trouverProduit(id)); // retire les produits supprimés
 
 function sauvegarderFavoris() {
   try { localStorage.setItem("valencia-favoris", JSON.stringify(favoris)); } catch (e) {}
@@ -102,12 +102,12 @@ function basculerFavori(id) {
   sauvegarderFavoris();
 }
 
-// ---------- Ã‰lÃ©ments rÃ©utilisables ----------
+// ---------- Éléments réutilisables ----------
 
 function imageTemporaire(fond, nom) {
   const c1 = fond && fond[0] ? fond[0] : "#c9d3d6";
   const c2 = fond && fond[1] ? fond[1] : "#5b6b70";
-  return '<div class="image-temp" role="img" aria-label="Image temporaire : ' + securiser(nom) + '" style="--c1:' + c1 + ";--c2:" + c2 + '"><span>Photo Ã  venir</span></div>';
+  return '<div class="image-temp" role="img" aria-label="Image temporaire : ' + securiser(nom) + '" style="--c1:' + c1 + ";--c2:" + c2 + '"><span>Photo à venir</span></div>';
 }
 
 // Cadre 4/3 identique pour toutes les images ; si la photo manque ou ne charge pas, image temporaire
@@ -126,19 +126,19 @@ function carteProduit(p) {
     <article class="carte reveal">
       <a href="#/produit/${encodeURIComponent(p.id)}" aria-label="${securiser(p.nom)}">${cadreImage(p)}</a>
       <div class="texte">
-        <span class="etiquette">${securiser(p.piece)} Â· ${securiser(p.categorie)}</span>
+        <span class="etiquette">${securiser(p.piece)} · ${securiser(p.categorie)}</span>
         <h3><a href="#/produit/${encodeURIComponent(p.id)}" style="text-decoration:none">${securiser(p.nom)}</a></h3>
         <p>${securiser(p.description)}</p>
         <p class="prix">${securiser(texteDuPrix(p))}</p>
         <div class="ligne" style="margin-top:auto">
           <a class="bouton bouton-petit" href="#/produit/${encodeURIComponent(p.id)}">Voir</a>
-          <button class="bouton-favori" aria-pressed="${fav}" data-favori="${securiser(p.id)}">${fav ? "â™¥ Retirer" : "â™¡ Favori"}</button>
+          <button class="bouton-favori" aria-pressed="${fav}" data-favori="${securiser(p.id)}">${fav ? "♥ Retirer" : "♡ Favori"}</button>
         </div>
       </div>
     </article>`;
 }
 
-// ---------- Diaporama d'accueil (vidÃ©os ou images) ----------
+// ---------- Diaporama d'accueil (vidéos ou images) ----------
 
 let minuteurDiapo = null;
 
@@ -162,11 +162,11 @@ function htmlDiaporama() {
   const multi = slides.length > 1;
 
   return `
-    <div class="diapo" role="region" aria-roledescription="diaporama" aria-label="PrÃ©sentation Valencia">
+    <div class="diapo" role="region" aria-roledescription="diaporama" aria-label="Présentation Valencia">
       <div class="diapo-piste">${piste}</div>
       <div class="diapo-texte"><div class="conteneur"><div class="contenu-slide" id="diapo-contenu" aria-live="polite"></div></div></div>
-      ${multi ? `<button class="diapo-fleche diapo-prec" data-fleche="-1" aria-label="PrÃ©cÃ©dent">â€¹</button>
-      <button class="diapo-fleche diapo-suiv" data-fleche="1" aria-label="Suivant">â€º</button>
+      ${multi ? `<button class="diapo-fleche diapo-prec" data-fleche="-1" aria-label="Précédent">‹</button>
+      <button class="diapo-fleche diapo-suiv" data-fleche="1" aria-label="Suivant">›</button>
       <div class="diapo-points"><div class="conteneur">${points}</div></div>` : ""}
     </div>`;
 }
@@ -202,10 +202,10 @@ function lancerDiaporama() {
     courant = n;
     const s = slides[n];
     document.getElementById("diapo-contenu").innerHTML = `
-      <h1>${securiser(s.titre || "L'Ã©lÃ©gance durable, le confort au quotidien")}</h1>
+      <h1>${securiser(s.titre || "L'élégance durable, le confort au quotidien")}</h1>
       <p>${securiser(s.texte || "")}</p>
       <div class="ligne">
-        <a class="bouton bouton-wa" href="#/catalogue" style="background:#fff;color:#162f37;border-color:#fff">DÃ©couvrir nos collections</a>
+        <a class="bouton bouton-wa" href="#/catalogue" style="background:#fff;color:#162f37;border-color:#fff">Découvrir nos collections</a>
         <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp(message)}">Nous contacter</a>
       </div>`;
 
@@ -215,8 +215,8 @@ function lancerDiaporama() {
       v.currentTime = 0;
       v.play().catch(() => {});
       v.onended = () => aller(courant + 1);
-      v.onerror = () => aller(courant + 1); // vidÃ©o introuvable : on passe Ã  la suivante
-      duree = Math.max(duree, 60000); // sÃ©curitÃ© ; la fin de la vidÃ©o dÃ©clenche la suite
+      v.onerror = () => aller(courant + 1); // vidéo introuvable : on passe à la suivante
+      duree = Math.max(duree, 60000); // sécurité ; la fin de la vidéo déclenche la suite
       if (v.readyState >= 1 && isFinite(v.duration)) duree = v.duration * 1000 + 500;
     }
     // Barre de progression du point actif
@@ -257,9 +257,9 @@ function pageAccueil() {
 
     <section class="fond-doux">
       <div class="conteneur atouts">
-        <div class="reveal"><b>Meubles de premier choix</b>SÃ©lectionnÃ©s pour leur qualitÃ© et leur confort.</div>
-        <div class="reveal" style="--delai:.1s"><b>ExpÃ©dition gratuite Ã  Brazzaville</b>Pour les autres destinations, contactez-nous.</div>
-        <div class="reveal" style="--delai:.2s"><b>Installation offerte</b>Nos Ã©quipes installent vos meubles chez vous.</div>
+        <div class="reveal"><b>Meubles de premier choix</b>Sélectionnés pour leur qualité et leur confort.</div>
+        <div class="reveal" style="--delai:.1s"><b>Expédition gratuite à Brazzaville</b>Pour les autres destinations, contactez-nous.</div>
+        <div class="reveal" style="--delai:.2s"><b>Installation offerte</b>Nos équipes installent vos meubles chez vous.</div>
       </div>
     </section>
 
@@ -269,7 +269,7 @@ function pageAccueil() {
     </div></section>
 
     <section class="fond-doux"><div class="conteneur">
-      <h2 class="reveal">DerniÃ¨res arrivÃ©es</h2>
+      <h2 class="reveal">Dernières arrivées</h2>
       <div class="grille">${CATALOGUE.slice(-4).reverse().map(carteProduit).join("")}</div>
       <p style="margin-top:24px"><a class="bouton bouton-clair" href="#/catalogue">Voir tout le catalogue</a></p>
     </div></section>
@@ -277,11 +277,11 @@ function pageAccueil() {
     <section><div class="conteneur">
       <h2 class="reveal">Nos services</h2>
       <div class="atouts">
-        <div class="reveal"><b>Conseil en amÃ©nagement</b>Parlez-nous de votre projet, nous vous orientons.</div>
-        <div class="reveal" style="--delai:.1s"><b>Devis par WhatsApp</b>Envoyez-nous votre sÃ©lection de favoris.</div>
-        <div class="reveal" style="--delai:.2s"><b>Livraison et installation</b><a href="#/livraison">Voir les modalitÃ©s</a></div>
+        <div class="reveal"><b>Conseil en aménagement</b>Parlez-nous de votre projet, nous vous orientons.</div>
+        <div class="reveal" style="--delai:.1s"><b>Devis par WhatsApp</b>Envoyez-nous votre sélection de favoris.</div>
+        <div class="reveal" style="--delai:.2s"><b>Livraison et installation</b><a href="#/livraison">Voir les modalités</a></div>
       </div>
-      <p class="ligne" style="margin-top:28px"><a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp(message)}">Ã‰crire sur WhatsApp</a></p>
+      <p class="ligne" style="margin-top:28px"><a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp(message)}">Écrire sur WhatsApp</a></p>
     </div></section>`;
 }
 
@@ -289,7 +289,7 @@ function options(valeurs, choisie) {
   return valeurs.map((v) => `<option value="${securiser(v)}"${v === choisie ? " selected" : ""}>${securiser(v)}</option>`).join("");
 }
 
-// Ã‰tat du catalogue (gardÃ© quand on revient d'une fiche produit)
+// État du catalogue (gardé quand on revient d'une fiche produit)
 const etat = { page: 1, tri: "defaut" };
 
 function pageCatalogue(pieceChoisie) {
@@ -302,17 +302,17 @@ function pageCatalogue(pieceChoisie) {
     <section><div class="conteneur">
       <h1>Catalogue</h1>
       <div class="filtres">
-        <div><label for="f-recherche">Recherche</label><input id="f-recherche" type="search" placeholder="CanapÃ©, tableâ€¦"></div>
-        <div><label for="f-piece">PiÃ¨ce</label><select id="f-piece"><option value="">Toutes</option>${options(SITE.pieces, pieceChoisie)}</select></div>
-        <div><label for="f-categorie">CatÃ©gorie</label><select id="f-categorie"><option value="">Toutes</option>${options(categories)}</select></div>
+        <div><label for="f-recherche">Recherche</label><input id="f-recherche" type="search" placeholder="Canapé, table…"></div>
+        <div><label for="f-piece">Pièce</label><select id="f-piece"><option value="">Toutes</option>${options(SITE.pieces, pieceChoisie)}</select></div>
+        <div><label for="f-categorie">Catégorie</label><select id="f-categorie"><option value="">Toutes</option>${options(categories)}</select></div>
         <div><label for="f-couleur">Couleur</label><select id="f-couleur"><option value="">Toutes</option>${options(couleurs)}</select></div>
-        <div><label for="f-matiere">MatiÃ¨re</label><select id="f-matiere"><option value="">Toutes</option>${options(matieres)}</select></div>
+        <div><label for="f-matiere">Matière</label><select id="f-matiere"><option value="">Toutes</option>${options(matieres)}</select></div>
         <div><label for="f-tri">Trier par</label>
           <select id="f-tri">
-            <option value="defaut">NouveautÃ©s</option>
+            <option value="defaut">Nouveautés</option>
             <option value="prix-asc">Prix croissant</option>
-            <option value="prix-desc">Prix dÃ©croissant</option>
-            <option value="nom">Nom (A Ã  Z)</option>
+            <option value="prix-desc">Prix décroissant</option>
+            <option value="nom">Nom (A à Z)</option>
           </select></div>
       </div>
       <div class="barre-resultats"><p id="compteur" aria-live="polite" style="margin:0"></p></div>
@@ -345,18 +345,18 @@ function produitsFiltres() {
       return (x - y) * sens;
     });
   }
-  if (tri === "defaut") liste = [...liste].reverse(); // les derniers ajoutÃ©s d'abord
+  if (tri === "defaut") liste = [...liste].reverse(); // les derniers ajoutés d'abord
   return liste;
 }
 
-// Boutons 1, 2, 3 â€¦ n : leur nombre grandit tout seul avec les produits ajoutÃ©s
+// Boutons 1, 2, 3 … n : leur nombre grandit tout seul avec les produits ajoutés
 function listeBoutonsPages(total, courante) {
   if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
   const pages = new Set([1, total, courante - 1, courante, courante + 1]);
   const tri = [...pages].filter((n) => n >= 1 && n <= total).sort((a, b) => a - b);
   const sortie = [];
   tri.forEach((n, i) => {
-    if (i && n - tri[i - 1] > 1) sortie.push("â€¦");
+    if (i && n - tri[i - 1] > 1) sortie.push("…");
     sortie.push(n);
   });
   return sortie;
@@ -372,9 +372,9 @@ function appliquerFiltres(remonter) {
   const visibles = liste.slice(debut, debut + parPage);
 
   document.getElementById("liste-produits").innerHTML =
-    visibles.map(carteProduit).join("") || "<p>Aucun rÃ©sultat. Essayez d'autres filtres.</p>";
+    visibles.map(carteProduit).join("") || "<p>Aucun résultat. Essayez d'autres filtres.</p>";
   document.getElementById("compteur").textContent = liste.length
-    ? liste.length + (liste.length > 1 ? " produits" : " produit") + " Â· page " + etat.page + " sur " + total
+    ? liste.length + (liste.length > 1 ? " produits" : " produit") + " · page " + etat.page + " sur " + total
     : "0 produit";
 
   const nav = document.getElementById("pagination");
@@ -382,11 +382,11 @@ function appliquerFiltres(remonter) {
     nav.innerHTML = "";
   } else {
     nav.innerHTML =
-      `<button data-page="${etat.page - 1}" aria-label="Page prÃ©cÃ©dente"${etat.page === 1 ? " disabled" : ""}>â€¹</button>` +
-      listeBoutonsPages(total, etat.page).map((n) => n === "â€¦"
-        ? '<span class="points">â€¦</span>'
+      `<button data-page="${etat.page - 1}" aria-label="Page précédente"${etat.page === 1 ? " disabled" : ""}>‹</button>` +
+      listeBoutonsPages(total, etat.page).map((n) => n === "…"
+        ? '<span class="points">…</span>'
         : `<button data-page="${n}" ${n === etat.page ? 'aria-current="page"' : ""} aria-label="Page ${n}">${n}</button>`).join("") +
-      `<button data-page="${etat.page + 1}" aria-label="Page suivante"${etat.page === total ? " disabled" : ""}>â€º</button>`;
+      `<button data-page="${etat.page + 1}" aria-label="Page suivante"${etat.page === total ? " disabled" : ""}>›</button>`;
   }
   activerReveal();
   if (remonter) document.getElementById("liste-produits").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -405,28 +405,28 @@ function pageProduit(id) {
 
   return `
     <section><div class="conteneur">
-      <p><a href="#/catalogue">â† Retour au catalogue</a></p>
+      <p><a href="#/catalogue">← Retour au catalogue</a></p>
       <div class="deux-colonnes">
         <div class="galerie">
           <div id="photo-principale">${cadreImage(p, 0, "eager")}</div>
           <div class="miniatures">${miniatures}</div>
         </div>
         <div>
-          <span class="etiquette">${securiser(p.piece)} Â· ${securiser(p.categorie)}</span>
+          <span class="etiquette">${securiser(p.piece)} · ${securiser(p.categorie)}</span>
           <h1 style="font-size:2.6rem;margin-top:10px">${securiser(p.nom)}</h1>
           <p>${securiser(p.description)}</p>
           <dl>
             <dt>Dimensions</dt><dd>${securiser(p.dimensions)}</dd>
-            <dt>MatiÃ¨res</dt><dd>${securiser(p.matiere)}</dd>
+            <dt>Matières</dt><dd>${securiser(p.matiere)}</dd>
             <dt>Couleurs</dt><dd>${securiser(p.couleurs.join(", "))}</dd>
             <dt>Entretien</dt><dd>${securiser(p.entretien)}</dd>
-            <dt>DisponibilitÃ©</dt><dd>${securiser(p.disponibilite)}</dd>
+            <dt>Disponibilité</dt><dd>${securiser(p.disponibilite)}</dd>
             <dt>Prix</dt><dd><b>${securiser(texteDuPrix(p))}</b></dd>
           </dl>
           <div class="ligne">
-            <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${msg("je souhaite connaÃ®tre le prix de")}">Demander le prix sur WhatsApp</a>
-            <a class="bouton bouton-clair" target="_blank" rel="noopener" href="${msg("pouvez-vous vÃ©rifier la disponibilitÃ© de")}">VÃ©rifier la disponibilitÃ©</a>
-            <button class="bouton-favori" aria-pressed="${fav}" data-favori="${securiser(p.id)}">${fav ? "â™¥ Retirer" : "â™¡ Favori"}</button>
+            <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${msg("je souhaite connaître le prix de")}">Demander le prix sur WhatsApp</a>
+            <a class="bouton bouton-clair" target="_blank" rel="noopener" href="${msg("pouvez-vous vérifier la disponibilité de")}">Vérifier la disponibilité</a>
+            <button class="bouton-favori" aria-pressed="${fav}" data-favori="${securiser(p.id)}">${fav ? "♥ Retirer" : "♡ Favori"}</button>
           </div>
         </div>
       </div>
@@ -435,15 +435,15 @@ function pageProduit(id) {
 
 function pageInspirations() {
   const cartes = SITE.ambiances.map((a) => {
-    const liÃ©s = a.produits.map(trouverProduit).filter(Boolean); // ignore les id introuvables
-    const vitrine = trouverProduit(a.image) || liÃ©s[0];
+    const liés = a.produits.map(trouverProduit).filter(Boolean); // ignore les id introuvables
+    const vitrine = trouverProduit(a.image) || liés[0];
     return `
       <article class="carte reveal">
         ${vitrine ? cadreImage(vitrine) : '<span class="cadre">' + imageTemporaire(null, a.nom) + "</span>"}
         <div class="texte">
           <h3>${securiser(a.nom)}</h3>
           <p>${securiser(a.texte)}</p>
-          <p style="display:block">${liÃ©s.map((p) => `<a href="#/produit/${encodeURIComponent(p.id)}">${securiser(p.nom)}</a>`).join(" Â· ")}</p>
+          <p style="display:block">${liés.map((p) => `<a href="#/produit/${encodeURIComponent(p.id)}">${securiser(p.nom)}</a>`).join(" · ")}</p>
         </div>
       </article>`;
   }).join("");
@@ -451,7 +451,7 @@ function pageInspirations() {
   return `
     <section><div class="conteneur">
       <h1>Inspirations</h1>
-      <p class="intro">Des ambiances pour imaginer votre intÃ©rieur, avec les meubles correspondants.</p>
+      <p class="intro">Des ambiances pour imaginer votre intérieur, avec les meubles correspondants.</p>
       <div class="grille">${cartes}</div>
     </div></section>`;
 }
@@ -468,21 +468,21 @@ function pageFavoris() {
     <section><div class="conteneur">
       <h1>Favoris</h1>
       <div class="ligne" style="margin-bottom:24px">
-        <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp(message)}">Envoyer ma sÃ©lection sur WhatsApp</a>
+        <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp(message)}">Envoyer ma sélection sur WhatsApp</a>
         <a class="bouton bouton-clair" href="${mail}">Envoyer par e-mail</a>
       </div>
       <div class="grille">${produits.map(carteProduit).join("")}</div>
-      <p class="note" style="margin-top:16px">Vos favoris sont gardÃ©s sur cet appareil.</p>
+      <p class="note" style="margin-top:16px">Vos favoris sont gardés sur cet appareil.</p>
     </div></section>`;
 }
 
 function pageAPropos() {
   return `
     <section><div class="conteneur" style="max-width:760px">
-      <h1>Ã€ propos de Valencia</h1>
+      <h1>À propos de Valencia</h1>
       <p class="intro">Valencia est un magasin de meubles du centre-ville de Pointe-Noire.</p>
-      <p>Nous proposons des meubles de premier choix, principalement d'origine turque, sÃ©lectionnÃ©s pour quatre qualitÃ©s : la durabilitÃ©, le confort, le design moderne et l'Ã©lÃ©gance.</p>
-      <p>Notre objectif est simple : vous aider Ã  amÃ©nager un intÃ©rieur qui vous ressemble, du choix des piÃ¨ces jusqu'Ã  l'installation chez vous.</p>
+      <p>Nous proposons des meubles de premier choix, principalement d'origine turque, sélectionnés pour quatre qualités : la durabilité, le confort, le design moderne et l'élégance.</p>
+      <p>Notre objectif est simple : vous aider à aménager un intérieur qui vous ressemble, du choix des pièces jusqu'à l'installation chez vous.</p>
       <div class="ligne">
         <a class="bouton" href="#/catalogue">Voir le catalogue</a>
         <a class="bouton bouton-clair" href="#/contact">Nous rendre visite</a>
@@ -495,12 +495,12 @@ function pageLivraison() {
     <section><div class="conteneur" style="max-width:760px">
       <h1>Livraison et installation</h1>
       <div class="atouts" style="margin:24px 0">
-        <div><b>ExpÃ©dition gratuite Ã  Brazzaville</b></div>
+        <div><b>Expédition gratuite à Brazzaville</b></div>
         <div><b>Installation offerte</b></div>
       </div>
-      <p>Pour les autres destinations, contactez le magasin afin de connaÃ®tre les modalitÃ©s.</p>
+      <p>Pour les autres destinations, contactez le magasin afin de connaître les modalités.</p>
       <div class="ligne">
-        <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp("Bonjour Valencia, je souhaite connaÃ®tre les modalitÃ©s de livraison vers : ")}">Poser la question sur WhatsApp</a>
+        <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp("Bonjour Valencia, je souhaite connaître les modalités de livraison vers : ")}">Poser la question sur WhatsApp</a>
         <a class="bouton bouton-clair" href="tel:${SITE.telephone}">Appeler le magasin</a>
       </div>
     </div></section>`;
@@ -512,17 +512,17 @@ function pageContact() {
       <h1>Contact</h1>
       <div class="deux-colonnes">
         <div>
-          <p><b>Adresse</b><br>Centre-ville de Pointe-Noire, immeuble Â« Maison sans frontiÃ¨re Â», prÃ¨s de la mairie centrale.</p>
-          <p><b>TÃ©lÃ©phone</b><br><a href="tel:${SITE.telephone}">+242 06 758 5858</a></p>
+          <p><b>Adresse</b><br>Centre-ville de Pointe-Noire, immeuble « Maison sans frontière », près de la mairie centrale.</p>
+          <p><b>Téléphone</b><br><a href="tel:${SITE.telephone}">+242 06 758 5858</a></p>
           <p><b>E-mail</b><br><a href="mailto:${SITE.email}">${SITE.email}</a></p>
-          <p><b>Horaires</b><br>Ã€ communiquer prochainement.</p>
+          <p><b>Horaires</b><br>À communiquer prochainement.</p>
         </div>
         <form id="formulaire" novalidate>
           <p><label for="nom">Nom</label><input id="nom" autocomplete="name" required></p>
-          <p><label for="telephone">TÃ©lÃ©phone</label><input id="telephone" type="tel" autocomplete="tel"></p>
+          <p><label for="telephone">Téléphone</label><input id="telephone" type="tel" autocomplete="tel"></p>
           <p><label for="message">Votre projet ou votre question</label><textarea id="message" rows="5" required></textarea></p>
           <p><button class="bouton bouton-wa" type="submit">Envoyer sur WhatsApp</button></p>
-          <p class="note" id="retour" aria-live="polite">Le formulaire ouvre WhatsApp avec votre message prÃ©rempli.</p>
+          <p class="note" id="retour" aria-live="polite">Le formulaire ouvre WhatsApp avec votre message prérempli.</p>
         </form>
       </div>
     </div></section>`;
@@ -543,7 +543,7 @@ function brancherFormulaire() {
   });
 }
 
-// ---------- Apparition douce au dÃ©filement ----------
+// ---------- Apparition douce au défilement ----------
 
 let observateur = null;
 function activerReveal() {
@@ -563,15 +563,15 @@ function afficherPage() {
   clearTimeout(minuteurDiapo);
   const [, page, parametre] = location.hash.split("/");
   const param = parametre ? decodeURIComponent(parametre) : "";
-  let html, titre = "Valencia â€” Meubles haut de gamme Ã  Pointe-Noire";
+  let html, titre = "Valencia — Meubles haut de gamme à Pointe-Noire";
 
-  if (page === "catalogue") { html = pageCatalogue(param); titre = "Catalogue â€” Valencia"; }
-  else if (page === "produit") { html = pageProduit(param); const p = trouverProduit(param); titre = (p ? p.nom : "Produit") + " â€” Valencia"; }
-  else if (page === "inspirations") { html = pageInspirations(); titre = "Inspirations â€” Valencia"; }
-  else if (page === "favoris") { html = pageFavoris(); titre = "Favoris â€” Valencia"; }
-  else if (page === "a-propos") { html = pageAPropos(); titre = "Ã€ propos â€” Valencia"; }
-  else if (page === "livraison") { html = pageLivraison(); titre = "Livraison â€” Valencia"; }
-  else if (page === "contact") { html = pageContact(); titre = "Contact â€” Valencia"; }
+  if (page === "catalogue") { html = pageCatalogue(param); titre = "Catalogue — Valencia"; }
+  else if (page === "produit") { html = pageProduit(param); const p = trouverProduit(param); titre = (p ? p.nom : "Produit") + " — Valencia"; }
+  else if (page === "inspirations") { html = pageInspirations(); titre = "Inspirations — Valencia"; }
+  else if (page === "favoris") { html = pageFavoris(); titre = "Favoris — Valencia"; }
+  else if (page === "a-propos") { html = pageAPropos(); titre = "À propos — Valencia"; }
+  else if (page === "livraison") { html = pageLivraison(); titre = "Livraison — Valencia"; }
+  else if (page === "contact") { html = pageContact(); titre = "Contact — Valencia"; }
   else { html = pageAccueil(); }
 
   contenu.innerHTML = html;
@@ -605,7 +605,7 @@ document.addEventListener("click", (e) => {
     const actif = favoris.includes(bf.dataset.favori);
     document.querySelectorAll('[data-favori="' + bf.dataset.favori + '"]').forEach((b) => {
       b.setAttribute("aria-pressed", actif);
-      b.textContent = actif ? "â™¥ Retirer" : "â™¡ Favori";
+      b.textContent = actif ? "♥ Retirer" : "♡ Favori";
     });
     return;
   }
@@ -632,7 +632,7 @@ document.getElementById("bouton-theme").addEventListener("click", () => {
   appliquerReglages();
 });
 
-// ---------- Panneau des paramÃ¨tres ----------
+// ---------- Panneau des paramètres ----------
 
 const boite = document.getElementById("reglages");
 
@@ -666,12 +666,12 @@ document.getElementById("r-reinit").addEventListener("click", () => {
   if (document.getElementById("liste-produits")) appliquerFiltres(false);
 });
 
-// ---------- RÃ©seaux sociaux (pied de page) ----------
+// ---------- Réseaux sociaux (pied de page) ----------
 
 document.getElementById("reseaux").innerHTML = Object.entries(SITE.reseaux)
   .filter(([, url]) => url)
   .map(([nom, url]) => `<a href="${securiser(url)}" target="_blank" rel="noopener">${securiser(nom)}</a>`)
-  .join(" Â· ");
+  .join(" · ");
 
 // Barre de progression de lecture
 addEventListener("scroll", () => {
@@ -682,7 +682,7 @@ addEventListener("scroll", () => {
 
 addEventListener("hashchange", afficherPage);
 
-// ---------- DÃ©marrage ----------
+// ---------- Démarrage ----------
 appliquerReglages();
 sauvegarderFavoris();
 afficherPage();
