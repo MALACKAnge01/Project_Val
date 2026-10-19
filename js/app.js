@@ -1,479 +1,688 @@
 // ==========================================================
-// Valencia — logique du site
-// Les pages sont affichées selon l'adresse après le "#"
-// (ex. #/catalogue, #/produit/lit).
+// Valencia â€” logique du site
+// Pages affichÃ©es selon l'adresse aprÃ¨s le "#"
+// (ex. #/catalogue, #/produit/oxford-sofaset)
 // ==========================================================
 
 const contenu = document.getElementById("contenu");
 const menu = document.getElementById("menu");
 const boutonMenu = document.getElementById("bouton-menu");
+const racine = document.documentElement;
 
-// ---------- Petites fonctions utiles ----------
+// ---------- Fonctions utiles ----------
 
-// Évite qu'un texte casse le HTML
 function securiser(texte) {
-  const remplacements = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" };
-  return String(texte).replace(/[&<>"]/g, (c) => remplacements[c]);
+  const m = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" };
+  return String(texte == null ? "" : texte).replace(/[&<>"]/g, (c) => m[c]);
 }
 
-// Crée un lien WhatsApp avec un message déjà écrit
 function lienWhatsApp(message) {
-  return "https://wa.me/" + NUMERO_WHATSAPP + "?text=" + encodeURIComponent(message);
+  return "https://wa.me/" + SITE.whatsapp + "?text=" + encodeURIComponent(message);
 }
+
+// Les noms de fichiers contiennent des espaces et des accents : on les encode
+function chemin(src) {
+  return encodeURI(src).replace(/#/g, "%23");
+}
+
+// ---------- DonnÃ©es : nettoyage automatique de produits.js ----------
+// Corrige les identifiants en double et les champs manquants sans toucher au fichier.
+
+const PRODUITS_OK = (() => {
+  const vus = new Set();
+  return PRODUITS.map((p, i) => {
+    let id = p.id || "produit-" + i;
+    if (vus.has(id)) id += "-" + i;
+    vus.add(id);
+    const photos = [...new Set((p.photos || []).filter(Boolean))];
+    return {
+      ...p,
+      id,
+      photos,
+      couleurs: (p.couleurs || []).filter(Boolean),
+      matiere: p.matiere || "",
+      prix: p.prix ? String(p.prix).trim() : ""
+    };
+  });
+})();
+
+// Supprime les doublons exacts (mÃªme nom + mÃªme premiÃ¨re photo)
+const CATALOGUE = PRODUITS_OK.filter((p, i, tab) =>
+  tab.findIndex((q) => q.nom === p.nom && q.photos[0] === p.photos[0]) === i);
 
 function trouverProduit(id) {
-  return PRODUITS.find((produit) => produit.id === id);
+  return CATALOGUE.find((p) => p.id === id);
 }
 
-function texteDuPrix(produit) {
-  return produit.prix ? produit.prix : "Prix sur demande";
+// Affiche tous les prix de la mÃªme faÃ§on : 4 625 000 FCFA
+function nombrePrix(p) {
+  const n = parseInt(String(p.prix).replace(/[^\d]/g, ""), 10);
+  return isNaN(n) ? null : n;
+}
+function texteDuPrix(p) {
+  const n = nombrePrix(p);
+  return n === null ? "Prix sur demande" : n.toLocaleString("fr-FR") + " FCFA";
 }
 
-function sansExemple(nom) {
-  return nom.replace(" (exemple)", "");
+// ---------- RÃ©glages (gardÃ©s dans le navigateur) ----------
+
+const REGLAGES_DEFAUT = { theme: "auto", taille: "normal", densite: "normal", animations: true, auto: true, parPage: SITE.parPage || 12 };
+let reglages = { ...REGLAGES_DEFAUT };
+try { Object.assign(reglages, JSON.parse(localStorage.getItem("valencia-reglages") || "{}")); } catch (e) {}
+
+const sombreSysteme = matchMedia("(prefers-color-scheme: dark)");
+
+function themeActif() {
+  return reglages.theme === "auto" ? (sombreSysteme.matches ? "sombre" : "clair") : reglages.theme;
 }
 
-// ---------- Favoris (gardés dans le navigateur) ----------
+function appliquerReglages() {
+  racine.dataset.theme = themeActif();
+  racine.dataset.taille = reglages.taille;
+  racine.dataset.densite = reglages.densite;
+  if (reglages.animations) delete racine.dataset.anim; else racine.dataset.anim = "off";
+  document.getElementById("bouton-theme").textContent = themeActif() === "sombre" ? "â˜€" : "â˜¾";
+  try { localStorage.setItem("valencia-reglages", JSON.stringify(reglages)); } catch (e) {}
+}
+sombreSysteme.addEventListener("change", appliquerReglages);
+
+// ---------- Favoris ----------
 
 let favoris = [];
-
-try {
-  favoris = JSON.parse(localStorage.getItem("valencia-favoris") || "[]");
-} catch (erreur) {
-  favoris = [];
-}
+try { favoris = JSON.parse(localStorage.getItem("valencia-favoris") || "[]"); } catch (e) {}
+favoris = favoris.filter((id) => trouverProduit(id)); // retire les produits supprimÃ©s
 
 function sauvegarderFavoris() {
-  try {
-    localStorage.setItem("valencia-favoris", JSON.stringify(favoris));
-  } catch (erreur) {
-    // Si le navigateur refuse, les favoris restent valables jusqu'au rechargement
-  }
-  const lien = document.getElementById("lien-favoris");
-  lien.textContent = favoris.length ? "Favoris (" + favoris.length + ")" : "Favoris";
+  try { localStorage.setItem("valencia-favoris", JSON.stringify(favoris)); } catch (e) {}
+  document.getElementById("lien-favoris").textContent = favoris.length ? "Favoris (" + favoris.length + ")" : "Favoris";
 }
 
 function basculerFavori(id) {
-  if (favoris.includes(id)) {
-    favoris = favoris.filter((x) => x !== id);
-  } else {
-    favoris.push(id);
-  }
+  favoris = favoris.includes(id) ? favoris.filter((x) => x !== id) : [...favoris, id];
   sauvegarderFavoris();
 }
 
-// ---------- Éléments d'affichage réutilisables ----------
-
-// Photo du produit (par défaut la première, ou selon le numéro), ou image temporaire si indisponible
-function afficherImage(produit, numero = 0) {
-  if (produit && produit.photos && produit.photos[numero]) {
-    return `<img src="${securiser(produit.photos[numero])}" alt="${securiser(produit.nom)}" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:6px">`;
-  }
-  
-  // Fallback sur le bloc SVG temporaire si aucune photo n'est trouvée
-  return imageTemporaire(produit ? produit.fond : null, produit ? produit.nom : "");
-}
+// ---------- Ã‰lÃ©ments rÃ©utilisables ----------
 
 function imageTemporaire(fond, nom) {
-  const c1 = (fond && fond[0]) ? fond[0] : '#d8c6a8';
-  const c2 = (fond && fond[1]) ? fond[1] : '#9a7a58';
-
-  return '<div class="image-temp" role="img" aria-label="Image temporaire : ' + securiser(nom) + '"' +
-         ' style="--c1:' + c1 + ';--c2:' + c2 + '">' +
-         '<svg viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">' +
-         '<path d="M0 45h100v15H0zM10 45V30h30v15M50 45V35h40v10M14 30c0-6 24-6 24 0" fill="#fff"/></svg>' +
-         '<span>Image temporaire</span></div>';
+  const c1 = fond && fond[0] ? fond[0] : "#c9d3d6";
+  const c2 = fond && fond[1] ? fond[1] : "#5b6b70";
+  return '<div class="image-temp" role="img" aria-label="Image temporaire : ' + securiser(nom) + '" style="--c1:' + c1 + ";--c2:" + c2 + '"><span>Photo Ã  venir</span></div>';
 }
 
-function carteProduit(produit) {
-  const estFavori = favoris.includes(produit.id);
+// Cadre 4/3 identique pour toutes les images ; si la photo manque ou ne charge pas, image temporaire
+function cadreImage(p, numero = 0, chargement = "lazy") {
+  const src = p.photos && p.photos[numero];
+  // L'image temporaire reste dessous ; si la photo ne charge pas, on la retire et le cadre reste propre
+  const img = src
+    ? '<img src="' + chemin(src) + '" alt="' + securiser(p.nom) + '" loading="' + chargement + '" decoding="async" onerror="this.remove()">'
+    : "";
+  return '<span class="cadre">' + imageTemporaire(p.fond, p.nom) + img + "</span>";
+}
 
+function carteProduit(p) {
+  const fav = favoris.includes(p.id);
   return `
-    <article class="carte">
-      <a href="#/produit/${produit.id}" aria-label="${securiser(produit.nom)}">
-        ${afficherImage(produit)}
-      </a>
+    <article class="carte reveal">
+      <a href="#/produit/${encodeURIComponent(p.id)}" aria-label="${securiser(p.nom)}">${cadreImage(p)}</a>
       <div class="texte">
-        <span class="etiquette">${securiser(produit.piece)} · ${securiser(produit.categorie)}</span>
-        <h3><a href="#/produit/${produit.id}" style="text-decoration:none">${securiser(produit.nom)}</a></h3>
-        <p>${securiser(produit.description)}</p>
-        <p><b>${texteDuPrix(produit)}</b></p>
+        <span class="etiquette">${securiser(p.piece)} Â· ${securiser(p.categorie)}</span>
+        <h3><a href="#/produit/${encodeURIComponent(p.id)}" style="text-decoration:none">${securiser(p.nom)}</a></h3>
+        <p>${securiser(p.description)}</p>
+        <p class="prix">${securiser(texteDuPrix(p))}</p>
         <div class="ligne" style="margin-top:auto">
-          <a class="bouton bouton-petit" href="#/produit/${produit.id}">Voir</a>
-          <button class="bouton-favori" aria-pressed="${estFavori}" data-favori="${produit.id}">
-            ${estFavori ? "♥ Retirer" : "♡ Favori"}
-          </button>
+          <a class="bouton bouton-petit" href="#/produit/${encodeURIComponent(p.id)}">Voir</a>
+          <button class="bouton-favori" aria-pressed="${fav}" data-favori="${securiser(p.id)}">${fav ? "â™¥ Retirer" : "â™¡ Favori"}</button>
         </div>
       </div>
     </article>`;
 }
 
-// ---------- Les pages ----------
+// ---------- Diaporama d'accueil (vidÃ©os ou images) ----------
+
+let minuteurDiapo = null;
+
+function diapositives() {
+  const videos = (SITE.videos || []).filter((v) => v && v.src);
+  return videos.length
+    ? videos.map((v) => ({ ...v, type: "video" }))
+    : (SITE.imagesSecours || []).map((v) => ({ ...v, type: "image" }));
+}
+
+function htmlDiaporama() {
+  const slides = diapositives();
+  if (!slides.length) return "";
+  const piste = slides.map((s, i) => {
+    const media = s.type === "video"
+      ? `<video src="${chemin(s.src)}" ${s.poster ? 'poster="' + chemin(s.poster) + '"' : ""} muted playsinline preload="${i === 0 ? "auto" : "metadata"}"></video>`
+      : `<img src="${chemin(s.src)}" alt="${securiser(s.titre || "Valencia")}" ${i === 0 ? 'loading="eager"' : 'loading="lazy"'}>`;
+    return `<div class="diapo-slide" data-index="${i}" aria-hidden="true">${media}</div>`;
+  }).join("");
+  const points = slides.map((s, i) => `<button class="point" data-aller="${i}" aria-label="Diapositive ${i + 1}"></button>`).join("");
+  const multi = slides.length > 1;
+
+  return `
+    <div class="diapo" role="region" aria-roledescription="diaporama" aria-label="PrÃ©sentation Valencia">
+      <div class="diapo-piste">${piste}</div>
+      <div class="diapo-texte"><div class="conteneur"><div class="contenu-slide" id="diapo-contenu" aria-live="polite"></div></div></div>
+      ${multi ? `<button class="diapo-fleche diapo-prec" data-fleche="-1" aria-label="PrÃ©cÃ©dent">â€¹</button>
+      <button class="diapo-fleche diapo-suiv" data-fleche="1" aria-label="Suivant">â€º</button>
+      <div class="diapo-points"><div class="conteneur">${points}</div></div>` : ""}
+    </div>`;
+}
+
+function lancerDiaporama() {
+  clearTimeout(minuteurDiapo);
+  const racineDiapo = document.querySelector(".diapo");
+  if (!racineDiapo) return;
+  const slides = diapositives();
+  const elements = [...racineDiapo.querySelectorAll(".diapo-slide")];
+  const points = [...racineDiapo.querySelectorAll(".point")];
+  const message = "Bonjour Valencia, je souhaite des renseignements sur vos meubles.";
+  let courant = -1;
+
+  function suivantAuto(duree) {
+    clearTimeout(minuteurDiapo);
+    if (slides.length > 1 && reglages.auto) minuteurDiapo = setTimeout(() => aller(courant + 1), duree);
+  }
+
+  function aller(n) {
+    n = (n + slides.length) % slides.length;
+    if (!document.body.contains(racineDiapo)) return;
+    elements.forEach((el, i) => {
+      el.classList.toggle("actif", i === n);
+      el.setAttribute("aria-hidden", i !== n);
+      const v = el.querySelector("video");
+      if (v && i !== n) { v.pause(); v.currentTime = 0; }
+    });
+    points.forEach((pt, i) => {
+      pt.classList.remove("actif", "fait");
+      if (i < n) pt.classList.add("fait");
+    });
+    courant = n;
+    const s = slides[n];
+    document.getElementById("diapo-contenu").innerHTML = `
+      <h1>${securiser(s.titre || "L'Ã©lÃ©gance durable, le confort au quotidien")}</h1>
+      <p>${securiser(s.texte || "")}</p>
+      <div class="ligne">
+        <a class="bouton bouton-wa" href="#/catalogue" style="background:#fff;color:#162f37;border-color:#fff">DÃ©couvrir nos collections</a>
+        <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp(message)}">Nous contacter</a>
+      </div>`;
+
+    const v = elements[n].querySelector("video");
+    let duree = SITE.dureeDiapo || 7000;
+    if (v) {
+      v.currentTime = 0;
+      v.play().catch(() => {});
+      v.onended = () => aller(courant + 1);
+      v.onerror = () => aller(courant + 1); // vidÃ©o introuvable : on passe Ã  la suivante
+      duree = Math.max(duree, 60000); // sÃ©curitÃ© ; la fin de la vidÃ©o dÃ©clenche la suite
+      if (v.readyState >= 1 && isFinite(v.duration)) duree = v.duration * 1000 + 500;
+    }
+    // Barre de progression du point actif
+    if (points[n]) {
+      points[n].style.setProperty("--duree-point", Math.min(duree, 60000) / 1000 + "s");
+      requestAnimationFrame(() => requestAnimationFrame(() => points[n].classList.add("actif")));
+    }
+    suivantAuto(duree);
+  }
+
+  racineDiapo.addEventListener("click", (e) => {
+    const fleche = e.target.closest("[data-fleche]");
+    const point = e.target.closest("[data-aller]");
+    if (fleche) aller(courant + Number(fleche.dataset.fleche));
+    if (point) aller(Number(point.dataset.aller));
+  });
+
+  aller(0);
+}
+
+// ---------- Pages ----------
 
 function pageAccueil() {
   const message = "Bonjour Valencia, je souhaite des renseignements sur vos meubles.";
 
-  const collections = PIECES.map((piece) => {
-    // Trouve le produit correspondant à cette pièce (ex: Salon)
-    const exemple = PRODUITS.find((p) => p.piece === piece);
-    
-    // Si un produit existe pour cette pièce, on utilise afficherImage(), sinon un fallback
-    const imageAffichee = exemple ? afficherImage(exemple) : imageTemporaire(null, piece);
-
+  const collections = SITE.pieces.map((piece) => {
+    const exemple = CATALOGUE.find((p) => p.piece === piece);
+    if (!exemple) return "";
     return `
-      <a class="carte" href="#/catalogue/${encodeURIComponent(piece)}" style="text-decoration:none">
-        ${imageAffichee}
-        <div class="texte">
-          <h3>${securiser(piece)}</h3>
-          <p>Voir les meubles</p>
-        </div>
+      <a class="carte reveal" href="#/catalogue/${encodeURIComponent(piece)}">
+        ${cadreImage(exemple)}
+        <div class="texte"><h3>${securiser(piece)}</h3><p>Voir les meubles</p></div>
       </a>`;
   }).join("");
 
-  // ... le reste de votre code de page d'accueil ...
-
-
   return `
-    <section class="accueil-haut">
-      <div>
-        <h1>L'élégance durable, le confort au quotidien</h1>
-        <p class="intro">Valencia propose à Pointe-Noire des meubles de premier choix, principalement d'origine turque, choisis pour leur durabilité, leur confort et leur design moderne.</p>
-        <div class="ligne">
-          <a class="bouton" href="#/catalogue">Découvrir nos collections</a>
-          <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp(message)}">Nous contacter sur WhatsApp</a>
-        </div>
-      </div>
-      <img src="images/produits/salon/OXFORD/ChatGPT Image Oct 8, 2026, 11_06_48 AM.png" 
-           alt="Salon Valencia" 
-           class="image-hero" 
-           loading="eager">
-    </section>
+    ${htmlDiaporama()}
 
-    <section class="fond-sable">
-      <div class="atouts">
-        <div><b>Meubles de premier choix</b>Sélectionnés pour leur qualité et leur confort.</div>
-        <div><b>Expédition gratuite à Brazzaville</b>Pour les autres destinations, contactez-nous.</div>
-        <div><b>Installation offerte</b>Nos équipes installent vos meubles chez vous.</div>
+    <section class="fond-doux">
+      <div class="conteneur atouts">
+        <div class="reveal"><b>Meubles de premier choix</b>SÃ©lectionnÃ©s pour leur qualitÃ© et leur confort.</div>
+        <div class="reveal" style="--delai:.1s"><b>ExpÃ©dition gratuite Ã  Brazzaville</b>Pour les autres destinations, contactez-nous.</div>
+        <div class="reveal" style="--delai:.2s"><b>Installation offerte</b>Nos Ã©quipes installent vos meubles chez vous.</div>
       </div>
     </section>
 
-    <section>
-      <h2>Nos collections</h2>
+    <section><div class="conteneur">
+      <h2 class="reveal">Nos collections</h2>
       <div class="grille">${collections}</div>
-    </section>
+    </div></section>
 
-    <section>
-      <h2>Nouveautés</h2>
-      <p class="note">Exemples de présentation, à remplacer par vos produits réels.</p>
-      <div class="grille">${PRODUITS.slice(0, 4).map(carteProduit).join("")}</div>
-    </section>
+    <section class="fond-doux"><div class="conteneur">
+      <h2 class="reveal">DerniÃ¨res arrivÃ©es</h2>
+      <div class="grille">${CATALOGUE.slice(-4).reverse().map(carteProduit).join("")}</div>
+      <p style="margin-top:24px"><a class="bouton bouton-clair" href="#/catalogue">Voir tout le catalogue</a></p>
+    </div></section>
 
-    <section class="fond-sable">
-      <h2>Nos services</h2>
+    <section><div class="conteneur">
+      <h2 class="reveal">Nos services</h2>
       <div class="atouts">
-        <div><b>Conseil en aménagement</b>Parlez-nous de votre projet, nous vous orientons.</div>
-        <div><b>Devis par WhatsApp</b>Envoyez-nous votre sélection de favoris.</div>
-        <div><b>Livraison et installation</b><a href="#/livraison">Voir les modalités</a></div>
+        <div class="reveal"><b>Conseil en amÃ©nagement</b>Parlez-nous de votre projet, nous vous orientons.</div>
+        <div class="reveal" style="--delai:.1s"><b>Devis par WhatsApp</b>Envoyez-nous votre sÃ©lection de favoris.</div>
+        <div class="reveal" style="--delai:.2s"><b>Livraison et installation</b><a href="#/livraison">Voir les modalitÃ©s</a></div>
       </div>
-    </section>`;
+      <p class="ligne" style="margin-top:28px"><a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp(message)}">Ã‰crire sur WhatsApp</a></p>
+    </div></section>`;
 }
 
-// Construit une liste d'options pour un menu déroulant
 function options(valeurs, choisie) {
-  return valeurs.map((v) => "<option" + (v === choisie ? " selected" : "") + ">" + v + "</option>").join("");
+  return valeurs.map((v) => `<option value="${securiser(v)}"${v === choisie ? " selected" : ""}>${securiser(v)}</option>`).join("");
 }
+
+// Ã‰tat du catalogue (gardÃ© quand on revient d'une fiche produit)
+const etat = { page: 1, tri: "defaut" };
 
 function pageCatalogue(pieceChoisie) {
-  const categories = [...new Set(PRODUITS.map((p) => p.categorie))];
-  const couleurs = [...new Set(PRODUITS.flatMap((p) => p.couleurs))];
-  const matieres = [...new Set(PRODUITS.flatMap((p) => p.matiere.split(" et ")))];
+  const categories = [...new Set(CATALOGUE.map((p) => p.categorie))].sort();
+  const couleurs = [...new Set(CATALOGUE.flatMap((p) => p.couleurs))].sort();
+  const matieres = [...new Set(CATALOGUE.flatMap((p) => p.matiere.split(" et ")).filter(Boolean))].sort();
+  etat.page = 1;
 
   return `
-    <section>
-      <h1 style="font-size:2.6rem">Catalogue</h1>
+    <section><div class="conteneur">
+      <h1>Catalogue</h1>
       <div class="filtres">
-        <div><label for="f-recherche">Recherche</label><input id="f-recherche" type="search" placeholder="Canapé, table…"></div>
-        <div><label for="f-piece">Pièce</label><select id="f-piece"><option value="">Toutes</option>${options(PIECES, pieceChoisie)}</select></div>
-        <div><label for="f-categorie">Catégorie</label><select id="f-categorie"><option value="">Toutes</option>${options(categories)}</select></div>
+        <div><label for="f-recherche">Recherche</label><input id="f-recherche" type="search" placeholder="CanapÃ©, tableâ€¦"></div>
+        <div><label for="f-piece">PiÃ¨ce</label><select id="f-piece"><option value="">Toutes</option>${options(SITE.pieces, pieceChoisie)}</select></div>
+        <div><label for="f-categorie">CatÃ©gorie</label><select id="f-categorie"><option value="">Toutes</option>${options(categories)}</select></div>
         <div><label for="f-couleur">Couleur</label><select id="f-couleur"><option value="">Toutes</option>${options(couleurs)}</select></div>
-        <div><label for="f-matiere">Matière</label><select id="f-matiere"><option value="">Toutes</option>${options(matieres)}</select></div>
+        <div><label for="f-matiere">MatiÃ¨re</label><select id="f-matiere"><option value="">Toutes</option>${options(matieres)}</select></div>
+        <div><label for="f-tri">Trier par</label>
+          <select id="f-tri">
+            <option value="defaut">NouveautÃ©s</option>
+            <option value="prix-asc">Prix croissant</option>
+            <option value="prix-desc">Prix dÃ©croissant</option>
+            <option value="nom">Nom (A Ã  Z)</option>
+          </select></div>
       </div>
-      <p class="note">Les filtres de prix et de dimensions apparaîtront quand ces informations seront renseignées.</p>
-      <p id="compteur" aria-live="polite"></p>
+      <div class="barre-resultats"><p id="compteur" aria-live="polite" style="margin:0"></p></div>
       <div class="grille" id="liste-produits"></div>
-    </section>`;
+      <nav class="pagination" id="pagination" aria-label="Pages du catalogue"></nav>
+    </div></section>`;
 }
 
-// Affiche uniquement les produits qui correspondent aux filtres choisis
-function appliquerFiltres() {
-  const valeur = (id) => document.getElementById(id).value;
-  const recherche = valeur("f-recherche").toLowerCase();
-
-  const resultats = PRODUITS.filter((p) => {
-    const texte = (p.nom + " " + p.description + " " + p.categorie).toLowerCase();
+function produitsFiltres() {
+  const v = (id) => document.getElementById(id).value;
+  const recherche = v("f-recherche").toLowerCase().trim();
+  let liste = CATALOGUE.filter((p) => {
+    const texte = (p.nom + " " + p.description + " " + p.categorie + " " + p.piece).toLowerCase();
     return (!recherche || texte.includes(recherche))
-      && (!valeur("f-piece") || p.piece === valeur("f-piece"))
-      && (!valeur("f-categorie") || p.categorie === valeur("f-categorie"))
-      && (!valeur("f-couleur") || p.couleurs.includes(valeur("f-couleur")))
-      && (!valeur("f-matiere") || p.matiere.includes(valeur("f-matiere")));
+      && (!v("f-piece") || p.piece === v("f-piece"))
+      && (!v("f-categorie") || p.categorie === v("f-categorie"))
+      && (!v("f-couleur") || p.couleurs.includes(v("f-couleur")))
+      && (!v("f-matiere") || p.matiere.includes(v("f-matiere")));
   });
+  const tri = v("f-tri");
+  if (tri === "nom") liste = [...liste].sort((a, b) => a.nom.localeCompare(b.nom, "fr"));
+  if (tri === "prix-asc" || tri === "prix-desc") {
+    const sens = tri === "prix-asc" ? 1 : -1;
+    // Les produits sans prix passent toujours en dernier
+    liste = [...liste].sort((a, b) => {
+      const x = nombrePrix(a), y = nombrePrix(b);
+      if (x === null && y === null) return 0;
+      if (x === null) return 1;
+      if (y === null) return -1;
+      return (x - y) * sens;
+    });
+  }
+  if (tri === "defaut") liste = [...liste].reverse(); // les derniers ajoutÃ©s d'abord
+  return liste;
+}
+
+// Boutons 1, 2, 3 â€¦ n : leur nombre grandit tout seul avec les produits ajoutÃ©s
+function listeBoutonsPages(total, courante) {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  const pages = new Set([1, total, courante - 1, courante, courante + 1]);
+  const tri = [...pages].filter((n) => n >= 1 && n <= total).sort((a, b) => a - b);
+  const sortie = [];
+  tri.forEach((n, i) => {
+    if (i && n - tri[i - 1] > 1) sortie.push("â€¦");
+    sortie.push(n);
+  });
+  return sortie;
+}
+
+function appliquerFiltres(remonter) {
+  const liste = produitsFiltres();
+  const parPage = Number(reglages.parPage) || 12;
+  const total = Math.max(1, Math.ceil(liste.length / parPage));
+  etat.page = Math.min(Math.max(1, etat.page), total);
+
+  const debut = (etat.page - 1) * parPage;
+  const visibles = liste.slice(debut, debut + parPage);
 
   document.getElementById("liste-produits").innerHTML =
-    resultats.map(carteProduit).join("") || "<p>Aucun résultat. Essayez d'autres filtres.</p>";
-  document.getElementById("compteur").textContent =
-    resultats.length + (resultats.length > 1 ? " produits" : " produit");
+    visibles.map(carteProduit).join("") || "<p>Aucun rÃ©sultat. Essayez d'autres filtres.</p>";
+  document.getElementById("compteur").textContent = liste.length
+    ? liste.length + (liste.length > 1 ? " produits" : " produit") + " Â· page " + etat.page + " sur " + total
+    : "0 produit";
+
+  const nav = document.getElementById("pagination");
+  if (total <= 1) {
+    nav.innerHTML = "";
+  } else {
+    nav.innerHTML =
+      `<button data-page="${etat.page - 1}" aria-label="Page prÃ©cÃ©dente"${etat.page === 1 ? " disabled" : ""}>â€¹</button>` +
+      listeBoutonsPages(total, etat.page).map((n) => n === "â€¦"
+        ? '<span class="points">â€¦</span>'
+        : `<button data-page="${n}" ${n === etat.page ? 'aria-current="page"' : ""} aria-label="Page ${n}">${n}</button>`).join("") +
+      `<button data-page="${etat.page + 1}" aria-label="Page suivante"${etat.page === total ? " disabled" : ""}>â€º</button>`;
+  }
+  activerReveal();
+  if (remonter) document.getElementById("liste-produits").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function pageProduit(id) {
-  const produit = trouverProduit(id);
-  if (!produit) return pageCatalogue();
+  const p = trouverProduit(id);
+  if (!p) return pageCatalogue("");
 
-  const estFavori = favoris.includes(produit.id);
-  const message = (phrase) => lienWhatsApp("Bonjour Valencia, " + phrase + " : " + produit.nom + ".");
+  const fav = favoris.includes(p.id);
+  const msg = (phrase) => lienWhatsApp("Bonjour Valencia, " + phrase + " : " + p.nom + ".");
+  const nbPhotos = Math.max(p.photos.length, 1);
+  const miniatures = nbPhotos > 1
+    ? p.photos.map((ph, i) => `<button type="button" data-photo="${i}" aria-current="${i === 0}" aria-label="Photo ${i + 1}"><img src="${chemin(ph)}" alt="" loading="lazy"></button>`).join("")
+    : "";
 
   return `
-    <section>
-      <p><a href="#/catalogue">← Retour au catalogue</a></p>
+    <section><div class="conteneur">
+      <p><a href="#/catalogue">â† Retour au catalogue</a></p>
       <div class="deux-colonnes">
-        <div>
-          ${afficherImage(produit)}
-          <div class="miniatures">${[1, 2, 3].map((n) => afficherImage(produit, n)).join("")}</div>
+        <div class="galerie">
+          <div id="photo-principale">${cadreImage(p, 0, "eager")}</div>
+          <div class="miniatures">${miniatures}</div>
         </div>
         <div>
-          <span class="etiquette">${produit.piece} · ${produit.categorie}</span>
-          <h1 style="font-size:2.4rem;margin-top:8px">${securiser(produit.nom)}</h1>
-          <p>${securiser(produit.description)}</p>
+          <span class="etiquette">${securiser(p.piece)} Â· ${securiser(p.categorie)}</span>
+          <h1 style="font-size:2.6rem;margin-top:10px">${securiser(p.nom)}</h1>
+          <p>${securiser(p.description)}</p>
           <dl>
-            <dt>Dimensions</dt><dd>${securiser(produit.dimensions)}</dd>
-            <dt>Matières</dt><dd>${securiser(produit.matiere)}</dd>
-            <dt>Couleurs</dt><dd>${produit.couleurs.join(", ")}</dd>
-            <dt>Entretien</dt><dd>${securiser(produit.entretien)}</dd>
-            <dt>Disponibilité</dt><dd>${securiser(produit.disponibilite)}</dd>
-            <dt>Prix</dt><dd>${texteDuPrix(produit)}</dd>
+            <dt>Dimensions</dt><dd>${securiser(p.dimensions)}</dd>
+            <dt>MatiÃ¨res</dt><dd>${securiser(p.matiere)}</dd>
+            <dt>Couleurs</dt><dd>${securiser(p.couleurs.join(", "))}</dd>
+            <dt>Entretien</dt><dd>${securiser(p.entretien)}</dd>
+            <dt>DisponibilitÃ©</dt><dd>${securiser(p.disponibilite)}</dd>
+            <dt>Prix</dt><dd><b>${securiser(texteDuPrix(p))}</b></dd>
           </dl>
           <div class="ligne">
-            <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${message("je souhaite connaître le prix de")}">Demander le prix sur WhatsApp</a>
-            <a class="bouton bouton-clair" target="_blank" rel="noopener" href="${message("pouvez-vous vérifier la disponibilité de")}">Vérifier la disponibilité</a>
-            <button class="bouton-favori" aria-pressed="${estFavori}" data-favori="${produit.id}">${estFavori ? "♥ Retirer" : "♡ Favori"}</button>
+            <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${msg("je souhaite connaÃ®tre le prix de")}">Demander le prix sur WhatsApp</a>
+            <a class="bouton bouton-clair" target="_blank" rel="noopener" href="${msg("pouvez-vous vÃ©rifier la disponibilitÃ© de")}">VÃ©rifier la disponibilitÃ©</a>
+            <button class="bouton-favori" aria-pressed="${fav}" data-favori="${securiser(p.id)}">${fav ? "â™¥ Retirer" : "â™¡ Favori"}</button>
           </div>
         </div>
       </div>
-    </section>`;
+    </div></section>`;
 }
 
 function pageInspirations() {
-  const ambiances = AMBIANCES.map((a) => `
-    <article class="carte">
-      ${imageTemporaire(a.fond, a.nom)}
-      <div class="texte">
-        <h3>${a.nom}</h3>
-        <p>${a.texte}</p>
-        <p>${a.produits.map((id) => '<a href="#/produit/' + id + '">' + securiser(sansExemple(trouverProduit(id).nom)) + "</a>").join(" · ")}</p>
-      </div>
-    </article>`).join("");
+  const cartes = SITE.ambiances.map((a) => {
+    const liÃ©s = a.produits.map(trouverProduit).filter(Boolean); // ignore les id introuvables
+    const vitrine = trouverProduit(a.image) || liÃ©s[0];
+    return `
+      <article class="carte reveal">
+        ${vitrine ? cadreImage(vitrine) : '<span class="cadre">' + imageTemporaire(null, a.nom) + "</span>"}
+        <div class="texte">
+          <h3>${securiser(a.nom)}</h3>
+          <p>${securiser(a.texte)}</p>
+          <p style="display:block">${liÃ©s.map((p) => `<a href="#/produit/${encodeURIComponent(p.id)}">${securiser(p.nom)}</a>`).join(" Â· ")}</p>
+        </div>
+      </article>`;
+  }).join("");
 
   return `
-    <section>
-      <h1 style="font-size:2.6rem">Inspirations</h1>
-      <p class="intro">Des ambiances pour imaginer votre intérieur, avec les meubles correspondants.</p>
-      <div class="grille">${ambiances}</div>
-    </section>`;
+    <section><div class="conteneur">
+      <h1>Inspirations</h1>
+      <p class="intro">Des ambiances pour imaginer votre intÃ©rieur, avec les meubles correspondants.</p>
+      <div class="grille">${cartes}</div>
+    </div></section>`;
 }
 
 function pageFavoris() {
   const produits = favoris.map(trouverProduit).filter(Boolean);
-
-  if (produits.length === 0) {
-    return `
-      <section>
-        <h1 style="font-size:2.6rem">Favoris</h1>
-        <p>Aucun favori pour l'instant. Parcourez le <a href="#/catalogue">catalogue</a> et enregistrez les meubles qui vous plaisent.</p>
-      </section>`;
+  if (!produits.length) {
+    return `<section><div class="conteneur"><h1>Favoris</h1>
+      <p>Aucun favori pour l'instant. Parcourez le <a href="#/catalogue">catalogue</a> et enregistrez les meubles qui vous plaisent.</p></div></section>`;
   }
-
-  const message = "Bonjour Valencia, je souhaite un devis pour : " + produits.map((p) => sansExemple(p.nom)).join(", ") + ".";
-  const lienMail = "mailto:social.valencia.cg@gmail.com?subject=" + encodeURIComponent("Demande de devis") +
-                   "&body=" + encodeURIComponent(message);
-
+  const message = "Bonjour Valencia, je souhaite un devis pour : " + produits.map((p) => p.nom).join(", ") + ".";
+  const mail = "mailto:" + SITE.email + "?subject=" + encodeURIComponent("Demande de devis") + "&body=" + encodeURIComponent(message);
   return `
-    <section>
-      <h1 style="font-size:2.6rem">Favoris</h1>
-      <div class="ligne" style="margin-bottom:20px">
-        <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp(message)}">Envoyer ma sélection sur WhatsApp</a>
-        <a class="bouton bouton-clair" href="${lienMail}">Envoyer par e-mail</a>
+    <section><div class="conteneur">
+      <h1>Favoris</h1>
+      <div class="ligne" style="margin-bottom:24px">
+        <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp(message)}">Envoyer ma sÃ©lection sur WhatsApp</a>
+        <a class="bouton bouton-clair" href="${mail}">Envoyer par e-mail</a>
       </div>
       <div class="grille">${produits.map(carteProduit).join("")}</div>
-      <p class="note">Vos favoris sont gardés sur cet appareil.</p>
-    </section>`;
+      <p class="note" style="margin-top:16px">Vos favoris sont gardÃ©s sur cet appareil.</p>
+    </div></section>`;
 }
 
 function pageAPropos() {
   return `
-    <section style="max-width:720px">
-      <h1 style="font-size:2.6rem">À propos de Valencia</h1>
+    <section><div class="conteneur" style="max-width:760px">
+      <h1>Ã€ propos de Valencia</h1>
       <p class="intro">Valencia est un magasin de meubles du centre-ville de Pointe-Noire.</p>
-      <p>Nous proposons des meubles de premier choix, principalement d'origine turque, sélectionnés pour quatre qualités : la durabilité, le confort, le design moderne et l'élégance.</p>
-      <p>Notre objectif est simple : vous aider à aménager un intérieur qui vous ressemble, du choix des pièces jusqu'à l'installation chez vous.</p>
+      <p>Nous proposons des meubles de premier choix, principalement d'origine turque, sÃ©lectionnÃ©s pour quatre qualitÃ©s : la durabilitÃ©, le confort, le design moderne et l'Ã©lÃ©gance.</p>
+      <p>Notre objectif est simple : vous aider Ã  amÃ©nager un intÃ©rieur qui vous ressemble, du choix des piÃ¨ces jusqu'Ã  l'installation chez vous.</p>
       <div class="ligne">
         <a class="bouton" href="#/catalogue">Voir le catalogue</a>
         <a class="bouton bouton-clair" href="#/contact">Nous rendre visite</a>
       </div>
-    </section>`;
+    </div></section>`;
 }
 
 function pageLivraison() {
   return `
-    <section style="max-width:720px">
-      <h1 style="font-size:2.6rem">Livraison et installation</h1>
+    <section><div class="conteneur" style="max-width:760px">
+      <h1>Livraison et installation</h1>
       <div class="atouts" style="margin:24px 0">
-        <div><b>Expédition gratuite à Brazzaville</b></div>
+        <div><b>ExpÃ©dition gratuite Ã  Brazzaville</b></div>
         <div><b>Installation offerte</b></div>
       </div>
-      <p>Pour les autres destinations, contactez le magasin afin de connaître les modalités.</p>
+      <p>Pour les autres destinations, contactez le magasin afin de connaÃ®tre les modalitÃ©s.</p>
       <div class="ligne">
-        <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp("Bonjour Valencia, je souhaite connaître les modalités de livraison vers : ")}">Poser la question sur WhatsApp</a>
-        <a class="bouton bouton-clair" href="tel:+242067585858">Appeler le magasin</a>
+        <a class="bouton bouton-wa" target="_blank" rel="noopener" href="${lienWhatsApp("Bonjour Valencia, je souhaite connaÃ®tre les modalitÃ©s de livraison vers : ")}">Poser la question sur WhatsApp</a>
+        <a class="bouton bouton-clair" href="tel:${SITE.telephone}">Appeler le magasin</a>
       </div>
-    </section>`;
+    </div></section>`;
 }
 
 function pageContact() {
   return `
-    <section>
-      <h1 style="font-size:2.6rem">Contact</h1>
+    <section><div class="conteneur">
+      <h1>Contact</h1>
       <div class="deux-colonnes">
         <div>
-          <p><b>Adresse</b><br>Centre-ville de Pointe-Noire, immeuble « Maison sans frontière », près de la mairie centrale.</p>
-          <p><b>Téléphone</b><br><a href="tel:+242067585858">+242 06 758 5858</a></p>
-          <p><b>E-mail</b><br><a href="mailto:social.valencia.cg@gmail.com">social.valencia.cg@gmail.com</a></p>
-          <p><b>Horaires</b><br>À communiquer prochainement.</p>
-          <div class="image-temp" style="aspect-ratio:16/9;--c1:#e5dac7;--c2:#cbb99c">
-            <span>Carte de localisation : à ajouter après vérification de l'adresse</span>
-          </div>
+          <p><b>Adresse</b><br>Centre-ville de Pointe-Noire, immeuble Â« Maison sans frontiÃ¨re Â», prÃ¨s de la mairie centrale.</p>
+          <p><b>TÃ©lÃ©phone</b><br><a href="tel:${SITE.telephone}">+242 06 758 5858</a></p>
+          <p><b>E-mail</b><br><a href="mailto:${SITE.email}">${SITE.email}</a></p>
+          <p><b>Horaires</b><br>Ã€ communiquer prochainement.</p>
         </div>
         <form id="formulaire" novalidate>
-          <div><label for="nom">Nom</label><input id="nom" autocomplete="name" required></div>
-          <div><label for="telephone">Téléphone</label><input id="telephone" type="tel" autocomplete="tel"></div>
-          <div><label for="message">Votre projet ou votre question</label><textarea id="message" rows="5" required></textarea></div>
+          <p><label for="nom">Nom</label><input id="nom" autocomplete="name" required></p>
+          <p><label for="telephone">TÃ©lÃ©phone</label><input id="telephone" type="tel" autocomplete="tel"></p>
+          <p><label for="message">Votre projet ou votre question</label><textarea id="message" rows="5" required></textarea></p>
           <p><button class="bouton bouton-wa" type="submit">Envoyer sur WhatsApp</button></p>
-          <p class="note" id="retour" aria-live="polite">Le formulaire ouvre WhatsApp avec votre message prérempli.</p>
+          <p class="note" id="retour" aria-live="polite">Le formulaire ouvre WhatsApp avec votre message prÃ©rempli.</p>
         </form>
       </div>
-    </section>`;
+    </div></section>`;
 }
 
-// Le formulaire de contact n'envoie rien lui-même : il ouvre WhatsApp
 function brancherFormulaire() {
-  const formulaire = document.getElementById("formulaire");
-  if (!formulaire) return;
-
-  formulaire.addEventListener("submit", (evenement) => {
-    evenement.preventDefault();
+  const f = document.getElementById("formulaire");
+  if (!f) return;
+  f.addEventListener("submit", (e) => {
+    e.preventDefault();
     const nom = document.getElementById("nom").value.trim();
-    const telephone = document.getElementById("telephone").value.trim();
-    const message = document.getElementById("message").value.trim();
+    const tel = document.getElementById("telephone").value.trim();
+    const msg = document.getElementById("message").value.trim();
     const retour = document.getElementById("retour");
-
-    if (!nom || !message) {
-      retour.textContent = "Merci d'indiquer votre nom et votre message.";
-      return;
-    }
-
-    const texte = "Bonjour Valencia, je suis " + nom + (telephone ? " (" + telephone + ")" : "") + ". " + message;
-    window.open(lienWhatsApp(texte), "_blank", "noopener");
+    if (!nom || !msg) { retour.textContent = "Merci d'indiquer votre nom et votre message."; return; }
+    window.open(lienWhatsApp("Bonjour Valencia, je suis " + nom + (tel ? " (" + tel + ")" : "") + ". " + msg), "_blank", "noopener");
     retour.textContent = "WhatsApp s'ouvre avec votre message.";
   });
+}
+
+// ---------- Apparition douce au dÃ©filement ----------
+
+let observateur = null;
+function activerReveal() {
+  const cibles = document.querySelectorAll(".reveal:not(.visible)");
+  if (!("IntersectionObserver" in window)) { cibles.forEach((c) => c.classList.add("visible")); return; }
+  if (!observateur) {
+    observateur = new IntersectionObserver((entrees) => {
+      entrees.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("visible"); observateur.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+  }
+  cibles.forEach((c, i) => { c.style.setProperty("--delai", (i % 4) * 0.07 + "s"); observateur.observe(c); });
 }
 
 // ---------- Navigation ----------
 
 function afficherPage() {
-  // "#/produit/lit" devient ["", "produit", "lit"]
+  clearTimeout(minuteurDiapo);
   const [, page, parametre] = location.hash.split("/");
-  let html;
-  let titre = "Valencia — Meubles haut de gamme à Pointe-Noire";
+  const param = parametre ? decodeURIComponent(parametre) : "";
+  let html, titre = "Valencia â€” Meubles haut de gamme Ã  Pointe-Noire";
 
-  if (page === "catalogue") {
-    html = pageCatalogue(parametre ? decodeURIComponent(parametre) : "");
-    titre = "Catalogue — Valencia";
-  } else if (page === "produit") {
-    html = pageProduit(parametre);
-    const produit = trouverProduit(parametre);
-    titre = (produit ? produit.nom : "Produit") + " — Valencia";
-  } else if (page === "inspirations") {
-    html = pageInspirations();
-  } else if (page === "favoris") {
-    html = pageFavoris();
-  } else if (page === "a-propos") {
-    html = pageAPropos();
-  } else if (page === "livraison") {
-    html = pageLivraison();
-  } else if (page === "contact") {
-    html = pageContact();
-  } else {
-    html = pageAccueil();
-  }
+  if (page === "catalogue") { html = pageCatalogue(param); titre = "Catalogue â€” Valencia"; }
+  else if (page === "produit") { html = pageProduit(param); const p = trouverProduit(param); titre = (p ? p.nom : "Produit") + " â€” Valencia"; }
+  else if (page === "inspirations") { html = pageInspirations(); titre = "Inspirations â€” Valencia"; }
+  else if (page === "favoris") { html = pageFavoris(); titre = "Favoris â€” Valencia"; }
+  else if (page === "a-propos") { html = pageAPropos(); titre = "Ã€ propos â€” Valencia"; }
+  else if (page === "livraison") { html = pageLivraison(); titre = "Livraison â€” Valencia"; }
+  else if (page === "contact") { html = pageContact(); titre = "Contact â€” Valencia"; }
+  else { html = pageAccueil(); }
 
   contenu.innerHTML = html;
   document.title = titre;
   window.scrollTo(0, 0);
 
-  // Referme le menu mobile et marque la page active
   menu.classList.remove("ouvert");
   boutonMenu.setAttribute("aria-expanded", "false");
-  document.querySelectorAll("nav a").forEach((lien) => {
-    lien.toggleAttribute("aria-current", lien.getAttribute("href") === "#/" + (page || ""));
+  document.querySelectorAll("nav a").forEach((l) => {
+    l.toggleAttribute("aria-current", l.getAttribute("href") === "#/" + (page || ""));
   });
 
   if (page === "catalogue") {
-    ["f-recherche", "f-piece", "f-categorie", "f-couleur", "f-matiere"].forEach((id) => {
-      document.getElementById(id).addEventListener("input", appliquerFiltres);
+    ["f-recherche", "f-piece", "f-categorie", "f-couleur", "f-matiere", "f-tri"].forEach((id) => {
+      document.getElementById(id).addEventListener("input", () => { etat.page = 1; appliquerFiltres(false); });
     });
-    appliquerFiltres();
+    appliquerFiltres(false);
   }
-
+  if (!page) lancerDiaporama();
   brancherFormulaire();
+  activerReveal();
 }
 
-// ---------- Clics sur la page ----------
+// ---------- Clics ----------
 
-document.addEventListener("click", (evenement) => {
-  // Bouton favori
-  const boutonFavori = evenement.target.closest("[data-favori]");
-  if (boutonFavori) {
-    basculerFavori(boutonFavori.dataset.favori);
-    if (location.hash === "#/favoris") {
-      afficherPage(); // la liste doit se mettre à jour
-    } else {
-      const actif = favoris.includes(boutonFavori.dataset.favori);
-      boutonFavori.setAttribute("aria-pressed", actif);
-      boutonFavori.textContent = actif ? "♥ Retirer" : "♡ Favori";
-    }
+document.addEventListener("click", (e) => {
+  const bf = e.target.closest("[data-favori]");
+  if (bf) {
+    basculerFavori(bf.dataset.favori);
+    if (location.hash === "#/favoris") { afficherPage(); return; }
+    const actif = favoris.includes(bf.dataset.favori);
+    document.querySelectorAll('[data-favori="' + bf.dataset.favori + '"]').forEach((b) => {
+      b.setAttribute("aria-pressed", actif);
+      b.textContent = actif ? "â™¥ Retirer" : "â™¡ Favori";
+    });
     return;
   }
 
-  // Liens des réseaux sociaux (tant qu'ils ne sont pas renseignés)
-  const lienReseau = evenement.target.closest("[data-reseau]");
-  if (lienReseau) {
-    const adresse = LIENS_RESEAUX[lienReseau.dataset.reseau];
-    if (adresse) {
-      lienReseau.href = adresse;
-      lienReseau.target = "_blank";
-      lienReseau.rel = "noopener";
-    } else {
-      evenement.preventDefault();
-      alert("Le lien " + lienReseau.dataset.reseau + " sera ajouté prochainement.");
+  const bp = e.target.closest("[data-page]");
+  if (bp && !bp.disabled) { etat.page = Number(bp.dataset.page); appliquerFiltres(true); return; }
+
+  const ph = e.target.closest("[data-photo]");
+  if (ph) {
+    const p = trouverProduit(decodeURIComponent(location.hash.split("/")[2] || ""));
+    if (p) {
+      document.getElementById("photo-principale").innerHTML = cadreImage(p, Number(ph.dataset.photo), "eager");
+      document.querySelectorAll("[data-photo]").forEach((b) => b.setAttribute("aria-current", b === ph));
     }
   }
 });
 
 boutonMenu.addEventListener("click", () => {
-  const ouvert = menu.classList.toggle("ouvert");
-  boutonMenu.setAttribute("aria-expanded", ouvert);
+  boutonMenu.setAttribute("aria-expanded", menu.classList.toggle("ouvert"));
 });
 
-window.addEventListener("hashchange", afficherPage);
+document.getElementById("bouton-theme").addEventListener("click", () => {
+  reglages.theme = themeActif() === "sombre" ? "clair" : "sombre";
+  appliquerReglages();
+});
 
-// ---------- Démarrage ----------
+// ---------- Panneau des paramÃ¨tres ----------
+
+const boite = document.getElementById("reglages");
+
+function remplirReglages() {
+  document.querySelector('[name="theme"][value="' + reglages.theme + '"]').checked = true;
+  document.querySelector('[name="taille"][value="' + reglages.taille + '"]').checked = true;
+  document.getElementById("r-par-page").value = String(reglages.parPage);
+  document.getElementById("r-densite").value = reglages.densite;
+  document.getElementById("r-anim").checked = reglages.animations;
+  document.getElementById("r-auto").checked = reglages.auto;
+}
+
+document.getElementById("bouton-reglages").addEventListener("click", () => { remplirReglages(); boite.showModal(); });
+boite.addEventListener("click", (e) => { if (e.target === boite) boite.close(); });
+
+boite.addEventListener("change", (e) => {
+  const c = e.target;
+  if (c.name === "theme") reglages.theme = c.value;
+  if (c.name === "taille") reglages.taille = c.value;
+  if (c.id === "r-par-page") { reglages.parPage = Number(c.value); etat.page = 1; }
+  if (c.id === "r-densite") reglages.densite = c.value;
+  if (c.id === "r-anim") reglages.animations = c.checked;
+  if (c.id === "r-auto") { reglages.auto = c.checked; if (!c.checked) clearTimeout(minuteurDiapo); }
+  appliquerReglages();
+  if (document.getElementById("liste-produits")) appliquerFiltres(false);
+});
+
+document.getElementById("r-reinit").addEventListener("click", () => {
+  reglages = { ...REGLAGES_DEFAUT };
+  appliquerReglages(); remplirReglages();
+  if (document.getElementById("liste-produits")) appliquerFiltres(false);
+});
+
+// ---------- RÃ©seaux sociaux (pied de page) ----------
+
+document.getElementById("reseaux").innerHTML = Object.entries(SITE.reseaux)
+  .filter(([, url]) => url)
+  .map(([nom, url]) => `<a href="${securiser(url)}" target="_blank" rel="noopener">${securiser(nom)}</a>`)
+  .join(" Â· ");
+
+// Barre de progression de lecture
+addEventListener("scroll", () => {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  document.getElementById("barre-progression").style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+}, { passive: true });
+
+addEventListener("hashchange", afficherPage);
+
+// ---------- DÃ©marrage ----------
+appliquerReglages();
 sauvegarderFavoris();
 afficherPage();
