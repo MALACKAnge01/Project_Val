@@ -99,7 +99,7 @@ section { padding: 56px 0; }
   border-bottom: 1px solid var(--trait);
 }
 .barre { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 72px; }
-.logo { display: flex; align-items: center; height: 56px; text-decoration: none; }
+.logo { display: flex; align-items: center; height: 170px; text-decoration: none; }
 .logo img { height: 100%; width: auto; object-fit: contain; }
 html[data-theme="clair"] .logo-sombre, html[data-theme="sombre"] .logo-clair { display: none; }
 
