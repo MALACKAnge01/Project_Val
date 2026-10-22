@@ -332,6 +332,29 @@ const PRODUITS = [
       "images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 11_39_42 AM.png"
     ]
   },
+   {
+    id: "valencia-sofaset", // 👈 Renommé car le dernier était un doublon de OTTO avec une image de Canapé 3 places
+    nom: "VALENCIA SOFASET",
+    piece: "Salon",
+    categorie: "canapé",
+    couleurs: ["existe en rouge", "existe en jaune", "existe en noire", "existe en bleu cyon"],
+    matiere: "Tissu",
+    dimensions: "À confirmer",
+    prix: "850.000 xaf",
+    description: "salon complet de 3places + 2places + 1 places",
+    entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
+    disponibilite: "Sur demande",
+    fond: ["#d8c6a8", "#9a7a58"],
+    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Oct 6, 2026, 11_43_29 AM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 6, 2026, 11_46_47 AM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 6, 2026, 12_35_03 PM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 6, 2026, 12_36_11 PM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 6, 2026, 12_37_38 PM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 6, 2026, 12_44_42 PM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 6, 2026, 12_44_58 PM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 6, 2026, 12_45_12 PM.png"
+    ]
+  },
   {
     id: "canape-3-places", // 👈 Renommé car le dernier était un doublon de OTTO avec une image de Canapé 3 places
     nom: "CANAPÉ 3 PLACES",
@@ -431,10 +454,7 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_17 AM.png",
-      "images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_12 AM.png",
-      "images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_17 AM.png",
-      "images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_17 AM.png"
+    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Oct 7, 2026, 11_30_17 AM.png",
     ]
   },
   {
@@ -450,10 +470,8 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_22 AM.png",
-      "images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_22 AM.png",
-      "images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_22 AM.png",
-      "images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_22 AM.png"
+    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Oct 7, 2026, 11_30_22 AM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 7, 2026, 11_40_20 AM.png",
     ]
   },
   {
@@ -469,10 +487,7 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_12 AM.png",
-      "images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_12 AM.png",
-      "images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_12 AM.png",
-      "images/produits/salon/HERITAGE/ChatGPT Image Oct 7, 2026, 11_30_12 AM.png"
+    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Oct 7, 2026, 11_30_12 AM.png",
     ]
   },
   {
@@ -579,7 +594,7 @@ const PRODUITS = [
   {
     id: "piero-table-basse",
     nom: "PIERO",
-    piece: "Salon",
+    piece: "table basse",
     categorie: "Tables basses",
     couleurs: ["Bois naturel", "Noir"],
     matiere: "Bois",
@@ -594,7 +609,7 @@ const PRODUITS = [
   {
     id: "nardo-table-basse",
     nom: "NARDO",
-    piece: "Salon",
+    piece: "table basse",
     categorie: "Tables basses",
     couleurs: ["Bois naturel", "Noir"],
     matiere: "Bois",
@@ -609,7 +624,7 @@ const PRODUITS = [
   {
     id: "bacardi-table-basse",
     nom: "BACARDI",
-    piece: "Salon",
+    piece: "table basse",
     categorie: "Tables basses",
     couleurs: ["Bois naturel", "Noir"],
     matiere: "Bois",
@@ -624,7 +639,7 @@ const PRODUITS = [
   {
     id: "escape-table-basse-1",
     nom: "ESCAPE (Modèle 1)",
-    piece: "Salon",
+    piece: "table basse",
     categorie: "Tables basses",
     couleurs: ["Bois naturel", "Noir"],
     matiere: "Bois",
@@ -639,7 +654,7 @@ const PRODUITS = [
   {
     id: "escape-table-basse-2",
     nom: "ESCAPE (Modèle 2)",
-    piece: "Salon",
+    piece: "table basse",
     categorie: "Tables basses",
     couleurs: ["Bois naturel", "Noir"],
     matiere: "Bois",
@@ -654,7 +669,7 @@ const PRODUITS = [
   {
     id: "baobab-table-basse",
     nom: "BAOBAB",
-    piece: "Salon",
+    piece: "table basse",
     categorie: "Tables basses",
     couleurs: ["Bois naturel", "Noir"],
     matiere: "Bois",
@@ -679,7 +694,70 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/ARYA/ChatGPT Image Sep 22, 2026, 01_02_02 PM.png"]
+    photos: ["images/iloveimg-compressed (3)/ChatGPT Image Oct 8, 2026, 09_52_02 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 8, 2026, 09_50_47 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 8, 2026, 09_50_59 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 8, 2026, 09_52_06 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 8, 2026, 10_13_10 AM.png",
+    ]
+  },
+  {
+    id: "Opus-dining-set",
+    nom: "OPUS DINING SET",
+    piece: "Salle à manger",
+    categorie: "Tables",
+    couleurs: ["Bois naturel", "Blanc"],
+    matiere: "Bois",
+    dimensions: "À confirmer",
+    prix: "5.335.000 xaf",
+    description: "Une table pour réunir la famille, avec ses chaises assorties.",
+    entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
+    disponibilite: "Sur demande",
+    fond: ["#c2a47e", "#6d4b30"],
+    photos: ["images/iloveimg-compressed (3)/ChatGPT Image Oct 21, 2026, 11_03_19 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 21, 2026, 11_03_35 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 21, 2026, 10_57_29 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 21, 2026, 10_57_21 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 21, 2026, 10_57_15 AM.png",
+    ]
+  },
+  {
+    id: "Oxford-dining-set",
+    nom: "OXFORD DINING SET",
+    piece: "Salle à manger",
+    categorie: "Tables",
+    couleurs: ["Bois naturel", "Blanc"],
+    matiere: "Bois",
+    dimensions: "À confirmer",
+    prix: "5.335.000 xaf",
+    description: "Une table pour réunir la famille, avec ses chaises assorties.",
+    entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
+    disponibilite: "Sur demande",
+    fond: ["#c2a47e", "#6d4b30"],
+    photos: ["images/iloveimg-compressed (3)/ChatGPT Image Oct 22, 2026, 10_46_04 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 22, 2026, 10_45_51 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 22, 2026, 10_49_15 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 22, 2026, 10_49_22 AM.png",
+    ]
+  },
+    {
+    id: "Alberta-dining-set",
+    nom: "ALBERTA DINING SET",
+    piece: "Salle à manger",
+    categorie: "Tables",
+    couleurs: ["Bois naturel", "Blanc"],
+    matiere: "Bois",
+    dimensions: "À confirmer",
+    prix: "5.335.000 xaf",
+    description: "Une table pour réunir la famille, avec ses chaises assorties.",
+    entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
+    disponibilite: "Sur demande",
+    fond: ["#c2a47e", "#6d4b30"],
+    photos: ["images/iloveimg-compressed (3)/ChatGPT Image Oct 22, 2026, 10_46_01 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 22, 2026, 10_49_11 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 22, 2026, 10_49_18 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 22, 2026, 10_49_22 AM.png",
+    ]
   },
   {
     id: "arpege-dining-set",
@@ -709,7 +787,11 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/MARBRE/6401813f-e818-4e02-aa71-f76e6451b71e.png"]
+    photos: ["images/iloveimg-compressed (3)/6401813f-e818-4e02-aa71-f76e6451b71e.png",
+      "images/iloveimg-compressed (3)/6db3394b-50a5-4c82-98ea-c387839e487c.png",
+      "images/iloveimg-compressed (3)/e0b0b775-0ea9-4eb1-ad86-7fa018b4968c.png",
+    "images/iloveimg-compressed (3)/51904a86-794f-4444-8afd-402cda1740e9.png",
+  ]
   },
   {
     id: "mimoza-dining-set",
@@ -724,7 +806,12 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/MIMOZA/IMG-20240112-WA0005.jpg"]
+    photos: ["images/iloveimg-compressed (3)/IMG-20240112-WA0005.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240112-WA0006.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240112-WA0007.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240112-WA0008.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240112-WA0009.jpg"
+    ]
   },
   {
     id: "t230-dining",
@@ -769,7 +856,11 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T250/IMG-20240814-WA0019.jpg"]
+    photos: ["images/iloveimg-compressed (3)/IMG-20240814-WA0019.jpg",
+      "images/iloveimg-compressed (3)/5c4d2dc1-fd87-4e65-ad47-0cff97c28f9c.png",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0021.jpg",
+      "images/iloveimg-compressed (3)/e0e40d72-2bc5-4ce9-b625-be86b30dfd8a.png"
+    ]
   },
   {
     id: "t740-dining",
@@ -889,7 +980,12 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T414/IMG-20240814-WA0053.jpg"]
+    photos: ["images/iloveimg-compressed (3)/IMG-20240814-WA0053.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0052.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0050.jpg",
+      "images/iloveimg-compressed (3)/ChatGPT Image Sep 23, 2026, 12_58_34 PM (2).png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Sep 23, 2026, 12_58_35 PM (3).png"
+    ]
   },
   {
     id: "t320-dining",

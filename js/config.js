@@ -27,8 +27,9 @@ const SITE = {
   //  - poster : image affichée pendant le chargement (facultatif)
   // Si la liste est vide, le site affiche les photos de "imagesSecours".
   videos: [
-    { src: "https://drive.google.com/uc?export=download&id=1hVg6vyJBNw4STVL973esoAJ0yrKddqmq", titre: "Salons chaleureux", texte: "Des salons confortables pour recevoir vos invités." },
-    { src: "https://drive.google.com/uc?export=download&id=1YrDQlTIL4DMFyf71yJreZIX1ShiwQAuL", titre: "Chambres apaisantes", texte: "Des matières douces pour bien se reposer." }
+    { src: "images/iloveimg-compressed (1)/ChatGPT Image Oct 2, 2026, 12_13_31 PM.png", titre: "Des espaces chaleureux", texte: "Des mobilier confortables pour recevoir vos invités." },
+    { src: "images/iloveimg-compressed (3)/ChatGPT Image Oct 22, 2026, 10_49_22 AM.png", titre: "Un style apaisant", texte: "Des matières douces pour bien se reposer." },
+     { src: "images/iloveimg-compressed (4)/ChatGPT Image Oct 22, 2026, 10_31_00 AM.png", titre: "Un accord parfait", texte: "Des modeles assortis à votre vision." }
   ],
   imagesSecours: [
     { src: "images/produits/salon/OXFORD/ChatGPT Image Oct 8, 2026, 11_06_48 AM.png", titre: "L'élégance durable, le confort au quotidien", texte: "Des meubles de premier choix, principalement d'origine turque." },
