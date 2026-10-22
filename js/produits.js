@@ -25,7 +25,7 @@ const PRODUITS = [
     matiere: "Tissu",
     dimensions: "À confirmer",
     prix: "4.625.000 xaf",
-    description: "Assise profonde et lignes sobres, pensé pour les grands salons.",
+    description: "salon complet comfortable et élégant. composé d'un canapé de 5 places, un autre de 3 places, et 2 fauteuils de 1 place.",
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
@@ -34,7 +34,9 @@ const PRODUITS = [
       "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_47_19 AM (1).png",
       "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_47_20 AM (2).png",
       "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_47_21 AM (3).png",
-      "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_47_22 AM (4).png"
+      "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_47_22 AM (4).png",
+      "images/iloveimg-compressed (2)/puffy-22 (1).jpg",
+      "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_47_22 AM (5).png"
     ]
     },
     {
@@ -42,19 +44,20 @@ const PRODUITS = [
     nom: "OXFORD SOFASET",
     piece: "Salon",
     categorie: "salon complet",
-    couleurs: ["Gris", "blanc"],
+    couleurs: ["boisé", "doré", "blanc", "marron"],
     matiere: "Tissu",
     dimensions: "À confirmer",
-    prix: "13.625.000 xaf",
-    description: "Assise profonde et lignes sobres, pensé pour les grands salons.",
-    entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
+    prix: "14.209.000 xaf",
+    description: "Salon complet d'un canapé 3Places + 3Places + 2 fauteuils de 1Places + 3 Tables BASSE + 2 Tables de COIN",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
     photos: [
-      "images/produits/salon/OXFORD/ChatGPT Image Oct 8, 2026, 11_06_48 AM.png",
-      "images/produits/salon/OXFORD/ChatGPT Image Oct 8, 2026, 11_07_23 AM.png",
-      "images/produits/salon/OXFORD/ChatGPT Image Oct 8, 2026, 11_07_26 AM.png",
-      "images/produits/salon/OXFORD/ChatGPT Image Oct 8, 2026, 11_07_29 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_06_48 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_07_23 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_07_26 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_07_29 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_07_35 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_07_39 AM.png"
     ]
     },
     {
@@ -65,8 +68,8 @@ const PRODUITS = [
     couleurs: ["Gris", "blanc"],
     matiere: "Tissu",
     dimensions: "À confirmer",
-    prix: "13.625.000 xaf",
-    description: "Assise profonde et lignes sobres, pensé pour les grands salons.",
+    prix: "4.126.000 xaf",
+    description: "Salon complet de 3Places + 3 places + 1places + 1places",
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
@@ -82,8 +85,8 @@ const PRODUITS = [
     nom: "BLACK SOFASET",
     piece: "Salon",
     categorie: "salon complet",
-    couleurs: ["Gris", "blanc"],
-    matiere: "Tissu",
+    couleurs: ["noir"],
+    matiere: "cuire",
     dimensions: "À confirmer",
     prix: "1.830.000 xaf",
     description: "Assise profonde et lignes sobres, pensé pour les grands salons.",
@@ -110,10 +113,10 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/ARYA/ChatGPT Image Sep 29, 2026, 10_55_12 AM (4).png",
-      "images/produits/salon/ARYA/626f92c9-42b7-4628-b51e-0e2140f75732.png",
-      "images/produits/salon/ARYA/ChatGPT Image Sep 29, 2026, 10_55_11 AM (2).png",
-      "images/produits/salon/ARYA/ChatGPT Image Sep 29, 2026, 10_55_11 AM (1).png"
+    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_55_12 AM (4).png",
+      "images/iloveimg-compressed (2)/bb799699-840d-4b75-b37c-a2262e78f388.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_55_11 AM (1).png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_55_11 AM (2).png"
     ]
   },
   {
@@ -121,7 +124,7 @@ const PRODUITS = [
     nom: "BONBON SOFASET",
     piece: "Salon",
     categorie: "salon complet",
-    couleurs: ["Gris", "blanc"],
+    couleurs: ["jaune moutarde"],
     matiere: "Tissu",
     dimensions: "À confirmer",
     prix: "1.625.000 xaf",
@@ -148,10 +151,10 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/BUBBLE/ChatGPT Image Oct 5, 2026, 09_51_44 AM.png",
-      "images/produits/salon/BUBBLE/ChatGPT Image 2 mars 2026, 11_07_11.png",
-      "images/produits/salon/BUBBLE/ChatGPT Image Oct 5, 2026, 09_51_59 AM.png",
-      "images/produits/salon/BUBBLE/ChatGPT Image Oct 5, 2026, 09_52_03 AM.png"
+    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Oct 5, 2026, 09_51_44 AM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 5, 2026, 09_51_59 AM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 5, 2026, 09_52_03 AM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 5, 2026, 09_52_11 AM.png"
     ]
   },
   {
@@ -167,10 +170,32 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/BUGATTI/ChatGPT Image Oct 15, 2026, 12_04_30 PM.png",
-      "images/produits/salon/BUGATTI/ChatGPT Image Oct 14, 2026, 03_41_02 PM.png",
-      "images/produits/salon/BUGATTI/ChatGPT Image Oct 15, 2026, 12_04_40 PM.png",
-      "images/produits/salon/BUGATTI/ChatGPT Image Oct 14, 2026, 03_40_42 PM.png"
+    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 15, 2026, 12_04_30 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 14, 2026, 03_41_02 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 15, 2026, 12_04_40 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 14, 2026, 03_40_42 PM.png"
+    ]
+  },
+  {
+    id: "electrical-SOFASET",
+    nom: "SALON ELECTRIQUE (rétractables)",
+    piece: "Salon",
+    categorie: "salon complet",
+    couleurs: ["Gris", "blanc"],
+    matiere: "Tissu",
+    dimensions: "À confirmer",
+    prix: "4.625.000 xaf",
+    description: "Assise profonde et lignes sobres, pensé pour les grands salons.",
+    entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
+    disponibilite: "Sur demande",
+    fond: ["#d8c6a8", "#9a7a58"],
+    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 16, 2026, 11_23_30 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 16, 2026, 11_24_27 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 16, 2026, 11_24_30 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 16, 2026, 11_27_33 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 16, 2026, 11_27_29 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 16, 2026, 11_24_43 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 16, 2026, 11_27_36 AM.png"
     ]
   },
   {
@@ -186,10 +211,7 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/CORNERSOFA/ChatGPT Image 5 janv. 2026, 16_03_31.png",
-      "images/produits/salon/CORNERSOFA/WhatsApp Image 2025-11-17 at 10.48.07.jpeg",
-      "images/produits/salon/CORNERSOFA/WhatsApp Image 2025-11-17 at 10.48.04.jpeg",
-      "images/produits/salon/CORNERSOFA/WhatsApp Image 2025-11-17 at 10.48.04 (1).jpeg"
+    photos: ["images/iloveimg-compressed (2)/ChatGPT Image 5 janv. 2026, 16_03_31.png",
     ]
   },
   {
@@ -224,10 +246,10 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/GLENDA/ChatGPT Image Sep 30, 2026, 11_05_55 AM.png",
-      "images/produits/salon/GLENDA/f24d59d0-a4dc-4275-bf5c-96e825e88907.png",
-      "images/produits/salon/GLENDA/82fbb479-c3c9-4211-bef7-b55b2c813988.png",
-      "images/produits/salon/GLENDA/9c6e76aa-d1e0-4dd2-a3e7-a5d463fffd85.png"
+    photos: ["images/iloveimg-compressed (2)/9c6e76aa-d1e0-4dd2-a3e7-a5d463fffd85.png",
+      "images/iloveimg-compressed (2)/82fbb479-c3c9-4211-bef7-b55b2c813988.png",
+      "images/iloveimg-compressed (2)/45544675-82fd-4500-ae7e-ef2a84472cbf.png",
+      "images/iloveimg-compressed (2)/cd277cd5-73bb-4a47-b993-4f7ee7930e8f.png"
     ]
   },
   {
@@ -243,10 +265,11 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 7, 2026, 12_38_38 PM.png",
-      "images/iloveimg-compressed (1)/ChatGPT Image Oct 7, 2026, 12_38_42 PM.png",
-      "images/iloveimg-compressed (1)/ChatGPT Image Oct 7, 2026, 12_38_42 PM.png",
-      "images/iloveimg-compressed (1)/ChatGPT Image Oct 7, 2026, 12_38_42 PM.png"
+    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Oct 7, 2026, 12_38_38 PM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 7, 2026, 12_38_42 PM.png",
+      "images/iloveimg-compressed (2)/furniture_house.ng_1774944972729.jpeg",
+      "images/iloveimg-compressed (2)/furniture_house.ng_1774944972729 (1).jpeg",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 7, 2026, 12_44_54 PM.png"
     ]
   },
   {
@@ -283,10 +306,10 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/OTTO/ChatGPT Image Oct 15, 2026, 01_19_56 PM.png",
-      "images/produits/salon/OTTO/ChatGPT Image Oct 15, 2026, 01_31_04 PM.png",
-      "images/produits/salon/OTTO/ChatGPT Image Oct 15, 2026, 01_31_08 PM.png",
-      "images/produits/salon/OTTO/ChatGPT Image Oct 15, 2026, 01_19_56 PM.png"
+    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Oct 15, 2026, 01_19_56 PM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 15, 2026, 01_31_04 PM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 15, 2026, 01_31_08 PM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 15, 2026, 01_19_56 PM.png"
     ]
   },
   {
@@ -302,10 +325,11 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/SALON CHEF/ChatGPT Image Oct 9, 2026, 11_39_25 AM.png",
-      "images/produits/salon/SALON CHEF/ChatGPT Image Oct 9, 2026, 11_39_35 AM.png",
-      "images/produits/salon/SALON CHEF/ChatGPT Image Oct 9, 2026, 11_39_38 AM.png",
-      "images/produits/salon/SALON CHEF/ChatGPT Image Oct 9, 2026, 11_39_46 AM.png"
+    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 11_39_25 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 11_39_30 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 11_39_35 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 11_39_38 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 11_39_42 AM.png"
     ]
   },
   {
@@ -339,10 +363,10 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/SOFASET 3+1/e4f0e059-9514-4803-a16e-2e9de1cd8218.png",
-      "images/produits/salon/SOFASET 3+1/a0ac37a5-9b08-4c97-99af-d2be06af000f.png",
-      "images/produits/salon/SOFASET 3+1/db50d298-ee0f-4aaa-b0cd-e9d0e1daeadf.png",
-      "images/produits/salon/SOFASET 3+1/93baeb7f-bcb4-41dc-ba89-6a055ef4bdb8.png"
+    photos: ["images/iloveimg-compressed (2)/93baeb7f-bcb4-41dc-ba89-6a055ef4bdb8.png",
+      "images/iloveimg-compressed (2)/a0ac37a5-9b08-4c97-99af-d2be06af000f.png",
+      "images/iloveimg-compressed (2)/db50d298-ee0f-4aaa-b0cd-e9d0e1daeadf.png",
+      "images/iloveimg-compressed (2)/e4f0e059-9514-4803-a16e-2e9de1cd8218.png"
     ]
   },
   {
@@ -464,7 +488,26 @@ const PRODUITS = [
     entretien: "Dépoussiérer ; éviter l'exposition prolongée au soleil.",
     disponibilite: "Sur demande",
     fond: ["#cdb89a", "#6e4f35"],
-    photos: ["images/produits/salon/fauteuil/dd9ee782-a332-4b9c-b59c-bf5fa6489079.png",
+    photos: ["images/iloveimg-compressed (2)/dd9ee782-a332-4b9c-b59c-bf5fa6489079.png",
+      "images/iloveimg-compressed (2)/6dab4acf-9362-4e6e-9727-20ee1c6087d7.png",
+      "images/iloveimg-compressed (2)/14ef4d15-09dd-4ed4-be5b-4ac00c8140a4.png",
+      "images/iloveimg-compressed (2)/f514e910-9808-412d-9c8f-9c4a45b2da35.png"
+    ]
+  },
+  {
+    id: "chaise-à-bascule",
+    nom: "CHAISE À BASCULE",
+    piece: "Salon",
+    categorie: "Fauteuils",
+    couleurs: ["Beige", "Marron"],
+    matiere: "Tissu et bois",
+    dimensions: "À confirmer",
+    prix: "646.000 xaf",
+    description: "Un fauteuil confortable pour compléter un coin lecture.",
+    entretien: "Dépoussiérer ; éviter l'exposition prolongée au soleil.",
+    disponibilite: "Sur demande",
+    fond: ["#cdb89a", "#6e4f35"],
+    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 10_07_29 AM.png",
     ]
   },
   {
@@ -480,7 +523,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer ; éviter l'exposition prolongée au soleil.",
     disponibilite: "Sur demande",
     fond: ["#cdb89a", "#6e4f35"],
-    photos: ["images/produits/salon/FAUTEUIL RETRACTABLE/ChatGPT Image Oct 9, 2026, 10_22_56 AM.png"]
+    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 10_22_56 AM.png"]
   },
   {
     id: "kyoto-sofaset",
@@ -491,11 +534,17 @@ const PRODUITS = [
     matiere: "Tissu et bois",
     dimensions: "À confirmer",
     prix: "3.480.000 XAF",
-    description: "Salon complet Kyoto alliant structure en bois et garnissage haute densité.",
+    description: "Assise profonde et lignes sobres, pensé pour les grands salons.",
     entretien: "Dépoussiérer ; éviter l'exposition prolongée au soleil.",
     disponibilite: "Sur demande",
     fond: ["#cdb89a", "#6e4f35"],
-    photos: ["images/produits/salon/KYOTO SOFASET/ChatGPT Image Sep 25, 2026, 01_24_40 PM.png"]
+    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Sep 25, 2026, 01_24_40 PM.png",
+      "images/iloveimg-compressed (2)/2424c878-5218-4016-b534-5a1965f237eb.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 10_07_37 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 10_07_52 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 10_07_56 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 10_08_04 AM.png"
+    ]
   },
   {
     id: "kyoto-berger",
@@ -510,7 +559,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer ; éviter l'exposition prolongée au soleil.",
     disponibilite: "Sur demande",
     fond: ["#cdb89a", "#6e4f35"],
-    photos: ["images/produits/salon/KYOTO SOFASET/c79c4453-5c69-4aac-a6a0-3a0a8a211c08.png"]
+    photos: ["images/iloveimg-compressed (2)/c79c4453-5c69-4aac-a6a0-3a0a8a211c08.png"]
   },
   {
     id: "kyoto-4-seater",
