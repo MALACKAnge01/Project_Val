@@ -57,6 +57,26 @@ const PRODUITS = [
       "images/produits/salon/OXFORD/ChatGPT Image Oct 8, 2026, 11_07_29 AM.png",
     ]
     },
+    {
+   id: "Pollen-sofaset", // 👈 ID unique pour Puffy
+    nom: "POLLEN SOFASET",
+    piece: "Salon",
+    categorie: "salon complet",
+    couleurs: ["Gris", "blanc"],
+    matiere: "Tissu",
+    dimensions: "À confirmer",
+    prix: "13.625.000 xaf",
+    description: "Assise profonde et lignes sobres, pensé pour les grands salons.",
+    entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
+    disponibilite: "Sur demande",
+    fond: ["#d8c6a8", "#9a7a58"],
+    photos: [
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 01_27_28 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 01_28_11 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 01_27_23 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 01_26_17 PM.png",
+    ]
+    },
    {
     id: "T-BLACK-SOFASET",
     nom: "BLACK SOFASET",
@@ -109,10 +129,10 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/BONBON/ChatGPT Image Oct 2, 2026, 12_11_26 PM.png",
-      "images/produits/salon/BONBON/ChatGPT Image Oct 2, 2026, 12_12_25 PM.png",
-      "images/produits/salon/BONBON/ChatGPT Image Oct 2, 2026, 12_13_31 PM.png",
-      "images/produits/salon/BONBON/ChatGPT Image Oct 2, 2026, 12_14_39 PM.png"
+    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 2, 2026, 12_13_31 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 2, 2026, 12_14_31 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 2, 2026, 12_14_39 PM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Oct 2, 2026, 12_13_31 PM.png"
     ]
   },
   {
@@ -185,10 +205,10 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/PICASSO/ChatGPT Image Oct 3, 2026, 10_42_06 AM.png",
-      "images/produits/salon/PICASSO/ChatGPT Image Oct 3, 2026, 10_41_58 AM.png",
-      "images/produits/salon/PICASSO/ChatGPT Image Oct 3, 2026, 10_42_13 AM.png",
-      "images/produits/salon/PICASSO/ChatGPT Image Oct 3, 2026, 10_42_17 AM.png"
+    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 3, 2026, 10_41_58 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 3, 2026, 10_42_13 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 3, 2026, 10_42_17 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 01_26_17 PM.png"
     ]
   },
   {
@@ -223,10 +243,10 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/LIZBON/ChatGPT Image Oct 7, 2026, 12_38_38 PM.png",
-      "images/produits/salon/LIZBON/ChatGPT Image Oct 7, 2026, 12_38_42 PM.png",
-      "images/produits/salon/LIZBON/furniture_house.ng_1774944972729.jpeg",
-      "images/produits/salon/LIZBON/furniture_house.ng_1774944972729 (1).jpeg"
+    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 7, 2026, 12_38_38 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 7, 2026, 12_38_42 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 7, 2026, 12_38_42 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 7, 2026, 12_38_42 PM.png"
     ]
   },
   {
@@ -242,10 +262,11 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/GIRIT/ChatGPT Image Oct 8, 2026, 11_03_11 AM.png",
-      "images/produits/salon/GIRIT/ChatGPT Image Oct 8, 2026, 11_02_28 AM.png",
-      "images/produits/salon/GIRIT/ChatGPT Image Oct 8, 2026, 11_02_23 AM.png",
-      "images/produits/salon/GIRIT/ChatGPT Image Oct 8, 2026, 11_03_15 AM.png"
+    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_02_15 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_02_23 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_02_28 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_02_31 AM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_03_11 AM.png"
 
     ]
   },
@@ -300,10 +321,9 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/CANAPé 3PLACES/ChatGPT Image Oct 8, 2026, 01_51_09 PM.png",
-      "images/produits/salon/CANAPé 3PLACES/ChatGPT Image Oct 8, 2026, 01_51_09 PM.png",
-      "images/produits/salon/CANAPé 3PLACES/ChatGPT Image Oct 8, 2026, 01_51_14 PM.png",
-      "images/produits/salon/CANAPé 3PLACES/ChatGPT Image Oct 8, 2026, 01_51_18 PM.png"
+    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 01_51_09 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 01_51_14 PM.png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 01_51_18 PM.png",
     ]
   },
   {
