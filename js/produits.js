@@ -30,11 +30,11 @@ const PRODUITS = [
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
     photos: [
-      "images/produits/salon/PUFFY/ChatGPT Image Sep 29, 2026, 10_47_22 AM (6).png",
-      "images/produits/salon/PUFFY/ChatGPT Image Sep 29, 2026, 10_47_19 AM (1).png",
-      "images/produits/salon/PUFFY/ChatGPT Image Sep 29, 2026, 10_47_20 AM (2).png",
-      "images/produits/salon/PUFFY/ChatGPT Image Sep 29, 2026, 10_47_21 AM (3).png",
-      "images/produits/salon/PUFFY/ChatGPT Image Sep 29, 2026, 10_47_22 AM (4).png"
+      "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_47_13 AM.png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_47_19 AM (1).png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_47_20 AM (2).png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_47_21 AM (3).png",
+      "images/iloveimg-compressed (2)/ChatGPT Image Sep 29, 2026, 10_47_22 AM (4).png"
     ]
     },
     {
@@ -70,11 +70,11 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/BLACK SOFASET/ChatGPT Image Sep 26, 2026, 11_06_20 AM (1).png",
-      "images/produits/salon/BLACK SOFASET/ChatGPT Image Sep 26, 2026, 11_06_20 AM (2).png",
-      "images/produits/salon/BLACK SOFASET/ChatGPT Image Sep 26, 2026, 11_06_20 AM (3).png",
-      "images/produits/salon/BLACK SOFASET/ChatGPT Image Sep 26, 2026, 11_06_21 AM (4).png",
-      "images/produits/salon/BLACK SOFASET/ChatGPT Image Sep 26, 2026, 11_06_21 AM (5).png"
+    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Sep 26, 2026, 11_06_20 AM (2).png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Sep 26, 2026, 11_06_20 AM (1).png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Sep 26, 2026, 11_06_20 AM (3).png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Sep 26, 2026, 11_06_21 AM (4).png",
+      "images/iloveimg-compressed (1)/ChatGPT Image Sep 26, 2026, 11_06_21 AM (5).png"
     ]
   },
    {
