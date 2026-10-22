@@ -689,7 +689,7 @@ const PRODUITS = [
     couleurs: ["Bois naturel", "Blanc"],
     matiere: "Bois",
     dimensions: "À confirmer",
-    prix: "236000 xaf",
+    prix: "3.961.000 xaf",
     description: "Une table pour réunir la famille, avec ses chaises assorties.",
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
