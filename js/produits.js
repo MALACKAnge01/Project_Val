@@ -1152,7 +1152,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LAMPE MURAL/ChatGPT Image Oct 13, 2026, 10_05_50 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 10_05_50 AM.png"]
   },
   {
     id: "applique-murale-o350",
@@ -1167,7 +1167,11 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747966/ChatGPT_Image_Oct_13_2026_10_04_46_AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747966/ChatGPT_Image_Oct_13_2026_10_04_46_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747868/ChatGPT_Image_Oct_13_2026_10_05_14_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT_Image_Oct_13_2026_10_04_32_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT_Image_Oct_13_2026_10_04_36_AM.png"
+    ]
   },
   {
     id: "applique-murale-s285-bis",
@@ -1182,7 +1186,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LAMPE MURAL/ChatGPT Image Oct 13, 2026, 09_54_41 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 09_54_41 AM.png"]
   },
   {
     id: "lustre-g510",
@@ -1197,7 +1201,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LUSTRE SIMPLE/ChatGPT Image Oct 10, 2026, 01_50_21 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_50_21 PM.png"]
   },
   {
     id: "lustre-w45",
@@ -1212,7 +1216,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LUSTRE SIMPLE/ChatGPT Image Oct 10, 2026, 01_53_03 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_53_03 PM.png"]
   },
   {
     id: "lustre-r38",
@@ -1227,7 +1231,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LUSTRE SIMPLE/ChatGPT Image Oct 10, 2026, 03_13_28 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 03_13_28 PM.png"]
   },
   {
     id: "lustre-w330-2",
@@ -1242,7 +1246,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LUSTRE SIMPLE/ChatGPT Image Oct 10, 2026, 03_13_57 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 03_13_57 PM.png"]
   },
   {
     id: "lustre-g330",
@@ -1257,7 +1261,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LUSTRE SIMPLE/ChatGPT Image Oct 10, 2026, 03_14_01 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 03_14_01 PM.png"]
   },
   {
     id: "lustre-w450",
@@ -1272,7 +1276,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LUSTRE SIMPLE/ChatGPT Image Oct 10, 2026, 03_14_31 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 03_14_31 PM.png"]
   },
   {
     id: "lustre-w520",
@@ -1287,7 +1291,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LUSTRE SIMPLE/ChatGPT Image Oct 13, 2026, 09_41_51 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 09_41_51 AM.png"]
   },
   {
     id: "lustre-r500",
@@ -1302,7 +1306,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LUSTRE SIMPLE/ChatGPT Image Oct 13, 2026, 09_53_12 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 09_53_12 AM.png"]
   },
   {
     id: "lustre-b600",
@@ -1317,7 +1321,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LUSTRE SIMPLE/ChatGPT Image Oct 13, 2026, 09_53_35 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 09_53_35 AM.png"]
   },
   {
     id: "lustre-w600",
@@ -1332,7 +1336,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LUSTRE SIMPLE/ChatGPT Image Oct 13, 2026, 09_53_56 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 09_53_56 AM.png"]
   },
   {
     id: "lustre-145-800",
@@ -1347,10 +1351,10 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/lustre/ChatGPT Image Oct 10, 2026, 01_45_18 PM.png",
-      "images/produits/LUMINAIRE/lustre/ChatGPT Image Oct 10, 2026, 01_45_07 PM.png",
-      "images/produits/LUMINAIRE/lustre/ChatGPT Image Oct 10, 2026, 01_45_11 PM.png",
-      "images/produits/LUMINAIRE/lustre/ChatGPT Image Oct 10, 2026, 01_45_14 PM.png"
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_45_18 PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_45_07 PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_45_11 PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_45_14 PM.png"
     ]
   },
   {
@@ -1366,7 +1370,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/lustre/ChatGPT Image Oct 10, 2026, 01_45_11 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_45_11 PM.png"]
   },
 ];
 
