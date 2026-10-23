@@ -1167,7 +1167,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LAMPE MURAL/ChatGPT Image Oct 13, 2026, 10_07_42 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747966/ChatGPT_Image_Oct_13_2026_10_04_46_AM.png"]
   },
   {
     id: "applique-murale-s285-bis",
