@@ -944,6 +944,27 @@ const PRODUITS = [
     fond: ["#d6c4a6", "#3a2c22"],
     photos: ["images/produits/Chaises/ChatGPT Image Oct 6, 2026, 10_43_31 AM.png"]
   },
+   {
+    id: "oxford-bedroom",
+    nom: "OXFORD BEDROOM",
+    piece: "Chambre",
+    categorie: "Lits",
+    couleurs: ["boisé", ""],
+    matiere: "Tissu et bois",
+    dimensions: "lit: 180cm * 200cm",
+    prix: null,
+    description: "Tête de lit capitonnée pour une chambre apaisante.",
+    entretien: "Aspirer la tête de lit ; ne pas frotter les taches.",
+    disponibilite: "Sur demande",
+    fond: ["#e0d3bd", "#8a6b4d"],
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747743/ChatGPT_Image_Oct_22_2026_10_31_24_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747745/ChatGPT_Image_Oct_22_2026_10_31_10_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747744/ChatGPT_Image_Oct_22_2026_10_31_06_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747744/ChatGPT_Image_Oct_22_2026_10_31_28_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747743/ChatGPT_Image_Oct_22_2026_10_31_20_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747742/ChatGPT_Image_Oct_22_2026_10_31_00_AM.png"
+    ]
+  },
   {
     id: "ada-bedroom",
     nom: "ADA BEDROOM",
@@ -957,7 +978,12 @@ const PRODUITS = [
     entretien: "Aspirer la tête de lit ; ne pas frotter les taches.",
     disponibilite: "Sur demande",
     fond: ["#e0d3bd", "#8a6b4d"],
-    photos: ["images/produits/chambre/ADA bedroom/ChatGPT Image 2 avr. 2026, 16_31_46.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747733/ChatGPT_Image_2_avr._2026_16_31_46.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747735/e4a5cca9-aca0-4ad0-8f01-7dc9914ffac9.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747734/ba8467aa-1b0b-4da2-a31b-454c0d24c9e7.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747732/74d57e99-3bf2-4ad8-afcd-c24ced863502.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747721/11.jpg"
+    ]
   },
     {
     id: "side-bedroom",
@@ -972,37 +998,71 @@ const PRODUITS = [
     entretien: "Aspirer la tête de lit ; ne pas frotter les taches.",
     disponibilite: "Sur demande",
     fond: ["#e0d3bd", "#8a6b4d"],
-    photos: ["images/produits/chambre/ADA bedroom/ChatGPT Image 2 avr. 2026, 16_31_46.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747733/ChatGPT_Image_2_avr._2026_16_31_46.png"]
   },
     {
-    id: "oxford-bedroom",
-    nom: "OXFORD BEDROOM",
+    id: "alberta-bedroom",
+    nom: "ALBERTA BEDROOM",
     piece: "Chambre",
     categorie: "Lits",
     couleurs: ["boisé", ""],
     matiere: "Tissu et bois",
-    dimensions: "À confirmer",
+    dimensions: "lit: 180cm x 200cm",
     prix: null,
     description: "Tête de lit capitonnée pour une chambre apaisante.",
     entretien: "Aspirer la tête de lit ; ne pas frotter les taches.",
     disponibilite: "Sur demande",
     fond: ["#e0d3bd", "#8a6b4d"],
-    photos: ["images/produits/chambre/ADA bedroom/ChatGPT Image 2 avr. 2026, 16_31_46.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747752/ChatGPT_Image_Oct_22_2026_10_37_43_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747751/ChatGPT_Image_Oct_22_2026_10_37_34_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747751/ChatGPT_Image_Oct_22_2026_10_37_31_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747749/ChatGPT_Image_Oct_22_2026_10_37_37_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747747/ChatGPT_Image_Oct_22_2026_10_37_17_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747747/ChatGPT_Image_Oct_22_2026_10_34_04_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747747/ChatGPT_Image_Oct_22_2026_10_37_13_AM.png"
+    ]
   },
-  {
-    id: "titan-dressing",
-    nom: "TITAN dressing",
-    piece: "Chambre",
-    categorie: "Armoires",
+   {
+    id: "Luna-bedroom",
+    nom: "LUNA BEDROOM",
+    piece: "Chambre pour enfant",
+    categorie: "chambres enfants",
     couleurs: ["Gris", "Bois naturel"],
     matiere: "Bois",
-    dimensions: "2.30m",
+    dimensions: "lit: 120cm * 200cm",
     prix: null,
     description: "Rangement spacieux aux finitions soignées.",
     entretien: "Dépoussiérer ; éviter l'humidité.",
     disponibilite: "Sur demande",
     fond: ["#e8dfd0", "#a98660"],
-    photos: ["images/produits/chambre/TITAN/ChatGPT Image Oct 8, 2026, 10_24_06 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747764/ChatGPT_Image_Oct_10_2026_11_55_07_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747736/ChatGPT_Image_Oct_10_2026_11_53_44_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747738/ChatGPT_Image_Oct_10_2026_11_55_45_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747736/ChatGPT_Image_Oct_10_2026_11_55_02_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747736/ChatGPT_Image_Oct_10_2026_11_54_55_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747764/ChatGPT_Image_Oct_10_2026_11_54_44_AM.png"
+    ]
+  },
+  {
+    id: "lit-bedroom",
+    nom: "BEDROOM",
+    piece: "Chambre pour enfant",
+    categorie: "chambres enfants",
+    couleurs: ["Gris", "Bois naturel"],
+    matiere: "Bois",
+    dimensions: "lit: 120cm * 200cm",
+    prix: null,
+    description: "Rangement spacieux aux finitions soignées.",
+    entretien: "Dépoussiérer ; éviter l'humidité.",
+    disponibilite: "Sur demande",
+    fond: ["#e8dfd0", "#a98660"],
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747764/ChatGPT_Image_Oct_10_2026_11_55_07_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747736/ChatGPT_Image_Oct_10_2026_11_53_44_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747738/ChatGPT_Image_Oct_10_2026_11_55_45_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747736/ChatGPT_Image_Oct_10_2026_11_55_02_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747736/ChatGPT_Image_Oct_10_2026_11_54_55_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747764/ChatGPT_Image_Oct_10_2026_11_54_44_AM.png"
+    ]
   },
   {
     id: "bureau-office",

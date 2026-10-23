@@ -27,9 +27,11 @@ const SITE = {
   //  - poster : image affichée pendant le chargement (facultatif)
   // Si la liste est vide, le site affiche les photos de "imagesSecours".
   videos: [
-    { src: "images/iloveimg-compressed (1)/ChatGPT Image Oct 2, 2026, 12_13_31 PM.png", titre: "Des espaces chaleureux", texte: "Des mobilier confortables pour recevoir vos invités." },
-    { src: "images/iloveimg-compressed (3)/ChatGPT Image Oct 22, 2026, 10_49_22 AM.png", titre: "Un style apaisant", texte: "Des matières douces pour bien se reposer." },
-     { src: "images/iloveimg-compressed (4)/ChatGPT Image Oct 22, 2026, 10_31_00 AM.png", titre: "Un accord parfait", texte: "Des modeles assortis à votre vision." }
+    { src: "https://res.cloudinary.com/enepocmi/video/upload/v1792760549/1.mp4", titre: "Des espaces chaleureux", texte: "Des mobilier confortables pour recevoir vos invités." },
+    { src: "https://res.cloudinary.com/enepocmi/video/upload/v1792760551/3.mp4", titre: "Un style apaisant", texte: "Des matières douces pour bien se reposer." },
+     { src: "https://res.cloudinary.com/enepocmi/video/upload/v1792760543/2.mp4", titre: "Un accord parfait", texte: "Des modeles assortis à votre vision." },
+     { src: "https://res.cloudinary.com/enepocmi/video/upload/v1792760547/4.mp4", titre: "Des meubles de qualité", texte: "Des meubles de premier choix, principalement d'origine turque." },
+     { src: "https://res.cloudinary.com/enepocmi/video/upload/v1792760527/she.mp4", titre: "Des services exceptionnels", texte: "Livraison gratuite à Brazzaville, installation offerte." }
   ],
   imagesSecours: [
     { src: "images/produits/salon/OXFORD/ChatGPT Image Oct 8, 2026, 11_06_48 AM.png", titre: "L'élégance durable, le confort au quotidien", texte: "Des meubles de premier choix, principalement d'origine turque." },
