@@ -405,10 +405,10 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/OPUS/ChatGPT Image Oct 13, 2026, 10_29_41 AM.png",
-      "images/produits/salon/OPUS/ChatGPT Image Oct 13, 2026, 10_29_05 AM.png",
-      "images/produits/salon/OPUS/ChatGPT Image Oct 13, 2026, 10_31_25 AM.png",
-      "images/produits/salon/OPUS/ChatGPT Image Oct 13, 2026, 10_43_58 AM.png"
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748183/ChatGPT_Image_Oct_13_2026_10_43_58_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748180/ChatGPT_Image_Oct_13_2026_10_29_41_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748185/ChatGPT_Image_Oct_13_2026_10_31_25_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748179/ChatGPT_Image_Oct_13_2026_10_29_05_AM.png"
     ]
   },
   {
@@ -424,7 +424,7 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/produits/salon/OPUS/ChatGPT Image Oct 13, 2026, 10_31_02 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748181/ChatGPT_Image_Oct_13_2026_10_31_02_AM.png"]
   },
   {
     id: "opus-berger",
@@ -439,7 +439,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer ; éviter l'exposition prolongée au soleil.",
     disponibilite: "Sur demande",
     fond: ["#cdb89a", "#6e4f35"],
-    photos: ["images/produits/salon/OPUS/ChatGPT Image Oct 13, 2026, 10_30_32 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748181/ChatGPT_Image_Oct_13_2026_10_30_32_AM.png"]
   },
   {
     id: "heritage-longseater",
@@ -454,7 +454,8 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Oct 7, 2026, 11_30_17 AM.png",
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748155/ChatGPT_Image_Oct_7_2026_11_30_17_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748159/ChatGPT_Image_Oct_7_2026_11_30_30_AM.png"
     ]
   },
   {
@@ -470,8 +471,9 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Oct 7, 2026, 11_30_22 AM.png",
-      "images/iloveimg-compressed (2)/ChatGPT Image Oct 7, 2026, 11_40_20 AM.png",
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748162/ChatGPT_Image_Oct_7_2026_11_40_20_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748156/ChatGPT_Image_Oct_7_2026_11_30_22_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748157/ChatGPT_Image_Oct_7_2026_11_30_26_AM.png"
     ]
   },
   {
@@ -487,7 +489,7 @@ const PRODUITS = [
     entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#d8c6a8", "#9a7a58"],
-    photos: ["images/iloveimg-compressed (2)/ChatGPT Image Oct 7, 2026, 11_30_12 AM.png",
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748155/ChatGPT_Image_Oct_7_2026_11_30_12_AM.png",
     ]
   },
   {
@@ -574,7 +576,7 @@ const PRODUITS = [
     entretien: "Dépoussiérer ; éviter l'exposition prolongée au soleil.",
     disponibilite: "Sur demande",
     fond: ["#cdb89a", "#6e4f35"],
-    photos: ["images/iloveimg-compressed (2)/c79c4453-5c69-4aac-a6a0-3a0a8a211c08.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748161/c79c4453-5c69-4aac-a6a0-3a0a8a211c08.png"]
   },
   {
     id: "kyoto-4-seater",
@@ -589,7 +591,9 @@ const PRODUITS = [
     entretien: "Dépoussiérer ; éviter l'exposition prolongée au soleil.",
     disponibilite: "Sur demande",
     fond: ["#cdb89a", "#6e4f35"],
-    photos: ["images/produits/salon/KYOTO SOFASET/ChatGPT Image Sep 25, 2026, 01_20_43 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748163/ChatGPT_Image_Sep_25_2026_01_24_40_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748162/ChatGPT_Image_Sep_25_2026_01_20_43_PM.png"
+    ]
   },
   
  {
@@ -683,7 +687,11 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/ARPEGE/ChatGPT Image Sep 22, 2026, 01_41_46 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748372/ChatGPT_Image_Sep_22_2026_01_41_46_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748372/IMG-20240403-WA0000.jpg",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748371/IMG-20231024-WA0016.jpg",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748368/5.jpg"
+    ]
   },
   {
     id: "table-en-marbre",
@@ -737,7 +745,12 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T230/IMG-20240814-WA0006.jpg"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748430/IMG-20240814-WA0006.jpg",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748432/ChatGPT_Image_Sep_23_2026_12_51_35_PM.png0",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748431/IMG-20240814-WA0013.jpg",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748430/IMG-20231016-WA0091.jpg",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748429/3-1200x800.jpg"
+    ]
   },
   {
     id: "t240-dining",
@@ -948,36 +961,6 @@ const PRODUITS = [
     ]
   },
   
-  {
-    id: "chaises-salle-a-manger-1",
-    nom: "Chaises de salle à manger",
-    piece: "Salle à manger",
-    categorie: "Chaises",
-    couleurs: ["Beige", "Noir"],
-    matiere: "Tissu et métal",
-    dimensions: "À confirmer",
-    prix: "52.000 xaf",
-    description: "Assise rembourrée et dossier confortable.",
-    entretien: "Aspirer ; détacher à l'eau savonneuse.",
-    disponibilite: "Sur demande",
-    fond: ["#d6c4a6", "#3a2c22"],
-    photos: ["images/produits/Chaises/1db6942d-6ce4-47b9-9110-00a45a79ab59.png"]
-  },
-  {
-    id: "chaises-salle-a-manger-2",
-    nom: "Chaises de salle à manger (Modèle 2)",
-    piece: "Salle à manger",
-    categorie: "Chaises",
-    couleurs: ["Beige", "Noir"],
-    matiere: "Tissu et métal",
-    dimensions: "À confirmer",
-    prix: "52.000 xaf",
-    description: "Assise rembourrée et dossier confortable.",
-    entretien: "Aspirer ; détacher à l'eau savonneuse.",
-    disponibilite: "Sur demande",
-    fond: ["#d6c4a6", "#3a2c22"],
-    photos: ["images/produits/Chaises/ChatGPT Image Oct 6, 2026, 10_43_31 AM.png"]
-  },
    {
     id: "oxford-bedroom",
     nom: "OXFORD BEDROOM",
@@ -1099,8 +1082,8 @@ const PRODUITS = [
     ]
   },
   {
-    id: "bureau-office",
-    nom: "OFFICE",
+    id: "bureau-secretaire",
+    nom: "bureau secrétaire",
     piece: "Bureau",
     categorie: "Bureaux",
     couleurs: ["Gris", "Noir"],
@@ -1111,7 +1094,9 @@ const PRODUITS = [
     entretien: "Essuyer avec un chiffon doux.",
     disponibilite: "Sur demande",
     fond: ["#bd9a70", "#40302a"],
-    photos: ["images/produits/bureau/ChatGPT Image Oct 14, 2026, 03_35_12 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747633/ChatGPT_Image_Oct_14_2026_03_35_12_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747667/ChatGPT_Image_Oct_14_2026_10_44_54_AM.png",
+    ]
   },
   {
     id: "table-de-reception",
@@ -1126,7 +1111,10 @@ const PRODUITS = [
     entretien: "Essuyer avec un chiffon doux.",
     disponibilite: "Sur demande",
     fond: ["#bd9a70", "#40302a"],
-    photos: ["images/produits/bureau/84b182a4-b772-4318-874a-b4c112c4acbe.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747627/c03a52dc-489d-4626-a518-87c869920168.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747543/325e2615-718e-4033-be6c-1c6ec2d380b8.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792450261/1e96ec9b-8271-415d-885c-fc2c1c633e19.png",
+    ]
   },
   {
     id: "meuble-tv-lizbon",
@@ -1141,7 +1129,11 @@ const PRODUITS = [
     entretien: "Dépoussiérer ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/Meuble TV/LIZBON TVUNIT/ChatGPT Image Oct 1, 2026, 01_15_08 PM (1).png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748011/ChatGPT_Image_Oct_1_2026_01_15_08_PM_1.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748011/ChatGPT_Image_Oct_1_2026_01_15_09_PM_2.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748017/ChatGPT_Image_Oct_1_2026_01_15_10_PM_5.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748015/ChatGPT_Image_Oct_1_2026_01_15_10_PM_4.png"
+    ]
   },
   {
     id: "applique-murale-c140",
