@@ -1100,25 +1100,6 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792846630/ChatGPT_Image_Oct_24_2026_01_23_53_PM.png"
     ]
   },
-  {
-    id: "bureau-pnt12-5/6",
-    nom: "BUREAU PNT12-5/6",
-    piece: "Bureau",
-    categorie: "Bureaux",
-    couleurs: ["Gris", "Noir"],
-    matiere: "Acier",
-    dimensions: "grand: 3,20m * 2m * 0,75m ; petit: 2,80m * 2m * 0,75m",
-    prix: "grand: 1.250.000 xaf ; petit: 1.175.000 xaf",
-    description: "Un plan de travail sobre pour la maison ou le cabinet.",
-    entretien: "Essuyer avec un chiffon doux.",
-    disponibilite: "Sur demande",
-    fond: ["#bd9a70", "#40302a"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792846630/ChatGPT_Image_Oct_24_2026_01_23_47_PM.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792846628/ChatGPT_Image_Oct_24_2026_01_23_36_PM.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792846629/ChatGPT_Image_Oct_24_2026_01_23_44_PM.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792846630/ChatGPT_Image_Oct_24_2026_01_23_53_PM.png"
-    ]
-  },
    {
     id: "bureau-pnt11-18",
     nom: "BUREAU PNT11-18",
