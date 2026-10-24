@@ -752,7 +752,11 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T240/IMG-20240814-WA0017.jpg"]
+    photos: ["images/iloveimg-compressed (3)/IMG-20240814-WA0017.jpg",
+      "images/iloveimg-compressed (3)/ChatGPT Image Sep 22, 2026, 01_35_19 PM.png",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0016.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0018.jpg",
+    ]
   },
   {
     id: "t250-dining",
@@ -786,7 +790,10 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T740/IMG-20240814-WA0027.jpg"]
+    photos: ["images/iloveimg-compressed (3)/IMG-20240814-WA0027.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0028.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0026.jpg"
+    ]
   },
   {
     id: "t720-dining",
@@ -801,7 +808,11 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T720/IMG-20240814-WA0054.jpg"]
+    photos: ["images/iloveimg-compressed (3)/ChatGPT Image Oct 10, 2026, 10_54_01 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 10, 2026, 10_58_30 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 10, 2026, 10_58_27 AM.png",
+      "images/iloveimg-compressed (3)/ChatGPT Image Oct 10, 2026, 10_58_22 AM.png"
+    ]
   },
   {
     id: "t687-dining",
@@ -816,7 +827,11 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T687/IMG-20240814-WA0040.jpg"]
+    photos: ["images/iloveimg-compressed (3)/IMG-20240814-WA0040.jpg",
+      "images/iloveimg-compressed (3)/535899d3-7010-477e-b4ba-19021da503eb.png",
+      "images/iloveimg-compressed (3)/558bae22-4b88-4011-b213-591c9de0c90f.png",
+      "images/iloveimg-compressed (3)/9f0288b7-3308-4faa-903b-8bc6582b2c5f.png"
+    ]
   },
   {
     id: "t670-dining",
@@ -831,7 +846,12 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T670/IMG-20240814-WA0001.jpg"]
+    photos: ["images/iloveimg-compressed (3)/IMG-20240814-WA0001.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0002.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0003.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0009.jpg",
+      "images/iloveimg-compressed (3)/ChatGPT Image Sep 22, 2026, 11_26_37 AM.png"
+    ]
   },
   {
     id: "t650-dining",
@@ -846,11 +866,14 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T650/IMG-20240814-WA0000.jpg"]
+    photos: ["images/iloveimg-compressed (3)/IMG-20240814-WA0000.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0011.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0012.jpg",
+    ]
   },
   {
-    id: "t730-dining",
-    nom: "T730 DINING",
+    id: "t610-dining",
+    nom: "T610 DINING",
     piece: "Salle à manger",
     categorie: "Tables",
     couleurs: ["Bois naturel", "Blanc"],
@@ -861,7 +884,11 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T610/IMG-20240814-WA0004.jpg"]
+    photos: ["images/iloveimg-compressed (3)/IMG-20240814-WA0049.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0046.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0046.jpg",
+      "images/iloveimg-compressed (3)/ChatGPT Image Sep 22, 2026, 01_47_40 PM.png"
+    ]
   },
   {
     id: "t550-dining",
@@ -876,7 +903,11 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T550/IMG-20240814-WA0039.jpg"]
+    photos: ["images/iloveimg-compressed (3)/IMG-20240814-WA0039.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0038.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0036.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0035.jpg"
+    ]
   },
   {
     id: "t414-dining",
@@ -911,7 +942,10 @@ const PRODUITS = [
     entretien: "Utiliser des sous-plats ; nettoyer avec un chiffon humide.",
     disponibilite: "Sur demande",
     fond: ["#c2a47e", "#6d4b30"],
-    photos: ["images/produits/Table à manger/TABLE 4 PLACES/T320/IMG-20240814-WA0025.jpg"]
+    photos: ["images/iloveimg-compressed (3)/IMG-20240814-WA0025.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0024.jpg",
+      "images/iloveimg-compressed (3)/IMG-20240814-WA0022.jpg",
+    ]
   },
   
   {
