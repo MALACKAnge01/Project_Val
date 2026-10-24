@@ -1082,14 +1082,109 @@ const PRODUITS = [
     ]
   },
   {
-    id: "bureau-secretaire",
-    nom: "bureau secrétaire",
+    id: "bureau-pnt29-1",
+    nom: "BUREAU PNT29-1",
     piece: "Bureau",
     categorie: "Bureaux",
     couleurs: ["Gris", "Noir"],
     matiere: "Acier",
-    dimensions: "À confirmer",
-    prix: null,
+    dimensions: "2,40m * 1,80m",
+    prix: "930.000 xaf",
+    description: "Un plan de travail sobre pour la maison ou le cabinet.",
+    entretien: "Essuyer avec un chiffon doux.",
+    disponibilite: "Sur demande",
+    fond: ["#bd9a70", "#40302a"],
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792846630/ChatGPT_Image_Oct_24_2026_01_23_47_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846628/ChatGPT_Image_Oct_24_2026_01_23_36_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846629/ChatGPT_Image_Oct_24_2026_01_23_44_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846630/ChatGPT_Image_Oct_24_2026_01_23_53_PM.png"
+    ]
+  },
+  {
+    id: "bureau-pnt12-5/6",
+    nom: "BUREAU PNT12-5/6",
+    piece: "Bureau",
+    categorie: "Bureaux",
+    couleurs: ["Gris", "Noir"],
+    matiere: "Acier",
+    dimensions: "grand: 3,20m * 2m * 0,75m ; petit: 2,80m * 2m * 0,75m",
+    prix: "grand: 1.250.000 xaf ; petit: 1.175.000 xaf",
+    description: "Un plan de travail sobre pour la maison ou le cabinet.",
+    entretien: "Essuyer avec un chiffon doux.",
+    disponibilite: "Sur demande",
+    fond: ["#bd9a70", "#40302a"],
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792846630/ChatGPT_Image_Oct_24_2026_01_23_47_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846628/ChatGPT_Image_Oct_24_2026_01_23_36_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846629/ChatGPT_Image_Oct_24_2026_01_23_44_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846630/ChatGPT_Image_Oct_24_2026_01_23_53_PM.png"
+    ]
+  },
+   {
+    id: "bureau-pnt11-18",
+    nom: "BUREAU PNT11-18",
+    piece: "Bureau",
+    categorie: "Bureaux",
+    couleurs: ["Gris", "Noir"],
+    matiere: "Acier",
+    dimensions: "3,02m * 2,20m * 0,76m",
+    prix: "930.000 xaf",
+    description: "Un plan de travail sobre pour la maison ou le cabinet.",
+    entretien: "Essuyer avec un chiffon doux.",
+    disponibilite: "Sur demande",
+    fond: ["#bd9a70", "#40302a"],
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792846642/ChatGPT_Image_Oct_24_2026_01_33_03_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846641/ChatGPT_Image_Oct_24_2026_01_24_21_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846644/ChatGPT_Image_Oct_24_2026_01_33_11_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846645/ChatGPT_Image_Oct_24_2026_01_33_21_PM.png"
+    ]
+  },
+  {
+    id: "bureau-pnt12-1",
+    nom: "BUREAU PNT12-1",
+    piece: "Bureau",
+    categorie: "Bureaux",
+    couleurs: ["Gris", "Noir"],
+    matiere: "Acier",
+    dimensions: "3,20m * 2,05m * 0,75m",
+    prix: "930.000 xaf",
+    description: "Un plan de travail sobre pour la maison ou le cabinet.",
+    entretien: "Essuyer avec un chiffon doux.",
+    disponibilite: "Sur demande",
+    fond: ["#bd9a70", "#40302a"],
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792846647/ChatGPT_Image_Oct_24_2026_01_33_27_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846648/ChatGPT_Image_Oct_24_2026_01_33_31_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846650/ChatGPT_Image_Oct_24_2026_01_33_35_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846652/ChatGPT_Image_Oct_24_2026_01_33_40_PM.png"
+    ]
+  },
+  {
+    id: "bureau-pnt12-1",
+    nom: "BUREAU PNT12-1",
+    piece: "Bureau",
+    categorie: "Bureaux",
+    couleurs: ["Gris", "Noir"],
+    matiere: "Acier",
+    dimensions: "3,20m * 2,05m * 0,75m",
+    prix: "930.000 xaf",
+    description: "Un plan de travail sobre pour la maison ou le cabinet.",
+    entretien: "Essuyer avec un chiffon doux.",
+    disponibilite: "Sur demande",
+    fond: ["#bd9a70", "#40302a"],
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792846693/ChatGPT_Image_Oct_24_2026_01_38_29_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846691/ChatGPT_Image_Oct_24_2026_01_38_26_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846694/ChatGPT_Image_Oct_24_2026_01_38_32_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792846690/ChatGPT_Image_Oct_24_2026_01_38_23_PM.png"
+    ]
+  },
+  {
+    id: "bureau-secretaire",
+    nom: "BUREAU SECRETAIRE",
+    piece: "Bureau",
+    categorie: "Bureaux",
+    couleurs: ["Gris", "Noir"],
+    matiere: "Acier",
+    dimensions: "1,40m *0,80m",
+    prix: "451.000 xaf",
     description: "Un plan de travail sobre pour la maison ou le cabinet.",
     entretien: "Essuyer avec un chiffon doux.",
     disponibilite: "Sur demande",
@@ -1098,6 +1193,7 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747667/ChatGPT_Image_Oct_14_2026_10_44_54_AM.png",
     ]
   },
+  
   {
     id: "table-de-reception",
     nom: "TABLE DE RECEPTION",
@@ -1148,7 +1244,7 @@ const PRODUITS = [
     entretien: "Nettoyer avec un chiffon microfibre sec hors tension.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LAMPE MURAL/ChatGPT Image Oct 13, 2026, 09_55_30 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747888/ChatGPT_Image_Oct_13_2026_10_06_02_AM.png"]
   },
   {
     id: "applique-murale-c235",
