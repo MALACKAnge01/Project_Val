@@ -1381,7 +1381,7 @@ const PRODUITS = [
     ]
   },
   {
-    id: "applique-murale-s285-bis",
+    id: "applique-murale-s285",
     nom: "APPLIQUE MURALE S285",
     piece: "Luminaires",
     categorie: "Applique murale",
@@ -1393,7 +1393,11 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 09_54_41 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747966/ChatGPT_Image_Oct_13_2026_10_04_46_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747868/ChatGPT_Image_Oct_13_2026_10_05_14_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT_Image_Oct_13_2026_10_04_32_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT_Image_Oct_13_2026_10_04_36_AM.png"
+    ]
   },
   {
     id: "lustre-g510",
@@ -1408,7 +1412,10 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_50_21 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747915/ChatGPT_Image_Oct_10_2026_01_50_28_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747909/ChatGPT_Image_Oct_10_2026_01_50_25_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747908/ChatGPT_Image_Oct_10_2026_01_50_21_PM.png"
+    ]
   },
   {
     id: "lustre-w45",
@@ -1423,7 +1430,10 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_53_03 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747916/ChatGPT_Image_Oct_10_2026_01_53_03_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747918/ChatGPT_Image_Oct_10_2026_01_53_34_PM.png",
+
+    ]
   },
   {
     id: "lustre-r38",
@@ -1438,7 +1448,10 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 03_13_28 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747919/ChatGPT_Image_Oct_10_2026_03_13_32_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747919/ChatGPT_Image_Oct_10_2026_03_13_28_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747931/ChatGPT_Image_Oct_10_2026_03_13_36_PM.png"
+    ]
   },
   {
     id: "lustre-w330-2",
@@ -1453,7 +1466,10 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 03_13_57 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747933/ChatGPT_Image_Oct_10_2026_03_13_46_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747933/ChatGPT_Image_Oct_10_2026_03_13_51_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747946/ChatGPT_Image_Oct_10_2026_03_13_54_PM.png"
+    ]
   },
   {
     id: "lustre-g330",
@@ -1468,7 +1484,10 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 03_14_01 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747948/ChatGPT_Image_Oct_10_2026_03_14_05_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747953/ChatGPT_Image_Oct_10_2026_03_14_16_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747953/ChatGPT_Image_Oct_10_2026_03_14_28_PM.png"
+    ]
   },
   {
     id: "lustre-w450",
