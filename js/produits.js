@@ -1243,7 +1243,11 @@ const PRODUITS = [
     entretien: "Nettoyer avec un chiffon microfibre sec hors tension.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747888/ChatGPT_Image_Oct_13_2026_10_06_02_AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747845/ChatGPT_Image_Oct_13_2026_09_55_30_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747846/ChatGPT_Image_Oct_13_2026_09_55_34_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747843/ChatGPT_Image_Oct_13_2026_09_55_26_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747842/ChatGPT_Image_Oct_13_2026_09_55_22_AM.png"
+    ]
   },
   {
     id: "applique-murale-c235",
@@ -1258,7 +1262,9 @@ const PRODUITS = [
     entretien: "Nettoyer avec un chiffon microfibre sec hors tension.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LAMPE MURAL/ChatGPT Image Oct 13, 2026, 09_56_02 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747849/ChatGPT_Image_Oct_13_2026_09_56_02_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747849/ChatGPT_Image_Oct_13_2026_09_56_02_AM.png"
+    ]
   },
   {
     id: "applique-murale-w250",
@@ -1273,7 +1279,11 @@ const PRODUITS = [
     entretien: "Nettoyer avec un chiffon microfibre sec hors tension.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LAMPE MURAL/ChatGPT Image Oct 13, 2026, 09_57_26 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747855/ChatGPT_Image_Oct_13_2026_09_57_26_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747855/ChatGPT_Image_Oct_13_2026_09_58_00_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747855/ChatGPT_Image_Oct_13_2026_09_57_20_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747853/ChatGPT_Image_Oct_13_2026_09_56_38_AM.png"
+    ]
   },
   {
     id: "applique-murale-w350",
@@ -1288,7 +1298,9 @@ const PRODUITS = [
     entretien: "Nettoyer avec un chiffon microfibre sec hors tension.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LAMPE MURAL/ChatGPT Image Oct 13, 2026, 09_58_19 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747860/ChatGPT_Image_Oct_13_2026_09_58_08_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747860/ChatGPT_Image_Oct_13_2026_09_58_04_AM.png"
+    ]
   },
   {
     id: "applique-murale-s285",
@@ -1303,7 +1315,11 @@ const PRODUITS = [
     entretien: "Nettoyer avec un chiffon microfibre sec hors tension.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LAMPE MURAL/ChatGPT Image Oct 13, 2026, 10_04_36 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747966/ChatGPT_Image_Oct_13_2026_10_04_46_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747868/ChatGPT_Image_Oct_13_2026_10_05_14_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT_Image_Oct_13_2026_10_04_32_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT_Image_Oct_13_2026_10_04_36_AM.png"
+    ]
   },
    {
     id: "applique-murale-b232",
@@ -1318,7 +1334,12 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["images/produits/LUMINAIRE/LAMPE MURAL/ChatGPT Image Oct 13, 2026, 10_05_31 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747873/ChatGPT_Image_Oct_13_2026_10_05_31_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747872/ChatGPT_Image_Oct_13_2026_10_05_35_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747871/ChatGPT_Image_Oct_13_2026_10_05_27_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747871/ChatGPT_Image_Oct_13_2026_10_05_27_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747868/ChatGPT_Image_Oct_13_2026_10_05_20_AM.png"
+    ]
   },
   {
     id: "applique-murale-b140",
@@ -1333,7 +1354,11 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 10_05_50 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747885/ChatGPT_Image_Oct_13_2026_10_05_58_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747887/ChatGPT_Image_Oct_13_2026_10_05_54_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747888/ChatGPT_Image_Oct_13_2026_10_06_02_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747883/ChatGPT_Image_Oct_13_2026_10_05_50_AM.png"
+    ]
   },
   {
     id: "applique-murale-o350",
@@ -1348,10 +1373,11 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747966/ChatGPT_Image_Oct_13_2026_10_04_46_AM.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792747868/ChatGPT_Image_Oct_13_2026_10_05_14_AM.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT_Image_Oct_13_2026_10_04_32_AM.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT_Image_Oct_13_2026_10_04_36_AM.png"
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747890/ChatGPT_Image_Oct_13_2026_10_06_17_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747893/ChatGPT_Image_Oct_13_2026_10_07_42_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747895/ChatGPT_Image_Oct_13_2026_10_07_48_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747895/ChatGPT_Image_Oct_13_2026_10_07_45_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747889/ChatGPT_Image_Oct_13_2026_10_06_09_AM.png"
     ]
   },
   {
