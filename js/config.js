@@ -50,13 +50,6 @@ const SITE = {
   // Si plusieurs règles visent le même produit, la plus précise gagne : id > catégorie > pièce.
   // Anciennes options toujours acceptées : produits: [ids], pieces: [...], remise: 10, prix: { id: "4.200.000" }.
   promos: [
-  {
-    type: "",
-    texte: "",
-    fin: "",
-    reductions: {
-    }
-  }
 ],
   // Nouveautés : ids à mettre en avant. Vide = les derniers produits ajoutés.
   nouveautes: [],
