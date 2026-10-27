@@ -1,0 +1,84 @@
+/* ==========================================================
+   Valencia — affichage mobile (à charger APRÈS extras.css)
+   ========================================================== */
+
+/* Correctif pagination : dans style.css, la règle générique « nav »
+   (menu mobile caché : max-height 0, opacity 0, visibility hidden)
+   s'appliquait aussi à la pagination. Cet identifiant l'annule. */
+#pagination {
+  position: static; max-height: none; overflow: visible; opacity: 1; visibility: visible;
+  display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 8px; padding: 0; background: none; border: 0; transition: none;
+  margin: 28px 0 96px;
+}
+
+@media (max-width: 640px) {
+  /* ----- Rythme général ----- */
+  section { padding: 30px 0; }
+  .conteneur { padding: 0 14px; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .intro { font-size: 1rem; }
+
+  .annonce { font-size: .8rem; padding: 7px 36px 7px 12px; }
+
+  /* ----- Diaporama d'accueil ----- */
+  .diapo { height: clamp(320px, 62vh, 520px); }
+  .diapo-texte { padding-bottom: 52px; }
+  .diapo-texte h1 { font-size: 1.7rem; }
+  .diapo-texte p { font-size: .95rem; margin-bottom: .7em; }
+  .diapo-texte .bouton { padding: 10px 16px; font-size: .88rem; }
+  .diapo-fleche { width: 34px; height: 34px; }
+  .diapo-prec { left: 8px; } .diapo-suiv { right: 8px; }
+  .diapo-points { bottom: 16px; }
+  .point { width: 26px; }
+
+  /* ----- Blocs d'accueil ----- */
+  .atouts { grid-template-columns: 1fr; gap: 10px; }
+  .atouts b { font-size: 1.1rem; }
+  .piliers { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .piliers > div { padding: 14px; font-size: .92rem; }
+  .etapes { grid-template-columns: 1fr; gap: 12px; }
+  .etapes li { padding: 16px 16px 16px 60px; }
+  .etapes li::before { left: 14px; top: 14px; }
+  .promo-entete { align-items: flex-start; margin-bottom: 16px; }
+  .compte { padding: 6px 12px; font-size: .85rem; }
+  .deux-colonnes { gap: 24px; }
+
+  /* ----- Grilles de produits : 2 colonnes, cartes compactes ----- */
+  .grille { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .cadre { aspect-ratio: 1 / 1; }
+  .carte { border-radius: 10px; }
+  .carte .texte { padding: 9px 10px 11px; gap: 5px; }
+  .carte h3 { font-size: .98rem; line-height: 1.2; }
+  .carte .prix { font-size: .9rem; line-height: 1.25; }
+  /* les fiches produit gardent nom + prix ; la description est sur la fiche */
+  .carte:has(.etiquette) .texte > p:not(.prix) { display: none; }
+  .etiquette { max-width: 100%; padding: 1px 8px; font-size: .68rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .carte .ligne { gap: 6px; flex-wrap: nowrap; }
+  .carte .bouton-petit { display: none; }           /* l'image et le nom ouvrent déjà la fiche */
+  .carte .bouton-favori { flex: 1; padding: 7px 8px; font-size: .78rem; }
+  .badge { padding: 3px 8px; font-size: .68rem; }
+  .badges { top: 7px; left: 7px; }
+
+  /* ----- Catalogue : filtres plus courts ----- */
+  .filtres { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+  .filtres > div:first-child { grid-column: 1 / -1; }
+  .filtres label { margin-bottom: 2px; font-size: .72rem; }
+  input[type="search"], select, input[type="text"], input[type="tel"], textarea { padding: 9px 10px; font-size: 16px; } /* évite le zoom automatique sur iPhone */
+  #compteur { font-size: .85rem; }
+  #pagination button { min-width: 40px; min-height: 40px; }
+
+  /* ----- Fiche produit ----- */
+  .deux-colonnes h1 { font-size: 1.9rem !important; }
+  .deux-colonnes .ligne .bouton { flex: 1 1 100%; }
+  .deux-colonnes .ligne .bouton-favori { flex: 1 1 100%; padding: 11px; }
+  .miniatures { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; }
+  .miniatures button { flex: 0 0 64px; height: 64px; }
+  dl { gap: 6px 12px; font-size: .95rem; }
+
+  /* ----- Pied de page et bouton WhatsApp ----- */
+  .pied { padding: 32px 0 88px; }
+  #bouton-whatsapp { right: 12px; bottom: 12px; width: 54px; height: 54px; padding: 0; border-radius: 50%; }
+  #bouton-whatsapp span { display: none; }
+}
