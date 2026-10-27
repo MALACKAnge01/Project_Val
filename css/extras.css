@@ -47,3 +47,4 @@ html[data-theme="sombre"] .etapes li::before { color: #111; }
 .bande-cta { background: var(--ex-accent); color: #fff; text-align: center; }
 html[data-theme="sombre"] .bande-cta { color: #111; }
 .bande-cta h2 { margin-top: 0; color: inherit; }
+
