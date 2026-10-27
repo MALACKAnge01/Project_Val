@@ -23,7 +23,7 @@ header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--fond)
 .barre{display:flex;align-items:center;justify-content:space-between;gap:10px;height:62px}
 /* Option A : Redéfinir la hauteur spécifique du logo */
 .logo img {
-  height: 100px; /* Ajustez cette valeur selon la taille souhaitée (ex: 40px, 50px, 60px) */
+  height: 150px; /* Ajustez cette valeur selon la taille souhaitée (ex: 40px, 50px, 60px) */
   width: auto;
   max-width: 100vw;
   object-fit: contain;
