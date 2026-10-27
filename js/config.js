@@ -18,28 +18,38 @@ const SITE = {
   annonce: "🚚 Expédition gratuite à Brazzaville · Installation offerte",
 
   // ---------- PROMOTIONS ----------
-  // Une promo disparaît toute seule après sa date "fin". Mettre promos: [] pour tout masquer.
-  // Exemple à copier :
-  // { titre: "Offre de la saison", texte: "-10 % sur une sélection de salons.",
-  //   debut: "2026-11-01", fin: "2026-11-30",   // AAAA-MM-JJ (facultatifs)
-  //   remise: 10,                               // en %, calculée sur le prix du produit
-  //   produits: ["oxford-sofaset", "puffy-sofaset"],  // ids de produits.js
-  //   pieces: [],                               // ex. ["Luminaires"] = toute la pièce
-  //   prix: {} }                                // prix exacts : { "puffy-sofaset": "4.200.000" }
-  promos: [
-  {
-    type: "Black Friday",             // → « Promotion du Black Friday »
-    texte: "Jusqu'à -40 % sur nos salons.",   // facultatif
-    debut: "2026-11-20",              // facultatif
-    fin: "2026-11-30 23:59",          // le chrono compte jusque-là
-    reductions: {
-      "Salon": 40,                    // 1 000 000 → 600 000 FCFA
-      "Chambre": 30,
-      "Chambre pour enfant": 30,
-      "Luminaires": 15
-    }
-  }
-  ],
+  // Fuseau horaire des dates de promo (Pointe-Noire = +01:00). Ne pas changer.
+  fuseau: "+01:00",
+  // Les prix remisés sont arrondis aux 1 000 FCFA les plus proches (mettre 1 pour garder le prix exact).
+  arrondi: 1000,
+
+  // Mettre promos: [] pour tout masquer. Une promo démarre et s'arrête toute seule aux dates indiquées.
+  // Pendant une promo :
+  //   - les prix concernés sont barrés et remplacés par le prix remisé (badge « -40 % ») ;
+  //   - sur l'accueil, « Nouveautés chez Valencia » devient « Promotion du <type> », avec un chrono ;
+  //   - le menu « Promotions » et le bandeau du haut apparaissent.
+  //
+  // MODÈLE À COPIER dans promos: [ ... ] (retirer les // devant chaque ligne) :
+  // {
+  //   type: "Black Friday",                    // donne « Promotion du Black Friday » (pour « Promotion de Noël », écrire "de Noël")
+  //   texte: "Jusqu'à -40 % sur nos salons.",  // facultatif : phrase sous le titre
+  //   debut: "2026-11-20",                     // facultatif : AAAA-MM-JJ ou AAAA-MM-JJ HH:MM
+  //   fin: "2026-11-30 23:59",                 // fin de la promo : le chrono compte jusque-là (sans heure = 23:59:59)
+  //   reductions: {                            // % de réduction selon la catégorie
+  //     "Salon": 40,                           // tous les salons -40 % (1 000 000 devient 600 000 FCFA)
+  //     "Chambre": 30,                         // toutes les chambres -30 %
+  //     "Chambre pour enfant": 30,
+  //     "Luminaires": 15,
+  //     "Lustres": 25,                         // une catégorie précise de produits.js (prioritaire sur la pièce)
+  //     "puffy-sofaset": 0                     // un id de produit (le plus prioritaire) ; 0 = ce produit n'est pas en promo
+  //   }
+  // }
+  //
+  // À gauche des ":" on peut mettre : une pièce (Salon, Salle à manger, Chambre, Chambre pour enfant, Bureau,
+  // Rangement, Luminaires), une catégorie de produits.js (salon complet, Tables, Lits...) ou un id de produit.
+  // Si plusieurs règles visent le même produit, la plus précise gagne : id > catégorie > pièce.
+  // Anciennes options toujours acceptées : produits: [ids], pieces: [...], remise: 10, prix: { id: "4.200.000" }.
+  promos: [],
 
   // Nouveautés : ids à mettre en avant. Vide = les derniers produits ajoutés.
   nouveautes: [],

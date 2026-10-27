@@ -32,23 +32,70 @@ const nombre = (p) => { const m = String(p.prix || "").match(/\d[\d.\s]*/); cons
 const fmt = (n) => n.toLocaleString("fr-FR") + " FCFA";
 const prixTexte = (p) => (String(p.prix).match(/\d[\d.]*\d/g) || []).length > 1 ? String(p.prix).replace(/\s*xaf/gi, " FCFA") : nombre(p) === null ? "Prix sur demande" : fmt(nombre(p));
 
-const actives = () => { const n = new Date(); return (SITE.promos || []).filter((r) => (!r.debut || n >= new Date(r.debut + "T00:00:00")) && (!r.fin || n <= new Date(r.fin + "T23:59:59"))); };
+// Dates de promo : "2026-11-30" (début = 00:00, fin = 23:59:59) ou "2026-11-30 18:00", à l'heure de Pointe-Noire
+const instant = (s, finDeJour) => {
+  if (!s) return null;
+  let t = String(s).trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(t)) t += finDeJour ? "T23:59:59" : "T00:00:00";
+  else t = t.replace(" ", "T").replace(/T(\d{2}:\d{2})$/, "T$1:00");
+  if (!/(Z|[+-]\d{2}:\d{2})$/.test(t)) t += SITE.fuseau || "+01:00";
+  const d = new Date(t);
+  return isNaN(d) ? null : d;
+};
+const avertis = new Set();
+const actives = () => {
+  const n = Date.now();
+  return (SITE.promos || []).filter((r) => {
+    const d = instant(r.debut), f = instant(r.fin, true);
+    if ((r.debut && !d) || (r.fin && !f)) { if (!avertis.has(r)) { avertis.add(r); console.warn("Promotion ignorée : date invalide", r); } return false; }
+    return (!d || n >= d) && (!f || n <= f);
+  });
+};
+
+const norm = (t) => String(t == null ? "" : t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+const arrondir = (x) => { const a = SITE.arrondi || 1; return Math.round(x / a) * a; };
+// % de réduction de la promo r pour le produit p, d'après r.reductions : id du produit > catégorie > pièce
+function pourcentage(r, p) {
+  const R = r.reductions || {}, cles = Object.keys(R);
+  for (const v of [p.id, p.categorie, p.piece]) {
+    const k = v && cles.find((c) => norm(c) === norm(v));
+    if (k) { const x = Number(R[k]); return x > 0 && x < 100 ? x : 0; }
+  }
+  return 0;
+}
+// Texte contenant plusieurs prix (ex. "salon electrique: 4.444.000 xaf , salon manuel: 3.865.000 xaf") : chaque prix est remisé
+const reduire = (txt, pc) => txt.replace(/\d[\d.]*\d/g, (m) => arrondir(parseInt(m.replace(/\./g, ""), 10) * (1 - pc / 100)).toLocaleString("fr-FR").replace(/\s/g, "."));
 function calcul(r, p) {
-  if (!((r.produits || []).includes(p.id) || (r.pieces || []).includes(p.piece))) return null;
-  const a = nombre(p);
-  const n = r.prix && r.prix[p.id] != null ? parseInt(String(r.prix[p.id]).replace(/\D/g, ""), 10) : r.remise && a ? Math.round((a * (1 - r.remise / 100)) / 1000) * 1000 : NaN;
+  const pc = pourcentage(r, p);
+  if (!(pc || (r.produits || []).includes(p.id) || (r.pieces || []).includes(p.piece))) return null;
+  const a = nombre(p), pct = pc || r.remise || 0;
+  const exact = r.prix && r.prix[p.id] != null ? parseInt(String(r.prix[p.id]).replace(/\D/g, ""), 10) : NaN;
+  if (isNaN(exact) && pct && (String(p.prix).match(/\d[\d.]*\d/g) || []).length > 1) return { r, a: null, n: null, pc: pct, texte: reduire(prixTexte(p), pct) };
+  const n = !isNaN(exact) ? exact : pct && a ? arrondir(a * (1 - pct / 100)) : NaN;
   if (!n || isNaN(n) || (a && n >= a)) return null;
-  return { r, a, n, pc: a ? Math.round((1 - n / a) * 100) : null };
+  return { r, a, n, pc: isNaN(exact) && pct ? pct : a ? Math.round((1 - n / a) * 100) : null };
 }
 const promoDe = (p) => { for (const r of actives()) { const c = calcul(r, p); if (c) return c; } return null; };
-const reste = (r) => { if (!r.fin) return ""; const a = new Date(); a.setHours(0, 0, 0, 0); const j = Math.round((new Date(r.fin + "T00:00:00") - a) / 864e5); return j <= 0 ? "Dernier jour !" : j === 1 ? "Plus qu'un jour" : "Encore " + j + " jours"; };
-const compte = (r) => (reste(r) ? `<span class="compte">${reste(r)}</span>` : "");
-const prixHtml = (p) => { const c = promoDe(p); return c ? `<span class="promo-prix">${fmt(c.n)}</span>${c.a ? ` <s>${fmt(c.a)}</s>` : ""}` : esc(prixTexte(p)); };
+
+// Titres : "Promotion du Black Friday" (type: "Black Friday"), "Promotion de Noël" (type: "de Noël")
+const libelle = (r) => { const t = String(r.type || "").trim(); return t ? "Promotion " + (/^(du |de |des |d')/i.test(t) ? "" : "du ") + t : ""; };
+const titrePromo = (r) => r.titre || libelle(r) || "Promotion";
+const resume = (r) => { const l = Object.entries(r.reductions || {}).filter(([k, v]) => Number(v) > 0 && !trouver(k)).map(([k, v]) => `${esc(k)} -${Number(v)} %`); return l.length ? `<p class="reduc">${l.join(" · ")}</p>` : ""; };
+
+const reste = (r) => { const f = instant(r.fin, true); if (!f) return ""; const j = Math.ceil((f - Date.now()) / 864e5); return j <= 1 ? "Dernier jour !" : "Encore " + j + " jours"; };
+// Chrono en direct (mis à jour chaque seconde, voir plus bas)
+const compte = (r) => { const f = instant(r.fin, true); return f ? `<div class="chrono" role="timer" data-fin="${f.getTime()}"><span class="chrono-t">Se termine dans</span><span class="chrono-c">${[["j", "jours"], ["h", "heures"], ["m", "min"], ["s", "sec"]].map(([u, l]) => `<span class="case"><b data-u="${u}">--</b><small>${l}</small></span>`).join("")}</span></div>` : ""; };
+const prixHtml = (p) => {
+  const c = promoDe(p); if (!c) return esc(prixTexte(p));
+  return c.texte ? `<span class="promo-prix">${esc(c.texte)}</span><br><s>${esc(prixTexte(p))}</s>` : `<span class="promo-prix">${fmt(c.n)}</span>${c.a ? ` <s>${fmt(c.a)}</s>` : ""}`;
+};
 
 // ---------- Images : celles qui s'affichent passent en premier ----------
 const avec = (p) => p.photos.length > 0;
 const dabord = (l) => [...l.filter(avec), ...l.filter((p) => !avec(p))];
 const promoProduits = (r) => dabord(CATALOGUE.filter((p) => calcul(r, p)));
+// Sur l'accueil : quelques produits de chaque pièce en promo (et pas seulement les premiers du catalogue)
+const varie = (l, n) => { const g = {}; l.forEach((p) => (g[p.piece] = g[p.piece] || []).push(p)); const f = Object.values(g), o = []; for (let i = 0; o.length < n && f.some((x) => x[i]); i++) f.forEach((x) => x[i] && o.length < n && o.push(x[i])); return o; };
 const nouveautes = () => { const ids = SITE.nouveautes || []; return dabord(ids.length ? ids.map(trouver).filter(Boolean) : [...CATALOGUE].reverse()).slice(0, SITE.nombreNouveautes || 8); };
 
 function cadre(p, n = 0, lazy = "lazy") {
@@ -158,16 +205,16 @@ function accueil() {
   const col = SITE.pieces.map((pc) => { const l = CATALOGUE.filter((p) => p.piece === pc), e = l.find(avec) || l[0];
     return e ? `<a class="carte" href="#/catalogue/${encodeURIComponent(pc)}">${cadre(e)}<div class="texte"><h3>${esc(pc)}</h3><p>${l.length} modèle${l.length > 1 ? "s" : ""}</p></div></a>` : ""; }).join("");
   const r = actives().find((x) => promoProduits(x).length);
-  const promo = r ? `<section class="sp"><div class="w"><div class="ent"><div><span class="pastille">Promotion</span><h2>${esc(r.titre)}</h2><p>${esc(r.texte || "")}</p></div>${compte(r)}</div>
-    <div class="grille">${promoProduits(r).slice(0, 4).map(carte).join("")}</div><p style="margin-top:18px"><a class="btn" href="#/promotions">Toutes les promotions</a></p></div></section>` : "";
+  const nouv = r ? `<section class="sp"><div class="w"><div class="ent"><div><span class="pastille">Promotion</span><h2>${esc(libelle(r) || titrePromo(r))}</h2>${r.texte ? `<p>${esc(r.texte)}</p>` : ""}${resume(r)}</div>${compte(r)}</div>
+    <div class="grille">${varie(promoProduits(r), SITE.nombreNouveautes || 8).map(carte).join("")}</div><p class="ligne" style="margin-top:18px"><a class="btn" href="#/promotions">Toutes les promotions</a><a class="btn clair" href="#/catalogue">Voir tout le catalogue</a></p></div></section>`
+    : `<section><div class="w"><h2>Nouveautés chez Valencia</h2><div class="grille">${nouveautes().map(carte).join("")}</div><p style="margin-top:18px"><a class="btn clair" href="#/catalogue">Voir tout le catalogue</a></p></div></section>`;
   const faq = (SITE.faq && SITE.faq.length ? SITE.faq : FAQ).map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.r)}</p></details>`).join("");
   const avis = (SITE.avis || []).length ? `<section><div class="w"><h2>Ils nous font confiance</h2><div class="grille">${SITE.avis.map((a) => `<blockquote class="boite avis"><p>« ${esc(a.texte)} »</p><footer>${esc(a.nom)}</footer></blockquote>`).join("")}</div></div></section>` : "";
   const res = Object.entries(SITE.reseaux || {}).filter(([, u]) => u).map(([n, u]) => `<a class="btn clair petit" href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join("");
   const carteMaps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Valencia meubles, Maison sans frontière, Pointe-Noire");
   return [`${htmlDiapo()}
     <section class="doux"><div class="w atouts"><div><b class="t">Meubles de premier choix</b>Sélectionnés pour leur qualité et leur confort.</div><div><b class="t">Expédition gratuite à Brazzaville</b>Pour les autres destinations, contactez-nous.</div><div><b class="t">Installation offerte</b>Nos équipes installent vos meubles chez vous.</div></div></section>
-    ${promo}
-    <section><div class="w"><h2>Nouveautés chez Valencia</h2><div class="grille">${nouveautes().map(carte).join("")}</div><p style="margin-top:18px"><a class="btn clair" href="#/catalogue">Voir tout le catalogue</a></p></div></section>
+    ${nouv}
     <section class="doux"><div class="w"><h2>Nos collections</h2><div class="grille">${col}</div></div></section>
     <section><div class="w"><h2>Pourquoi choisir Valencia</h2><div class="piliers"><div class="boite"><b class="t">Durabilité</b>Des meubles solides, faits pour durer.</div><div class="boite"><b class="t">Confort</b>Assises profondes et matières agréables.</div><div class="boite"><b class="t">Design moderne</b>Des lignes actuelles, principalement d'origine turque.</div><div class="boite"><b class="t">Élégance</b>Des finitions soignées pour un intérieur raffiné.</div></div></div></section>
     <section class="doux"><div class="w"><h2>Comment commander</h2><div class="etapes"><div class="boite"><b class="t">Choisissez</b>Parcourez le catalogue et ajoutez vos coups de cœur aux favoris.</div><div class="boite"><b class="t">Contactez-nous</b>Prix, disponibilité, devis : tout se fait par WhatsApp.</div><div class="boite"><b class="t">Recevez chez vous</b>Expédition gratuite à Brazzaville et installation offerte.</div></div></div></section>
@@ -182,7 +229,7 @@ function accueil() {
 function promotions() {
   const l = actives();
   if (!l.length) return [`<section><div class="w"><h1>Promotions</h1><p>Aucune promotion en ce moment. Découvrez nos <a href="#/catalogue">nouveautés</a> ou écrivez-nous sur <a target="_blank" rel="noopener" href="${wa("Bonjour Valencia, je souhaite être informé de vos prochaines promotions.")}">WhatsApp</a>.</p></div></section>`, "Promotions — Valencia"];
-  return [`<section><div class="w"><h1>Promotions</h1>${l.map((r) => `<div class="bloc"><div class="ent"><div><h2>${esc(r.titre)}</h2><p>${r.fin ? "Jusqu'au " + new Date(r.fin + "T00:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long" }) + ". " : ""}${esc(r.texte || "")}</p></div>${compte(r)}</div><div class="grille">${promoProduits(r).map(carte).join("")}</div></div>`).join("")}</div></section>`, "Promotions — Valencia"];
+  return [`<section><div class="w"><h1>Promotions</h1>${l.map((r) => `<div class="bloc"><div class="ent"><div><h2>${esc(titrePromo(r))}</h2><p>${r.fin ? "Jusqu'au " + instant(r.fin, true).toLocaleDateString("fr-FR", { day: "numeric", month: "long", timeZone: "Africa/Brazzaville" }) + ". " : ""}${esc(r.texte || "")}</p>${resume(r)}</div>${compte(r)}</div><div class="grille">${promoProduits(r).map(carte).join("")}</div></div>`).join("")}</div></section>`, "Promotions — Valencia"];
 }
 
 // Catalogue
@@ -256,7 +303,7 @@ function produit(id) {
   return [`<section><div class="w"><p><a href="#/catalogue">← Retour au catalogue</a></p><div class="duo">
     <div><div id="photo-principale">${cadre(p, 0, "eager")}</div>${p.photos.length > 1 ? `<div class="mini">${p.photos.map((ph, i) => `<button type="button" data-photo="${i}" aria-current="${i === 0}" aria-label="Photo ${i + 1}"><img src="${url(ph)}" alt="" loading="lazy" onerror="this.closest('button').remove()"></button>`).join("")}</div>` : ""}</div>
     <div><span class="tag">${esc(p.piece)} · ${esc(p.categorie)}</span><h1 style="margin-top:10px">${esc(p.nom)}</h1>
-      ${c ? `<p class="alerte"><b>Promotion${c.pc ? " -" + c.pc + "%" : ""}</b> · ${esc(reste(c.r) || c.r.titre)}</p>` : ""}
+      ${c ? `<p class="alerte"><b>Promotion${c.pc ? " -" + c.pc + "%" : ""}</b> · ${esc(reste(c.r) || titrePromo(c.r))}</p>` : ""}
       <div id="fiche">${fiche(p, 0)}</div>
       <div class="ligne"><a class="btn wa" target="_blank" rel="noopener" href="${m("je souhaite connaître le prix de")}">Demander le prix sur WhatsApp</a><a class="btn clair" target="_blank" rel="noopener" href="${m("pouvez-vous vérifier la disponibilité de")}">Vérifier la disponibilité</a><button class="fav" aria-pressed="${fav}" data-fav="${esc(p.id)}">${fav ? "♥" : "♡"}<span> Favori</span></button></div>
     </div></div></div></section>`, p.nom + " — Valencia"];
@@ -297,7 +344,7 @@ function afficher() {
   let r = null;
   if (page === "catalogue" && prev === "produit") { try { r = JSON.parse(mem.get("valencia-cat") || "null"); } catch (e) {} }
   const [html, titre] = (VUES[page] || accueil)(arg);
-  $("#contenu").innerHTML = html; document.title = titre; scrollTo(0, 0);
+  $("#contenu").innerHTML = html; document.title = titre; scrollTo(0, 0); ecrireChronos();
   $("#menu").classList.remove("ouvert"); $("#b-menu").setAttribute("aria-expanded", "false");
   $$("#menu a").forEach((a) => a.toggleAttribute("aria-current", a.getAttribute("href") === "#/" + page));
   if (page === "catalogue") initCatalogue(arg, r);
@@ -311,11 +358,11 @@ function construire() {
   if (actives().length) l.push(["promotions", "Promotions"]);
   l.push(["inspirations", "Inspirations"], ["favoris", "Favoris"], ["livraison", "Livraison"], ["a-propos", "À propos"], ["contact", "Contact"]);
   $("#menu").innerHTML = l.map(([h, t]) => `<a href="#/${h}"${h === "favoris" ? ' id="lien-favoris"' : ""}${h === "promotions" ? ' class="promo"' : ""}>${t}</a>`).join("");
-  const r = actives()[0], t = r ? r.titre + (r.texte ? " — " + r.texte : "") : SITE.annonce || "", b = $("#annonce");
+  const r = actives()[0], t = r ? titrePromo(r) + (r.texte ? " — " + r.texte : "") : SITE.annonce || "", b = $("#annonce");
   if (t && mem.get("valencia-annonce") !== "off") {
     b.hidden = false; b.innerHTML = `<a href="${r ? "#/promotions" : "#/catalogue"}">${esc(t)}</a><button type="button" aria-label="Fermer l'annonce">×</button>`;
     $("button", b).onclick = () => { b.hidden = true; mem.set("valencia-annonce", "off"); };
-  }
+  } else b.hidden = true;
   $("#pied").innerHTML = `<div><h3>Valencia</h3><p>Meubles haut de gamme, principalement d'origine turque.</p></div>
     <div><h3>Nous trouver</h3><p>Centre-ville de Pointe-Noire, immeuble « Maison sans frontière », près de la mairie centrale.</p></div>
     <div><h3>Contact</h3><p><a href="tel:${SITE.telephone}">+242 06 758 5858</a><br><a href="mailto:${SITE.email}">${SITE.email}</a></p><p>${Object.entries(SITE.reseaux || {}).filter(([, u]) => u).map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join(" · ")}</p></div>`;
@@ -350,6 +397,26 @@ $("#reglages").addEventListener("change", (e) => {
 let tick = false;
 addEventListener("scroll", () => { if (!tick) { tick = true; requestAnimationFrame(() => { tick = false; sauver(); }); } }, { passive: true });
 addEventListener("hashchange", afficher);
+
+// ---------- Chrono des promotions ----------
+function ecrireChronos() {
+  const n = Date.now();
+  $$(".chrono").forEach((el) => {
+    const s = Math.max(0, Math.floor((Number(el.dataset.fin) - n) / 1000));
+    const v = { j: Math.floor(s / 86400), h: Math.floor((s % 86400) / 3600), m: Math.floor((s % 3600) / 60), s: s % 60 };
+    $$("[data-u]", el).forEach((b) => { const t = String(v[b.dataset.u]).padStart(2, "0"); if (b.textContent !== t) b.textContent = t; });
+  });
+}
+// Quand une promo commence ou se termine pendant que le visiteur est sur le site, tout se met à jour tout seul
+const promoCle = () => actives().map((r) => SITE.promos.indexOf(r)).join();
+let cleActuelle = promoCle();
+function surveillerPromos() {
+  const c = promoCle(); if (c === cleActuelle) return;
+  cleActuelle = c; construire();
+  if (location.hash.split("/")[1] === "catalogue" && $("#liste")) liste();
+  else { const y = scrollY; afficher(); scrollTo({ top: y, behavior: "instant" }); }
+}
+setInterval(() => { ecrireChronos(); surveillerPromos(); }, 1000);
 
 // ---------- Démarrage ----------
 appliquer(); construire(); majFav(); afficher(); verifier();

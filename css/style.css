@@ -71,6 +71,11 @@ html[data-theme=clair] .logo-s,html[data-theme=sombre] .logo-c{display:none}
 .ent{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:16px}.ent h2,.ent p{margin:4px 0 0}
 .pastille{display:inline-block;padding:3px 12px;border-radius:99px;background:var(--rouge);color:#fff;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
 .compte{padding:6px 14px;border:2px solid var(--rouge);border-radius:99px;color:var(--rouge);font-size:.85rem;font-weight:600;white-space:nowrap}
+.chrono{display:flex;flex-direction:column;align-items:flex-end;gap:6px}.chrono-t{color:var(--rouge);font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.chrono-c{display:flex;gap:6px}.case{display:flex;flex-direction:column;align-items:center;min-width:56px;padding:6px 8px;border:2px solid var(--rouge);border-radius:10px;background:var(--fond);color:var(--rouge)}
+.case b{font-size:1.45rem;line-height:1.1;font-variant-numeric:tabular-nums}.case small{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em}
+.reduc{color:var(--rouge);font-weight:600}
+@media(max-width:600px){.chrono{align-items:flex-start}}
 .bloc{margin:26px 0 40px}
 details{padding:12px 0;border-bottom:1px solid var(--trait)}summary{cursor:pointer;font-weight:600}details p{margin:8px 0 0}
 .avis{margin:0}.avis footer{margin-top:8px;font-weight:600}
