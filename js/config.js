@@ -51,13 +51,10 @@ const SITE = {
   // Anciennes options toujours acceptées : produits: [ids], pieces: [...], remise: 10, prix: { id: "4.200.000" }.
   promos: [
   {
-    type: "Black Friday",
-    texte: "Jusqu'à -40 % sur nos salons.",
-    fin: "2026-12-31 23:59",
+    type: "",
+    texte: "",
+    fin: "",
     reductions: {
-      "Salon": 40,
-      "Chambre": 30,
-      "Chambre pour enfant": 30
     }
   }
 ],
