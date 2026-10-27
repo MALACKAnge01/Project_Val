@@ -49,7 +49,18 @@ const SITE = {
   // Rangement, Luminaires), une catégorie de produits.js (salon complet, Tables, Lits...) ou un id de produit.
   // Si plusieurs règles visent le même produit, la plus précise gagne : id > catégorie > pièce.
   // Anciennes options toujours acceptées : produits: [ids], pieces: [...], remise: 10, prix: { id: "4.200.000" }.
-  promos: [],
+  promos: [  {
+    type: "Black Friday",             // → « Promotion du Black Friday »
+    texte: "Jusqu'à -40 % sur nos salons.",   // facultatif
+    debut: "2026-11-20",              // facultatif
+    fin: "2026-11-30 23:59",          // le chrono compte jusque-là
+    reductions: {
+      "Salon": 40,                    // 1 000 000 → 600 000 FCFA
+      "Chambre": 30,
+      "Chambre pour enfant": 30,
+      "Luminaires": 15
+    }
+  }],
 
   // Nouveautés : ids à mettre en avant. Vide = les derniers produits ajoutés.
   nouveautes: [],
