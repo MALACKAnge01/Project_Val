@@ -26,7 +26,20 @@ const SITE = {
   //   produits: ["oxford-sofaset", "puffy-sofaset"],  // ids de produits.js
   //   pieces: [],                               // ex. ["Luminaires"] = toute la pièce
   //   prix: {} }                                // prix exacts : { "puffy-sofaset": "4.200.000" }
-  promos: [],
+  promos: [
+  {
+    type: "Black Friday",             // → « Promotion du Black Friday »
+    texte: "Jusqu'à -40 % sur nos salons.",   // facultatif
+    debut: "2026-11-20",              // facultatif
+    fin: "2026-11-30 23:59",          // le chrono compte jusque-là
+    reductions: {
+      "Salon": 40,                    // 1 000 000 → 600 000 FCFA
+      "Chambre": 30,
+      "Chambre pour enfant": 30,
+      "Luminaires": 15
+    }
+  }
+  ],
 
   // Nouveautés : ids à mettre en avant. Vide = les derniers produits ajoutés.
   nouveautes: [],

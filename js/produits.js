@@ -1106,7 +1106,7 @@ const PRODUITS = [
     matiere: "Bois",
     dimensions: "lit: 120cm * 200cm",
     prix: null,
-    description: "Rangement spacieux aux finitions soignées.",
+    description: "Rangement spacieux aux finitions soignées.", 
     entretien: "Dépoussiérer ; éviter l'humidité.",
     disponibilite: "Sur demande",
     fond: ["#e8dfd0", "#a98660"],
@@ -1502,7 +1502,12 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 03_14_31 PM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747958/ChatGPT_Image_Oct_10_2026_03_14_44_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747958/ChatGPT_Image_Oct_10_2026_03_14_47_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747953/ChatGPT_Image_Oct_10_2026_03_14_31_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747953/ChatGPT_Image_Oct_10_2026_03_14_35_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747953/ChatGPT_Image_Oct_10_2026_03_14_40_PM.png"
+    ]
   },
   {
     id: "lustre-w520",
@@ -1517,7 +1522,10 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 09_41_51 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747965/ChatGPT_Image_Oct_10_2026_03_14_51_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747964/ChatGPT_Image_Oct_13_2026_09_43_25_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747960/ChatGPT_Image_Oct_13_2026_09_41_51_AM.png"
+    ]
   },
   {
     id: "lustre-r500",
@@ -1532,7 +1540,11 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 09_53_12 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747966/ChatGPT_Image_Oct_13_2026_09_53_03_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747966/ChatGPT_Image_Oct_13_2026_09_53_08_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747980/ChatGPT_Image_Oct_13_2026_09_53_12_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747981/ChatGPT_Image_Oct_13_2026_09_53_15_AM.png"
+    ]
   },
   {
     id: "lustre-b600",
@@ -1547,7 +1559,11 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 09_53_35 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747985/ChatGPT_Image_Oct_13_2026_09_53_43_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747985/ChatGPT_Image_Oct_13_2026_09_53_48_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747991/ChatGPT_Image_Oct_13_2026_09_53_56_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747992/ChatGPT_Image_Oct_13_2026_09_53_51_AM.png"
+    ]
   },
   {
     id: "lustre-w600",
@@ -1562,25 +1578,29 @@ const PRODUITS = [
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 13, 2026, 09_53_56 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747981/ChatGPT_Image_Oct_13_2026_09_53_35_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747983/ChatGPT_Image_Oct_13_2026_09_53_38_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747984/ChatGPT_Image_Oct_13_2026_09_53_24_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747998/ChatGPT_Image_Oct_13_2026_09_53_29_AM.png"
+    ]
   },
   {
-    id: "lustre-145-800",
-    nom: "LUSTRE 145/800",
-    piece: "Luminaires",
-    categorie: "Lustres",
-    couleurs: ["Bois naturel", "Blanc"],
-    matiere: "Métal et verre",
+    id: "jardin-salon-terrasse",
+    nom: "SALON DE JARDIN ET TERRASSE",
+    piece: "JARDIN",
+    categorie: "jardin",
+    couleurs: ["gris", "vert"],
+    matiere: "Métal et tissu",
     dimensions: "À confirmer",
-    prix: "268.000 XAF",
-    description: "Lustre majestueux conçu pour sublimer les hauts plafonds et grands espaces de vie.",
+    prix: " XAF",
+    description: "Un salon de jardin et terrasse idéal pour profiter de l'extérieur.",
     entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_45_18 PM.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_45_07 PM.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_45_11 PM.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_45_14 PM.png"
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747824/ChatGPT_Image_Oct_10_2026_11_17_35_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747821/ChatGPT_Image_Oct_10_2026_11_17_29_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747824/ChatGPT_Image_Oct_10_2026_11_17_35_AM.png"
+      
     ]
   },
   {
