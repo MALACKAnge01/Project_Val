@@ -21,7 +21,7 @@ section{padding:30px 0}.doux{background:var(--doux)}
 #annonce button{position:absolute;right:8px;top:50%;translate:0 -50%;background:none;border:0;color:inherit;font-size:1.3rem;cursor:pointer}
 header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--fond) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--trait)}
 .barre{display:flex;align-items:center;justify-content:space-between;gap:10px;height:62px}
-.logo img{height:var(--logo-h);width:auto;max-width:55vw;object-fit:contain}
+.logo img{height:var(--logo-h);width:auto;max-width:100vw;object-fit:contain}
 html[data-theme=clair] .logo-s,html[data-theme=sombre] .logo-c{display:none}
 #menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;padding:6px 14px 14px;background:var(--fond);border-bottom:1px solid var(--trait)}
 #menu.ouvert{display:flex}
