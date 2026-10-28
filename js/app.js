@@ -371,6 +371,7 @@ function modePromo() {
 }
 
 function construire() {
+   modePromo();
   const l = [["catalogue", "Catalogue"]];
   if (actives().length) l.push(["promotions", "Promotions"]);
   l.push(["inspirations", "Inspirations"], ["favoris", "Favoris"], ["livraison", "Livraison"], ["a-propos", "À propos"], ["contact", "Contact"]);

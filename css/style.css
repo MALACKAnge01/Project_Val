@@ -136,3 +136,59 @@ fieldset{margin:0 0 14px;padding:0;border:0}legend{margin-bottom:6px;font-weight
 .ch{display:flex;flex-wrap:wrap;gap:6px 14px}.ch label{display:flex;align-items:center;gap:6px;color:var(--texte);font-size:.95rem}
 input[type=radio]{accent-color:var(--vert);width:18px;height:18px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ==========================================================
+   MODE PROMOTION : le site passe au rouge (classe .en-promo)
+   ========================================================== */
+html[data-theme=clair].en-promo{--fond:#fff8f6;--doux:#ffe9e5;--carte:#fff;--texte:#3a0d12;--titre:#7a0a1a;--gris:#8a5a60;--trait:#f3c9c4;--acc:#d90429;--surAcc:#fff;--rouge:#d90429;--vert:#d90429;--vert2:#ff5a6e;--ombre:0 10px 30px rgba(217,4,41,.22)}
+html[data-theme=sombre].en-promo{--fond:#2b0a10;--doux:#220810;--carte:#3a1119;--texte:#fff;--titre:#fff;--gris:#e5b8bd;--trait:#6a2430;--acc:#e11d3f;--surAcc:#fff;--rouge:#ff8a97;--vert:#e11d3f;--vert2:#ff5a6e;--ombre:0 10px 30px rgba(0,0,0,.5)}
+html.en-promo body,html.en-promo header,html.en-promo section{transition:background-color .6s,color .6s}
+
+/* Le bouton WhatsApp garde son vert */
+html.en-promo .btn.wa,html.en-promo #wa{background:#148a48;border-color:#148a48;color:#fff}
+
+/* Animations */
+@keyframes glisse{to{background-position:200% 0}}
+@keyframes pouls{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+@keyframes lueur{0%{box-shadow:0 0 0 0 rgba(217,4,41,.55)}70%,100%{box-shadow:0 0 0 12px rgba(217,4,41,0)}}
+@keyframes eclat{from{left:-60%}to{left:140%}}
+@keyframes balaie{from{transform:translateX(-100%)}to{transform:translateX(333%)}}
+@keyframes tic{0%{transform:scale(1.25)}100%{transform:scale(1)}}
+@keyframes monte{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.35}90%{opacity:.25}100%{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+@keyframes fondvif{from{background-position:0 50%}to{background-position:100% 50%}}
+
+/* Bandeau du haut : dégradé rouge qui défile */
+html.en-promo #annonce{background:linear-gradient(90deg,#8f0220,#e11d3f,#ff5a6e,#e11d3f,#8f0220);background-size:200% 100%;animation:glisse 6s linear infinite;color:#fff}
+
+/* En-tête : trait rouge avec un éclat qui le parcourt */
+html.en-promo header{border-bottom-color:var(--acc)}
+html.en-promo header::after{content:"";position:absolute;left:0;bottom:-1px;width:30%;height:3px;background:linear-gradient(90deg,transparent,#ff5a6e,#fff,#ff5a6e,transparent);animation:balaie 3s linear infinite;pointer-events:none}
+
+/* Diaporama, section promo, appel à l'action, pied de page */
+html.en-promo .diapo::after{background:linear-gradient(90deg,rgba(143,2,32,.88),rgba(143,2,32,.12) 75%)}
+html.en-promo .sp{background:linear-gradient(120deg,var(--doux),color-mix(in srgb,var(--rouge) 14%,var(--fond)),var(--doux));background-size:200% 200%;animation:fondvif 8s ease-in-out infinite alternate;border-block-color:var(--rouge)}
+html.en-promo .cta{background:linear-gradient(120deg,#8f0220,#d90429,#ff3b57,#d90429);background-size:200% 200%;animation:fondvif 6s ease-in-out infinite alternate;color:#fff}
+html.en-promo footer{background:#2a0710}
+
+/* Badges, prix, pastille, chrono */
+html.en-promo .badge:not(.n){animation:pouls 1.4s ease-in-out infinite}
+html.en-promo .promo-prix{display:inline-block;transform-origin:left center;animation:pouls 2s ease-in-out infinite}
+html.en-promo .pastille{animation:lueur 1.6s infinite}
+html.en-promo .case{animation:lueur 2s infinite}
+html.en-promo .case:last-child b{display:inline-block;animation:tic 1s ease-out infinite}
+html.en-promo .alerte{animation:lueur 2.2s infinite}
+
+/* Cartes en promotion : contour rouge et halo au survol */
+html.en-promo .carte:has(.badge:not(.n)){border-color:color-mix(in srgb,var(--rouge) 45%,var(--trait))}
+html.en-promo .carte:has(.badge:not(.n)):hover{box-shadow:0 12px 32px rgba(217,4,41,.35)}
+html.en-promo .fav[aria-pressed=true]{background:var(--acc);border-color:var(--acc)}
+
+/* Boutons : reflet lumineux au survol */
+html.en-promo .btn:not(#wa){position:relative;overflow:hidden}
+html.en-promo .btn:not(#wa)::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);pointer-events:none}
+html.en-promo .btn:not(#wa):hover::after{animation:eclat .7s}
+html.en-promo #wa{animation:lueur 2.4s infinite}
+
+/* Petits « % » et étoiles qui montent doucement */
+#fx{position:fixed;inset:0;z-index:35;pointer-events:none;overflow:hidden}
+#fx i{position:absolute;left:var(--x);bottom:-30px;font-style:normal;font-weight:700;font-size:calc(1rem * var(--z));color:var(--rouge);opacity:0;animation:monte var(--d) linear var(--w) infinite}
