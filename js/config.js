@@ -50,6 +50,20 @@ const SITE = {
   // Si plusieurs règles visent le même produit, la plus précise gagne : id > catégorie > pièce.
   // Anciennes options toujours acceptées : produits: [ids], pieces: [...], remise: 10, prix: { id: "4.200.000" }.
   promos: [
+     {
+    type: "DESTOCKAGE MASSIF!",                    // donne « Promotion du Black Friday » (pour « Promotion de Noël », écrire "de Noël")
+    texte: "Jusqu'à -40 % sur tout le magasin.",  // facultatif : phrase sous le titre
+    debut: "2026-11-01",                     // facultatif : AAAA-MM-JJ ou AAAA-MM-JJ HH:MM
+    fin: "2026-12-30 23:59",                 // fin de la promo : le chrono compte jusque-là (sans heure = 23:59:59)
+    reductions: {                            // % de réduction selon la catégorie
+      "Salon": 40,                           // tous les salons -40 % (1 000 000 devient 600 000 FCFA)
+      "Chambre": 40,                         // toutes les chambres -30 %
+      "Chambre pour enfant": 40,
+      "Luminaires": 30,
+      "Lustres": 30,                         // une catégorie précise de produits.js (prioritaire sur la pièce)
+      "ustensiles de cuisine": 30,                
+   }
+    }
 ],
   // Nouveautés : ids à mettre en avant. Vide = les derniers produits ajoutés.
   nouveautes: [],
