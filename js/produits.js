@@ -558,7 +558,11 @@ const PRODUITS = [
     entretien: "Dépoussiérer ; éviter l'exposition prolongée au soleil.",
     disponibilite: "Sur demande",
     fond: ["#cdb89a", "#6e4f35"],
-    photos: ["images/iloveimg-compressed (1)/ChatGPT Image Oct 9, 2026, 10_22_56 AM.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792748101/ChatGPT_Image_Oct_9_2026_10_23_04_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748101/ChatGPT_Image_Oct_9_2026_10_24_42_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748101/ChatGPT_Image_Oct_9_2026_10_22_47_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748101/ChatGPT_Image_Oct_9_2026_10_23_00_AM.png"
+    ]
   },
   {
     id: "kyoto-sofaset",
@@ -1600,7 +1604,6 @@ const PRODUITS = [
     photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747824/ChatGPT_Image_Oct_10_2026_11_17_35_AM.png",
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747821/ChatGPT_Image_Oct_10_2026_11_17_29_AM.png",
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747824/ChatGPT_Image_Oct_10_2026_11_17_35_AM.png"
-      
     ]
   },
   {
