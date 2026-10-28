@@ -1130,7 +1130,7 @@ const PRODUITS = [
     nom: "SIDE BEDROOM",
     piece: "Chambre",
     categorie: "Lits",
-    couleurs: ["blanc", "Gris"],
+    couleurs: ["blanc",],
     matiere: "Tissu et bois",
     dimensions: "lit: 180cm x 200cm",
     prix: "4.132.000 xaf",
@@ -1138,8 +1138,17 @@ const PRODUITS = [
     entretien: "Aspirer la tête de lit ; ne pas frotter les taches.",
     disponibilite: "Sur demande",
     fond: ["#e0d3bd", "#8a6b4d"],
-    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1792747733/ChatGPT_Image_2_avr._2026_16_31_46.png"]
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1793184511/ChatGPT_Image_Oct_27_2026_01_17_26_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184510/ChatGPT_Image_Oct_27_2026_01_17_23_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184510/ChatGPT_Image_Oct_27_2026_01_17_21_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184508/ChatGPT_Image_Oct_27_2026_01_17_07_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184506/ChatGPT_Image_Oct_27_2026_01_17_02_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184505/ChatGPT_Image_Oct_27_2026_01_16_58_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184502/ChatGPT_Image_Oct_27_2026_01_16_47_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184502/ChatGPT_Image_Oct_27_2026_01_16_45_PM.png"
+    ]
   },
+  
     {
     id: "alberta-bedroom",
     nom: "ALBERTA BEDROOM",
@@ -1160,6 +1169,26 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747747/ChatGPT_Image_Oct_22_2026_10_37_17_AM.png",
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747747/ChatGPT_Image_Oct_22_2026_10_34_04_AM.png",
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747747/ChatGPT_Image_Oct_22_2026_10_37_13_AM.png"
+    ]
+  },
+  {
+    id: "mimoza-dressing",
+    nom: "MIMOZA DRESSING",
+    piece: "Chambre",
+    categorie: "Lits",
+    couleurs: ["beige et doré"],
+    matiere: "Tissu et bois",
+    dimensions: "",
+    prix: "3.854.000 xaf",
+    description: "Tête de lit capitonnée pour une chambre apaisante.",
+    entretien: "Aspirer la tête de lit ; ne pas frotter les taches.",
+    disponibilite: "Sur demande",
+    fond: ["#e0d3bd", "#8a6b4d"],
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1793184498/ChatGPT_Image_Oct_23_2026_11_40_13_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184495/ChatGPT_Image_Oct_23_2026_11_40_04_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184495/ChatGPT_Image_Oct_23_2026_11_40_01_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184494/ChatGPT_Image_Oct_23_2026_11_39_57_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793182941/ChatGPT_Image_Oct_23_2026_11_40_10_AM.png"
     ]
   },
    {
