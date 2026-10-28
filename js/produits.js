@@ -1491,7 +1491,7 @@ const PRODUITS = [
   {
     id: "meuble-tv-lizbon",
     nom: "Meuble TV LIZBON",
-    piece: "Rangement",
+    piece: "Meuble télé",
     categorie: "Meubles TV",
     couleurs: ["Bois naturel", "Blanc"],
     matiere: "Bois",
@@ -1510,7 +1510,7 @@ const PRODUITS = [
    {
     id: "console",
     nom: "CONSOLE LOUIS VITTON",
-    piece: "Rangement",
+    piece: "Consoles",
     categorie: "consoles",
     couleurs: ["gris", "doré"],
     matiere: "marbre et acier",
@@ -1529,7 +1529,7 @@ const PRODUITS = [
   {
     id: "Diffuseurs-1",
     nom: "DIFFUSEURS ELECTRIQUE",
-    piece: "Rangement",
+    piece: "Diffuseurs",
     categorie: "diffuseurs de parfum",
     couleurs: ["gris", "noir"],
     matiere: "",
@@ -1545,7 +1545,7 @@ const PRODUITS = [
 {
     id: "Diffuseurs-2",
     nom: "DIFFUSEURS ELECTRIQUE",
-    piece: "Rangement",
+    piece: "Diffuseurs",
     categorie: "diffuseurs de parfum",
     couleurs: ["blanc"],
     matiere: "",
