@@ -352,6 +352,23 @@ function afficher() {
   if (page === "contact") formulaire();
   prev = page;
 }
+// ---------- Mode promotion : le site passe au rouge ----------
+function modePromo() {
+  const on = actives().length > 0;
+  document.documentElement.classList.toggle("en-promo", on);
+  const m = $('meta[name="theme-color"]');
+  if (m) m.content = on ? "#d90429" : "#162f37";
+  let fx = $("#fx");
+  if (on && !fx) {
+    fx = document.createElement("div");
+    fx.id = "fx";
+    fx.setAttribute("aria-hidden", "true");
+    fx.innerHTML = Array.from({ length: 16 }, (_, i) =>
+      `<i style="--x:${Math.round(Math.random() * 100)}%;--d:${(8 + Math.random() * 8).toFixed(1)}s;--w:${(Math.random() * 8).toFixed(1)}s;--z:${(0.8 + Math.random() * 1.2).toFixed(2)}">${i % 3 ? "%" : "✦"}</i>`
+    ).join("");
+    document.body.appendChild(fx);
+  } else if (!on && fx) fx.remove();
+}
 
 function construire() {
   const l = [["catalogue", "Catalogue"]];
