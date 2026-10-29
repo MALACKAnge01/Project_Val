@@ -53,15 +53,15 @@ const SITE = {
      {
     type: "DESTOCKAGE MASSIF!",                    // donne « Promotion du Black Friday » (pour « Promotion de Noël », écrire "de Noël")
     texte: "Jusqu'à -40 % sur tout le magasin.",  // facultatif : phrase sous le titre
-    debut: "2026-10-01",                     // facultatif : AAAA-MM-JJ ou AAAA-MM-JJ HH:MM
+    debut: "2026-10-29",                     // facultatif : AAAA-MM-JJ ou AAAA-MM-JJ HH:MM
     fin: "2026-12-30 23:59",                 // fin de la promo : le chrono compte jusque-là (sans heure = 23:59:59)
     reductions: {                            // % de réduction selon la catégorie
       "Salon": 40,                           // tous les salons -40 % (1 000 000 devient 600 000 FCFA)
       "Chambre": 40,                         // toutes les chambres -30 %
       "Chambre pour enfant": 40,
-      "Luminaires": 30,
-      "Lustres": 30,                         // une catégorie précise de produits.js (prioritaire sur la pièce)
-      "ustensiles de cuisine": 30,                
+      "Luminaires": 40,
+      "Lustres": 40,                         // une catégorie précise de produits.js (prioritaire sur la pièce)
+      "ustensiles de cuisine": 40,                
    }
     }
 ],
