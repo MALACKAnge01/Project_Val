@@ -1175,12 +1175,12 @@ const PRODUITS = [
     id: "mimoza-dressing",
     nom: "MIMOZA DRESSING",
     piece: "Chambre",
-    categorie: "Lits",
+    categorie: "Armoire",
     couleurs: ["beige et doré"],
     matiere: "Tissu et bois",
     dimensions: "",
-    prix: "3.854.000 xaf",
-    description: "Tête de lit capitonnée pour une chambre apaisante.",
+    prix: "à demander",
+    description: "une Armoir géante pour avoir le dressing de vos reves.",
     entretien: "Aspirer la tête de lit ; ne pas frotter les taches.",
     disponibilite: "Sur demande",
     fond: ["#e0d3bd", "#8a6b4d"],
@@ -1189,6 +1189,26 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1793184495/ChatGPT_Image_Oct_23_2026_11_40_01_AM.png",
       "https://res.cloudinary.com/enepocmi/image/upload/v1793184494/ChatGPT_Image_Oct_23_2026_11_39_57_AM.png",
       "https://res.cloudinary.com/enepocmi/image/upload/v1793182941/ChatGPT_Image_Oct_23_2026_11_40_10_AM.png"
+    ]
+  },
+  {
+    id: "vita-dressing",
+    nom: "VITA DRESSING",
+    piece: "Chambre",
+    categorie: "Armoire",
+    couleurs: ["beige et noire"],
+    matiere: "Tissu et bois",
+    dimensions: "",
+    prix: "à demander",
+    description: "une Armoir géante pour avoir le dressing de vos reves.",
+    entretien: "Aspirer la tête de lit ; ne pas frotter les taches.",
+    disponibilite: "Sur demande",
+    fond: ["#e0d3bd", "#8a6b4d"],
+    photos: ["https://res.cloudinary.com/enepocmi/image/upload/v1793184514/ChatGPT_Image_Oct_27_2026_01_17_50_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184515/ChatGPT_Image_Oct_27_2026_01_17_53_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184514/ChatGPT_Image_Oct_27_2026_01_17_47_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184513/ChatGPT_Image_Oct_27_2026_01_17_44_PM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184512/ChatGPT_Image_Oct_27_2026_01_17_41_PM.png"
     ]
   },
    {
