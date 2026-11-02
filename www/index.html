@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valencia — Meubles haut de gamme à Pointe-Noire et Brazzaville</title>
+<meta name="description" content="Valencia, magasin de meubles haut de gamme à Pointe-Noire : salon, salle à manger, chambre, bureau et rangement. Expédition gratuite à Brazzaville, installation offerte.">
+<meta name="theme-color" content="#162f37">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  (function () {
+    try {
+      var r = JSON.parse(localStorage.getItem("valencia-reglages") || "{}");
+      var t = r.theme === "clair" || r.theme === "sombre" ? r.theme : (matchMedia("(prefers-color-scheme: dark)").matches ? "sombre" : "clair");
+      document.documentElement.dataset.theme = t;
+      if (r.taille) document.documentElement.dataset.taille = r.taille;
+    } catch (e) { document.documentElement.dataset.theme = "clair"; }
+  })();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FurnitureStore","name":"Valencia","telephone":"+242067585858","email":"social.valencia.cg@gmail.com",
+"address":{"@type":"PostalAddress","streetAddress":"Centre-ville, immeuble Maison sans frontière, près de la mairie centrale","addressLocality":"Pointe-Noire","addressCountry":"CG"},
+"areaServed":["Pointe-Noire","Brazzaville"]}
+</script>
+</head>
+<body>
+<div id="annonce" hidden></div>
+<header>
+  <div class="w barre">
+    <a class="logo" href="#/" aria-label="Valencia, accueil">
+      <img class="logo-c" src="images/logo2.png" alt="Valencia">
+      <img class="logo-s" src="images/logo.png" alt="Valencia">
+    </a>
+    <nav id="menu" aria-label="Navigation principale"></nav>
+    <div class="acts">
+      <button id="b-theme" class="ic" type="button" aria-label="Changer de thème"></button>
+      <button id="b-reglages" class="ic" type="button" aria-label="Paramètres">⚙</button>
+      <button id="b-menu" class="ic" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+<main id="contenu" tabindex="-1"></main>
+<footer><div class="w cols" id="pied"></div></footer>
+<dialog id="reglages">
+  <form method="dialog">
+    <h2>Paramètres</h2>
+    <fieldset><legend>Thème</legend><div class="ch">
+      <label><input type="radio" name="theme" value="auto"> Automatique</label>
+      <label><input type="radio" name="theme" value="clair"> Clair</label>
+      <label><input type="radio" name="theme" value="sombre"> Sombre</label></div></fieldset>
+    <fieldset><legend>Taille du texte</legend><div class="ch">
+      <label><input type="radio" name="taille" value="normal"> Normale</label>
+      <label><input type="radio" name="taille" value="grand"> Grande</label>
+      <label><input type="radio" name="taille" value="tres-grand"> Très grande</label></div></fieldset>
+    <fieldset><legend>Produits par page</legend>
+      <select id="r-pp"><option>6</option><option>12</option><option>24</option><option>48</option></select></fieldset>
+    <button class="btn">Terminer</button>
+  </form>
+</dialog>
+<a id="wa" class="btn wa" href="https://wa.me/242067585858" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp">
+  <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm-3.5 5.5c.3 0 .6 0 .8.5l.8 1.9c.1.3 0 .5-.1.7l-.6.8c.9 1.6 2.2 2.6 3.8 3.3l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.5 0 .6-.5 1.4-1.2 1.7-.8.3-1.9.3-3.7-.5-2.3-1-3.9-3.2-4.3-3.9-.4-.7-.9-1.6-.9-2.5 0-.9.5-1.7 1-2.1.2-.1.4-.1.6-.1z"/></svg>
+  <span>WhatsApp</span>
+</a>
+<script src="js/config.js"></script>
+<script src="js/produits.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
