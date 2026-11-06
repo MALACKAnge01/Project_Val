@@ -1638,6 +1638,26 @@ const PRODUITS = [
     ]
   },
   {
+    id: "meuble-tv-Mimoza",
+    nom: "MEUBLE TV MIMOZA",
+    piece: "Meuble télé",
+    categorie: "Meubles TV",
+    couleurs: ["Bois naturel", "Blanc"],
+    matiere: ["Bois"],
+    dimensions: "À confirmer",
+    prix: "884.000 XAF",
+    description: "Meuble TV en bois naturel et blanc, avec des rangements fermés sous un plateau prévu pour le téléviseur. Il s'accorde au salon Lizbon et garde le séjour bien rangé.",
+    entretien: "Dépoussiérer ; éviter les produits abrasifs.",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184905/ChatGPT_Image_Oct_27_2026_09_35_25_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184904/ChatGPT_Image_Oct_27_2026_09_35_17_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748017/ChatGPT_Image_Oct_1_2026_01_15_10_PM_5.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748015/ChatGPT_Image_Oct_1_2026_01_15_10_PM_4.png"
+    ]
+  },
+  {
     id: "console",
     nom: "CONSOLE LOUIS VITTON",
     piece: "Consoles",
@@ -1657,6 +1677,135 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747769/ChatGPT_Image_Oct_10_2026_01_34_07_PM.png"
     ]
   },
+   {
+    id: "sel-de-bain",
+    nom: "SELS DE BAIN",
+    piece: "Articles de beauté",
+    categorie: "Accessoires",
+    couleurs: ["", ""],
+    matiere: ["", ""],
+    dimensions: "À confirmer",
+    prix: "3000 XAF",
+    description: "",
+    entretien: "",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184857/ChatGPT_Image_Oct_17_2026_11_49_14_AM.png",
+      
+    ]
+  },
+  {
+    id: "épilateur",
+    nom: "ÉPILATEUR",
+    piece: "Articles de beauté",
+    categorie: "Accessoires",
+    couleurs: ["", ""],
+    matiere: ["", ""],
+    dimensions: "À confirmer",
+    prix: "7900 XAF",
+    description: "",
+    entretien: "",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184610/ChatGPT_Image_Oct_19_2026_11_28_32_AM.png",
+      
+    ]
+  },
+  {
+    id: "épilateur2",
+    nom: "ÉPILATEUR 2",
+    piece: "Articles de beauté",
+    categorie: "Accessoires",
+    couleurs: ["", ""],
+    matiere: ["", ""],
+    dimensions: "À confirmer",
+    prix: "12.000 XAF",
+    description: "",
+    entretien: "",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184608/ChatGPT_Image_Oct_19_2026_11_28_29_AM.png",
+      
+    ]
+  },
+  {
+    id: "tendeuse-electrique",
+    nom: "TENDEUSE ELECTRIQUE",
+    piece: "Articles de beauté",
+    categorie: "Accessoires",
+    couleurs: ["", ""],
+    matiere: ["", ""],
+    dimensions: "À confirmer",
+    prix: "13.500 XAF",
+    description: "",
+    entretien: "",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184607/ChatGPT_Image_Oct_19_2026_11_28_26_AM.png",
+      
+    ]
+  },
+
+  {
+    id: "tendeuse-electrique2",
+    nom: "TENDEUSE ELECTRIQUE 2",
+    piece: "Articles de beauté",
+    categorie: "Accessoires",
+    couleurs: ["", ""],
+    matiere: ["", ""],
+    dimensions: "À confirmer",
+    prix: "15.999 XAF",
+    description: "",
+    entretien: "",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184606/ChatGPT_Image_Oct_19_2026_11_28_23_AM.png",
+      
+    ]
+  },
+
+  {
+    id: "rouleau-à-pizza",
+    nom: "ROULEAU À PIZZA",
+    piece: "Articles de cuisine",
+    categorie: "ustensiles de cuisine",
+    couleurs: ["", ""],
+    matiere: ["", ""],
+    dimensions: "À confirmer",
+    prix: "3000 XAF",
+    description: "",
+    entretien: "",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184613/ChatGPT_Image_Oct_19_2026_11_28_58_AM.png",
+      
+    ]
+
+  },
+  {
+    id: "spatule-à-patisserie",
+    nom: "SPATULE À PÂTISERIE",
+    piece: "Articles de cuisine",
+    categorie: "ustensiles de cuisine",
+    couleurs: ["", ""],
+    matiere: ["", ""],
+    dimensions: "À confirmer",
+    prix: "2000 XAF",
+    description: "",
+    entretien: "",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184612/ChatGPT_Image_Oct_19_2026_11_28_46_AM.png",
+    ]
+  }, 
+  
   {
     id: "Diffuseurs-1",
     nom: "DIFFUSEUR ÉLECTRIQUE",
@@ -1820,7 +1969,7 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747849/ChatGPT_Image_Oct_13_2026_09_56_02_AM.png"
     ]
   },
-  {
+  {                         
     id: "applique-murale-w250",
     nom: "APPLIQUE MURALE W250",
     piece: "Luminaires",
