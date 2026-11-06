@@ -2300,6 +2300,7 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747821/ChatGPT_Image_Oct_10_2026_11_17_29_AM.png"
     ]
   },
+  ];
  
 
 
