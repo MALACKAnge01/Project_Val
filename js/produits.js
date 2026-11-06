@@ -8,8 +8,11 @@ const LIENS_RESEAUX = {
   Facebook: "https://www.facebook.com/Valencia.Congo.1"
 };
 
-const PIECES = ["Salon", "Salle à manger", "Chambre", "Bureau", "Rangement", "Luminaires", "Deco", "Articles de cuisine", "Articles de beauté"];
-
+const PIECES = [
+  "Salon", "Salle à manger", "Chambre", "Chambre pour enfant", "Bureau",
+  "Meuble télé", "Consoles", "Rangement", "Luminaires", "Diffuseurs",
+  "Articles de beauté", "Articles de cuisine", "Jardin"
+];
 const PRODUITS = [
   {
     id: "puffy-sofaset",
@@ -2306,28 +2309,12 @@ const PRODUITS = [
 
 // Ambiances de la page Inspirations : "produits" = identifiants des meubles
 const AMBIANCES = [
-  {
-    nom: "Salon chaleureux",
-    texte: "Tons sable et bois naturel pour un salon où l'on aime se retrouver.",
-    produits: ["canape-angle", "fauteuil", "table-basse", "meuble-tv"],
-    fond: ["#d8c6a8", "#7a5233"]
-  },
-  {
-    nom: "Repas en famille",
-    texte: "Une salle à manger lumineuse, simple et élégante.",
-    produits: ["table-repas", "chaises"],
-    fond: ["#e5d8c2", "#6d4b30"]
-  },
-  {
-    nom: "Chambre apaisante",
-    texte: "Matières douces et couleurs claires pour bien se reposer.",
-    produits: ["lit", "armoire"],
-    fond: ["#e8ddca", "#8a6b4d"]
-  },
-  {
-    nom: "Coin de travail",
-    texte: "Un bureau et un fauteuil pour travailler au calme.",
-    produits: ["bureau", "fauteuil"],
-    fond: ["#cdb89a", "#40302a"]
-  }
+  { nom: "Salon chaleureux", texte: "Tons sable et bois naturel pour un salon où l'on aime se retrouver.",
+    produits: ["kyoto-sofaset", "kyoto-berger", "meuble-tv-lizbon", "opus-longseater"], fond: ["#d8c6a8", "#7a5233"] },
+  { nom: "Repas en famille", texte: "Une salle à manger lumineuse, simple et élégante.",
+    produits: ["arya-dining-set", "chaise-1"], fond: ["#e5d8c2", "#6d4b30"] },
+  { nom: "Chambre apaisante", texte: "Matières douces et couleurs claires pour bien se reposer.",
+    produits: ["ada-bedroom", "vita-dressing"], fond: ["#e8ddca", "#8a6b4d"] },
+  { nom: "Coin de travail", texte: "Un bureau et un fauteuil pour travailler au calme.",
+    produits: ["bureau-pnt29-1", "chaise-de-bureau-a1"], fond: ["#cdb89a", "#40302a"] }
 ];
