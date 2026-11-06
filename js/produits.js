@@ -2305,6 +2305,19 @@ const PRODUITS = [
   },
 ];
 
+function nettoyer(p) {
+  return {
+    ...p,
+    couleurs: (p.couleurs || []).filter(Boolean),
+    matiere: (p.matiere || []).filter(Boolean),
+    prix: p.prix && String(p.prix).trim() ? p.prix : "Prix sur demande",
+    description: p.description || "",
+    entretien: p.entretien || "",
+    photos: (p.photos || []).map(encodeURI)
+  };
+}
+
+const PRODUITS_PROPRES = PRODUITS.map(nettoyer);
 
 
 // Ambiances de la page Inspirations : "produits" = identifiants des meubles
