@@ -8,7 +8,7 @@ const LIENS_RESEAUX = {
   Facebook: "https://www.facebook.com/Valencia.Congo.1"
 };
 
-const PIECES = ["Salon", "Salle à manger", "Chambre", "Bureau", "Rangement", "Luminaires","Deco",];
+const PIECES = ["Salon", "Salle à manger", "Chambre", "Bureau", "Rangement", "Luminaires","Deco","Articles de cuisine", "Articles de beauté", "Accessoires"];
 
 const PRODUITS = [
   {
