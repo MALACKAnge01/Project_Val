@@ -8,20 +8,8 @@ const LIENS_RESEAUX = {
   Facebook: "https://www.facebook.com/Valencia.Congo.1"
 };
 
-const PIECES = ["Salon", "Salle à manger", "Chambre", "Bureau", "Rangement", "Luminaires"];
+const PIECES = ["Salon", "Salle à manger", "Chambre", "Bureau", "Rangement", "Luminaires","Deco",];
 
-// Pour ajouter un produit, copiez un bloc ci-dessous et changez les valeurs.
-//  - photos     : liste d'adresses d'images (vide = image temporaire)
-//  - prix       : laissez null tant que le prix n'est pas confirmé
-//  - fond       : deux couleurs de fond pour l'image temporaire
-//
-// RÈGLES D'ÉCRITURE (pour que les filtres du catalogue n'affichent pas de doublons) :
-//  - couleurs  : une liste, chaque couleur commence par une majuscule.
-//                Mots à réutiliser tels quels : Argenté, Beige, Blanc, Bleu cyan, Bois naturel,
-//                Bordeaux, Doré, Gris, Jaune, Marron, Noir, Orange, Rose, Rouge, Vert
-//  - matiere   : une liste, un seul mot par matière, majuscule au début.
-//                Mots à réutiliser tels quels : Acier, Bois, Cuir, Marbre, Métal, Tissu, Verre
-//  - categorie : toujours au pluriel avec une majuscule (voir la liste utilisée plus bas)
 const PRODUITS = [
   {
     id: "puffy-sofaset",
@@ -1715,7 +1703,7 @@ const PRODUITS = [
     couleurs: ["Blanc"],
     matiere: [],
     dimensions: "",
-    prix: "",
+    prix: "61.000 XAF",
     description: "Panier à linge blanc pour la salle de bain ou la buanderie, qui garde le linge sale à l'abri des regards. Un modèle clair et facile à intégrer.",
     entretien: "Dépoussiérer ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
@@ -1750,7 +1738,7 @@ const PRODUITS = [
     couleurs: ["Blanc"],
     matiere: [],
     dimensions: "",
-    prix: "",
+    prix: "31.000 XAF",
     description: "Panier à linge blanc au style épuré, pour organiser le linge dans la salle de bain ou la chambre. Simple, léger et pratique au quotidien.",
     entretien: "Dépoussiérer ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
@@ -1767,13 +1755,14 @@ const PRODUITS = [
     couleurs: ["Gris"],
     matiere: [],
     dimensions: "",
-    prix: "",
+    prix: "31.000 XAF",
     description: "Panier à linge gris, un coloris sobre qui masque bien les traces d'usage. Il trouve sa place dans la salle de bain comme dans le dressing.",
     entretien: "Dépoussiérer ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
     photos: [
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792747806/ChatGPT_Image_Oct_13_2026_11_52_22_AM.png"
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747806/ChatGPT_Image_Oct_13_2026_11_52_22_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792747808/ChatGPT_Image_Oct_13_2026_11_52_30_AM.png"
     ]
   },
   {
@@ -1784,7 +1773,7 @@ const PRODUITS = [
     couleurs: ["Gris"],
     matiere: [],
     dimensions: "",
-    prix: "",
+    prix: "32.000 XAF",
     description: "Panier à linge gris aux lignes simples, pour ranger le linge sale sans encombrer la pièce. Un accessoire utile et facile à assortir à la décoration.",
     entretien: "Dépoussiérer ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
@@ -1793,23 +1782,7 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747808/ChatGPT_Image_Oct_13_2026_11_52_27_AM.png"
     ]
   },
-  {
-    id: "panier-à-linge6",
-    nom: "PANIER À LINGE",
-    piece: "Rangement",
-    categorie: "Accessoires de douche",
-    couleurs: ["Gris"],
-    matiere: [],
-    dimensions: "",
-    prix: "",
-    description: "Panier à linge gris, dernier modèle de la série, pour garder la salle de bain ordonnée. Pratique à déplacer et à vider le jour de la lessive.",
-    entretien: "Dépoussiérer ; éviter les produits abrasifs.",
-    disponibilite: "Sur demande",
-    fond: ["#cbb08a", "#5d4430"],
-    photos: [
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792747808/ChatGPT_Image_Oct_13_2026_11_52_30_AM.png"
-    ]
-  },
+  
   {
     id: "applique-murale-c140",
     nom: "APPLIQUE MURALE C140",
@@ -2178,24 +2151,7 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747821/ChatGPT_Image_Oct_10_2026_11_17_29_AM.png"
     ]
   },
-  {
-    id: "lustre-145-800",
-    nom: "LUSTRE 145/800",
-    piece: "Luminaires",
-    categorie: "Lustres",
-    couleurs: ["Bois naturel", "Blanc"],
-    matiere: ["Métal", "Verre"],
-    dimensions: "À confirmer",
-    prix: "268.000 XAF",
-    description: "Lustre majestueux conçu pour sublimer les hauts plafonds et les grands espaces de vie. Une pièce maîtresse en métal et verre pour un séjour de réception ou une grande entrée.",
-    entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
-    disponibilite: "Sur demande",
-    fond: ["#cbb08a", "#5d4430"],
-    photos: [
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_45_11 PM.png"
-    ]
-  }
-];
+ 
 
 
 // Ambiances de la page Inspirations : "produits" = identifiants des meubles

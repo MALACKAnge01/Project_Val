@@ -2166,24 +2166,7 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747821/ChatGPT_Image_Oct_10_2026_11_17_29_AM.png"
     ]
   },
-  {
-    id: "lustre-145-800",
-    nom: "LUSTRE 145/800",
-    piece: "Luminaires",
-    categorie: "Lustres",
-    couleurs: ["Bois naturel", "Blanc"],
-    matiere: ["Métal", "Verre"],
-    dimensions: "À confirmer",
-    prix: "268.000 XAF",
-    description: "Lustre majestueux conçu pour sublimer les hauts plafonds et les grands espaces de vie. Une pièce maîtresse en métal et verre pour un séjour de réception ou une grande entrée.",
-    entretien: "Dépoussiérer avec un chiffon doux hors tension ; éviter les produits abrasifs.",
-    disponibilite: "Sur demande",
-    fond: ["#cbb08a", "#5d4430"],
-    photos: [
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792747865/ChatGPT Image Oct 10, 2026, 01_45_11 PM.png"
-    ]
-  }
-];
+  
 
 
 // Ambiances de la page Inspirations : "produits" = identifiants des meubles
