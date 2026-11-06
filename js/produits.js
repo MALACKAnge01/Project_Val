@@ -8,7 +8,7 @@ const LIENS_RESEAUX = {
   Facebook: "https://www.facebook.com/Valencia.Congo.1"
 };
 
-const PIECES = ["Salon", "Salle à manger", "Chambre", "Bureau", "Rangement", "Luminaires","Deco","Articles de cuisine", "Articles de beauté", "Accessoires"];
+const PIECES = ["Salon", "Salle à manger", "Chambre", "Bureau", "Rangement", "Luminaires", "Deco", "Articles de cuisine", "Articles de beauté"];
 
 const PRODUITS = [
   {
@@ -1677,7 +1677,7 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747769/ChatGPT_Image_Oct_10_2026_01_34_07_PM.png"
     ]
   },
-   {
+  {
     id: "sel-de-bain",
     nom: "SELS DE BAIN",
     piece: "Articles de beauté",
@@ -1692,7 +1692,7 @@ const PRODUITS = [
     fond: ["#cbb08a", "#5d4430"],
     photos: [
       "https://res.cloudinary.com/enepocmi/image/upload/v1793184857/ChatGPT_Image_Oct_17_2026_11_49_14_AM.png",
-      
+
     ]
   },
   {
@@ -1710,7 +1710,7 @@ const PRODUITS = [
     fond: ["#cbb08a", "#5d4430"],
     photos: [
       "https://res.cloudinary.com/enepocmi/image/upload/v1793184610/ChatGPT_Image_Oct_19_2026_11_28_32_AM.png",
-      
+
     ]
   },
   {
@@ -1728,7 +1728,7 @@ const PRODUITS = [
     fond: ["#cbb08a", "#5d4430"],
     photos: [
       "https://res.cloudinary.com/enepocmi/image/upload/v1793184608/ChatGPT_Image_Oct_19_2026_11_28_29_AM.png",
-      
+
     ]
   },
   {
@@ -1746,7 +1746,7 @@ const PRODUITS = [
     fond: ["#cbb08a", "#5d4430"],
     photos: [
       "https://res.cloudinary.com/enepocmi/image/upload/v1793184607/ChatGPT_Image_Oct_19_2026_11_28_26_AM.png",
-      
+
     ]
   },
 
@@ -1765,7 +1765,7 @@ const PRODUITS = [
     fond: ["#cbb08a", "#5d4430"],
     photos: [
       "https://res.cloudinary.com/enepocmi/image/upload/v1793184606/ChatGPT_Image_Oct_19_2026_11_28_23_AM.png",
-      
+
     ]
   },
 
@@ -1784,7 +1784,7 @@ const PRODUITS = [
     fond: ["#cbb08a", "#5d4430"],
     photos: [
       "https://res.cloudinary.com/enepocmi/image/upload/v1793184613/ChatGPT_Image_Oct_19_2026_11_28_58_AM.png",
-      
+
     ]
 
   },
@@ -1804,8 +1804,8 @@ const PRODUITS = [
     photos: [
       "https://res.cloudinary.com/enepocmi/image/upload/v1793184612/ChatGPT_Image_Oct_19_2026_11_28_46_AM.png",
     ]
-  }, 
-  
+  },
+
   {
     id: "Diffuseurs-1",
     nom: "DIFFUSEUR ÉLECTRIQUE",
@@ -1931,7 +1931,7 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747808/ChatGPT_Image_Oct_13_2026_11_52_27_AM.png"
     ]
   },
-  
+
   {
     id: "applique-murale-c140",
     nom: "APPLIQUE MURALE C140",
@@ -1969,7 +1969,7 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747849/ChatGPT_Image_Oct_13_2026_09_56_02_AM.png"
     ]
   },
-  {                         
+  {
     id: "applique-murale-w250",
     nom: "APPLIQUE MURALE W250",
     piece: "Luminaires",
@@ -2300,8 +2300,8 @@ const PRODUITS = [
       "https://res.cloudinary.com/enepocmi/image/upload/v1792747821/ChatGPT_Image_Oct_10_2026_11_17_29_AM.png"
     ]
   },
-  ];
- 
+];
+
 
 
 // Ambiances de la page Inspirations : "produits" = identifiants des meubles
