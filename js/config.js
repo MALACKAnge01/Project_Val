@@ -12,7 +12,7 @@ const SITE = {
     Facebook: "https://www.facebook.com/Valencia.Congo.1"
   },
   parPage: 12,
-  pieces: ["Salon", "Salle à manger", "Chambre", "Chambre pour enfant", "Bureau", "Rangement", "Luminaires"],
+  pieces: ["Salon", "Salle à manger", "Chambre", "Chambre pour enfant", "Bureau", "Rangement", "Luminaires","Deco","Articles de cuisine", "Articles de beauté", "Accessoires"],
 
   // Bandeau affiché en haut du site (remplacé par la promo active, s'il y en a une)
   annonce: "🚚 Expédition gratuite à Brazzaville · Installation offerte",
