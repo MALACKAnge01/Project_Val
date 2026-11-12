@@ -284,25 +284,7 @@ const PRODUITS = [
       "images/iloveimg-compressed (1)/ChatGPT Image Oct 8, 2026, 11_03_11 AM.png"
     ]
   },
-  {
-    id: "otto-sofaset",
-    nom: "OTTO SOFASET",
-    piece: "Salon",
-    categorie: "Salon complet",
-    couleurs: ["Marron", "Bordeaux"],
-    matiere: ["Tissu"],
-    dimensions: "À confirmer",
-    prix: "5.081.000 XAF",
-    description: "Salon d'angle livré avec son berger d'une place et ses 2 poufs, pour un confort moderne dans les grandes pièces. Le berger à motif pied-de-poule et accoudoirs en bois apporte une note graphique.",
-    entretien: "Aspirer régulièrement ; nettoyer les taches avec un chiffon humide.",
-    disponibilite: "Sur demande",
-    fond: ["#d8c6a8", "#9a7a58"],
-    photos: [
-      "images/iloveimg-compressed (2)/ChatGPT Image Oct 15, 2026, 01_19_56 PM.png",
-      "images/iloveimg-compressed (2)/ChatGPT Image Oct 15, 2026, 01_31_04 PM.png",
-      "images/iloveimg-compressed (2)/ChatGPT Image Oct 15, 2026, 01_31_08 PM.png"
-    ]
-  },
+
   {
     id: "sofaset-sf65",
     nom: "OFFICE SOFASET",

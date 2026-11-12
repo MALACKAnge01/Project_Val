@@ -64,7 +64,10 @@ const SITE = {
       "Luminaires": 40,
       "Lustres": 40,                         // une catégorie précise de produits.js (prioritaire sur la pièce)
       "ustensiles de cuisine": 40,  
-      "articles de beauté": 40,             
+      "articles de beauté": 40, 
+      "jardin": 40,    
+      "diffuseurs": 40,   
+      "Articles de cuisine": 40,
    }
     }
 ],
