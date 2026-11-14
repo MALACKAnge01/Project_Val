@@ -11,7 +11,7 @@ const LIENS_RESEAUX = {
 const PIECES = [
   "Salon", "Salle à manger", "Chambre", "Chambre pour enfant", "Bureau",
   "Meuble télé", "Consoles", "Rangement", "Luminaires", "Diffuseurs",
-  "Articles de beauté", "Articles de cuisine", "Jardin"
+  "Articles de beauté", "Articles de cuisine", "Jardin", "décor"
 ];
 const PRODUITS = [
   {
@@ -1141,7 +1141,7 @@ const PRODUITS = [
     couleurs: ["Noir", "Gris"],
     matiere: ["Tissu", "Bois"],
     dimensions: "Lit : 180 cm × 200 cm",
-    prix: "3.854.000 XAF",
+    prix: "1.927.000 XAF",
     description: "Lit de 180 × 200 cm à tête de lit capitonnée dans un tissu gris et noir, sur une structure en bois. Un style moderne et sobre pour une chambre reposante.",
     entretien: "Aspirer la tête de lit ; ne pas frotter les taches.",
     disponibilite: "Sur demande",
@@ -1246,7 +1246,7 @@ const PRODUITS = [
   {
     id: "Luna-bedroom",
     nom: "LUNA BEDROOM",
-    piece: "Chambre pour enfant",
+    piece: "Chambre",
     categorie: "Chambres enfants",
     couleurs: ["Gris", "Bois naturel"],
     matiere: ["Bois"],
@@ -1268,7 +1268,7 @@ const PRODUITS = [
   {
     id: "lit-bedroom",
     nom: "BEDROOM",
-    piece: "Chambre pour enfant",
+    piece: "Chambre",
     categorie: "Chambres enfants",
     couleurs: ["Gris", "Bois naturel"],
     matiere: ["Bois"],
@@ -1289,7 +1289,7 @@ const PRODUITS = [
   {
     id: "trio-bedroom",
     nom: "TRIO BEDROOM",
-    piece: "Chambre pour enfant",
+    piece: "Chambre",
     categorie: "Chambres enfants",
     couleurs: ["Gris", "Bois naturel"],
     matiere: ["Bois"],
@@ -1631,6 +1631,46 @@ const PRODUITS = [
     matiere: ["Bois"],
     dimensions: "À confirmer",
     prix: "884.000 XAF",
+    description: "Meuble TV en bois naturel et blanc, avec des rangements fermés sous un plateau prévu pour le téléviseur. Il s'accorde au salon Lizbon et garde le séjour bien rangé.",
+    entretien: "Dépoussiérer ; éviter les produits abrasifs.",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184905/ChatGPT_Image_Oct_27_2026_09_35_25_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184904/ChatGPT_Image_Oct_27_2026_09_35_17_AM.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748017/ChatGPT_Image_Oct_1_2026_01_15_10_PM_5.png",
+      "https://res.cloudinary.com/enepocmi/image/upload/v1792748015/ChatGPT_Image_Oct_1_2026_01_15_10_PM_4.png"
+    ]
+  },
+  {
+    id: "meuble-tvwalls",
+    nom: "TV WALLS",
+    piece: "Meuble télé",
+    categorie: "Meubles TV",
+    couleurs: ["Bois naturel", "Blanc"],
+    matiere: ["Bois"],
+    dimensions: "À confirmer",
+    prix: "884.000 XAF",
+    description: "Meuble TV en bois naturel et blanc, avec des rangements fermés sous un plateau prévu pour le téléviseur. Il s'accorde au salon Lizbon et garde le séjour bien rangé.",
+    entretien: "Dépoussiérer ; éviter les produits abrasifs.",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+      "https://res.cloudinary.com/enepocmi/image/upload/v1793184899/ChatGPT_Image_Oct_23_2026_11_39_36_AM.png",
+    "https://res.cloudinary.com/enepocmi/image/upload/v1793184901/ChatGPT_Image_Oct_23_2026_11_39_48_AM.png",
+    "https://res.cloudinary.com/enepocmi/image/upload/v1793184901/ChatGPT_Image_Oct_23_2026_11_39_45_AM.png"
+  ]
+  },
+  {
+    id: "tapis-1",
+    nom: "TAPIS 1",
+    piece: "décor",
+    categorie: "",
+    couleurs: ["Gris", "Blanc"],
+    matiere: ["Coton"],
+    dimensions: "À confirmer",
+    dimensions: "À confirmer",
+    prix: "a confirmer",
     description: "Meuble TV en bois naturel et blanc, avec des rangements fermés sous un plateau prévu pour le téléviseur. Il s'accorde au salon Lizbon et garde le séjour bien rangé.",
     entretien: "Dépoussiérer ; éviter les produits abrasifs.",
     disponibilite: "Sur demande",
