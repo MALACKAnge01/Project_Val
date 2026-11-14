@@ -11,7 +11,7 @@ const LIENS_RESEAUX = {
 const PIECES = [
   "Salon", "Salle à manger", "Chambre", "Chambre pour enfant", "Bureau",
   "Meuble télé", "Consoles", "Rangement", "Luminaires", "Diffuseurs",
-  "Articles de beauté", "Articles de cuisine", "Jardin", "décor"
+  "Articles de beauté", "Articles de cuisine", "Jardin", "Tapis", "Décorations"
 ];
 const PRODUITS = [
   {
@@ -1664,8 +1664,8 @@ const PRODUITS = [
   {
     id: "tapis-1",
     nom: "TAPIS 1",
-    piece: "décor",
-    categorie: "",
+    piece: "Tapis",
+    categorie: "Tapis",
     couleurs: ["Gris", "Blanc"],
     matiere: ["Coton"],
     dimensions: "À confirmer",
