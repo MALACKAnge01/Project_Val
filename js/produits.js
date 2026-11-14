@@ -1663,7 +1663,7 @@ const PRODUITS = [
   },
   {
     id: "tapis-1",
-    nom: "TAPIS 1",
+    nom: "TAPIS DE TOILETTE",
     piece: "Tapis",
     categorie: "Tapis",
     couleurs: ["Gris", "Blanc"],
@@ -1676,11 +1676,76 @@ const PRODUITS = [
     disponibilite: "Sur demande",
     fond: ["#cbb08a", "#5d4430"],
     photos: [
-      "https://res.cloudinary.com/enepocmi/image/upload/v1793184905/ChatGPT_Image_Oct_27_2026_09_35_25_AM.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1793184904/ChatGPT_Image_Oct_27_2026_09_35_17_AM.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792748017/ChatGPT_Image_Oct_1_2026_01_15_10_PM_5.png",
-      "https://res.cloudinary.com/enepocmi/image/upload/v1792748015/ChatGPT_Image_Oct_1_2026_01_15_10_PM_4.png"
-    ]
+     "https://res.cloudinary.com/enepocmi/image/upload/v1793184529/ChatGPT_Image_Oct_17_2026_11_48_50_AM.png" ]
+  },
+  {
+    id: "tapis-2",
+    nom: "TAPIS DE CHAMBRE",
+    piece: "Tapis",
+    categorie: "Tapis",
+    couleurs: ["Gris", "Blanc"],
+    matiere: ["Coton"],
+    dimensions: "À confirmer",
+    dimensions: "À confirmer",
+    prix: "a confirmer",
+    description: "Meuble TV en bois naturel et blanc, avec des rangements fermés sous un plateau prévu pour le téléviseur. Il s'accorde au salon Lizbon et garde le séjour bien rangé.",
+    entretien: "Dépoussiérer ; éviter les produits abrasifs.",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+     "https://res.cloudinary.com/enepocmi/image/upload/v1793184528/ChatGPT_Image_Oct_17_2026_11_48_44_AM.png" ]
+  },
+  {
+    id: "tapis-3",
+    nom: "TAPIS DE CHAMBRE",
+    piece: "Tapis",
+    categorie: "Tapis",
+    couleurs: ["Gris", "Blanc"],
+    matiere: ["Coton"],
+    dimensions: "À confirmer",
+    dimensions: "À confirmer",
+    prix: "a confirmer",
+    description: "Meuble TV en bois naturel et blanc, avec des rangements fermés sous un plateau prévu pour le téléviseur. Il s'accorde au salon Lizbon et garde le séjour bien rangé.",
+    entretien: "Dépoussiérer ; éviter les produits abrasifs.",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+     "https://res.cloudinary.com/enepocmi/image/upload/v1793184527/ChatGPT_Image_Oct_17_2026_11_47_31_AM.png" ]
+  },
+   {
+    id: "tapis-4",
+    nom: "TAPIS DE CHAMBRE",
+    piece: "Tapis",
+    categorie: "Tapis",
+    couleurs: ["Gris", "Blanc"],
+    matiere: ["Coton"],
+    dimensions: "À confirmer",
+    dimensions: "À confirmer",
+    prix: "a confirmer",
+    description: "Meuble TV en bois naturel et blanc, avec des rangements fermés sous un plateau prévu pour le téléviseur. Il s'accorde au salon Lizbon et garde le séjour bien rangé.",
+    entretien: "Dépoussiérer ; éviter les produits abrasifs.",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+     "https://res.cloudinary.com/enepocmi/image/upload/v1793184526/ChatGPT_Image_Oct_17_2026_11_47_25_AM.png" ]
+  },
+
+{
+    id: "Paneau-decoratif",
+    nom: "PANNEAU MURAUX",
+    piece: "Décoration",
+    categorie: "Panels",
+    couleurs: ["Gris", "Blanc"],
+    matiere: ["Coton"],
+    dimensions: "À confirmer",
+    dimensions: "À confirmer",
+    prix: "a confirmer",
+    description: "Meuble TV en bois naturel et blanc, avec des rangements fermés sous un plateau prévu pour le téléviseur. Il s'accorde au salon Lizbon et garde le séjour bien rangé.",
+    entretien: "Dépoussiérer ; éviter les produits abrasifs.",
+    disponibilite: "Sur demande",
+    fond: ["#cbb08a", "#5d4430"],
+    photos: [
+     "https://res.cloudinary.com/enepocmi/image/upload/v1793184529/ChatGPT_Image_Oct_17_2026_11_48_54_AM.png" ]
   },
   {
     id: "console",
@@ -1987,8 +2052,8 @@ const PRODUITS = [
   {
     id: "vase en verre",
     nom: "VASE EN VERRE",
-    piece: "Articles de cuisine",
-    categorie: "ustensiles de cuisine",
+    piece: "Décoration",
+    categorie: "Objets de déco",
     couleurs: [],
     matiere: [],
     dimensions: "À confirmer",
@@ -2211,8 +2276,8 @@ const PRODUITS = [
   {
     id: "tapis-pour-animaux",
     nom: "TAPIS POUR ANIMAUX",
-    piece: "Articles pour animaux",
-    categorie: "Accessoires pour animaux",
+    piece: "Tapis",
+    categorie: "Tapis",
     couleurs: [],
     matiere: [],
     dimensions: "90 cm x 100 cm",
